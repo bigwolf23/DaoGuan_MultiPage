@@ -1,0 +1,12 @@
+﻿<NavigationWindow x:Class="RenJiCaoZuo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:RenJiCaoZuo"
+        Title="MainWindow" Height="1024" Width="1280" WindowStyle="None" 
+                   ResizeMode="NoResize" 
+                  OpacityMask="Black" WindowStartupLocation="CenterScreen" 
+                  ShowsNavigationUI="False" 
+                  
+                  Navigating="NavigationWindow_Navigating" >
+    
+</NavigationWindow>

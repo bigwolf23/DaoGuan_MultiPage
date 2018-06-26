@@ -1,0 +1,12 @@
+﻿<Window x:Name="mainThread1_window" x:Class="RenJiCaoZuo.mainThread"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="mainThread" Height="300" Width="300" Visibility="Hidden">
+    <Grid Visibility="Hidden">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="89*"/>
+            <ColumnDefinition Width="57*"/>
+        </Grid.ColumnDefinitions>
+
+    </Grid>
+</Window>
