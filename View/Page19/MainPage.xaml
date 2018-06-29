@@ -9,10 +9,6 @@
 	Title="MainPage">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="255*"/>
-            <ColumnDefinition Width="101*"/>
-        </Grid.ColumnDefinitions>
         <Image Name ="Main_Page_Background_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page19/bg.png" Stretch="Fill" Grid.ColumnSpan="2" Unloaded="Image_Unloaded"/>
         <Border x:Name="SettingBorder_DoubleClick_Copy" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="100" Margin="46,40,0,0" VerticalAlignment="Top" Width="319" MouseDown="SettingBorder_DoubleClick_MouseDown" Opacity="100">
             <Border.Background>
@@ -26,10 +22,10 @@
         <Image Name ="Donate_List_Frame_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page19/QrCodeFram.png" Margin="736,735,37,32" Stretch="Fill" Grid.ColumnSpan="2"/>
         <Image Name="TempInfo_Intrduce_Pic" Margin="105,216,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/Ggjsbt.png" Stretch="None" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46"/>
         <Image x:Name="ActivityAndMonk_Img" Margin="74,407,542,536" Source="{Binding Activity_MonkImage}" Stretch="Fill" Visibility="Hidden"/>
-        <Image Name="QRCode_Title_Zxgdx" Margin="1000,805,0,146" Source="pack://SiteOfOrigin:,,,/Res/Page19/zxgd.png" Stretch="Fill" HorizontalAlignment="Left" Width="39" Grid.ColumnSpan="2"/>
-        <Image Name="QRCode_Image_Zxgdx" Margin="755,780,29,123" Stretch="Fill"/>
-        <Image Name="QRCode_Title_Gzgzh" Margin="305,785,64,118" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh.png" Stretch="Fill" Grid.Column="1"/>
-        <Image x:Name="QRCode_Image_Gzgzh" Margin="62,780,106,123" Stretch="Fill" Grid.Column="1"/>
+        <Image Name="QRCode_Title_Zxgdx" Margin="1008,805,0,146" Source="pack://SiteOfOrigin:,,,/Res/Page19/zxgd.png" Stretch="Fill" HorizontalAlignment="Left" Width="39"/>
+        <Image Name="QRCode_Image_Zxgdx" Margin="755,780,429,123" Stretch="Fill"/>
+        <Image Name="QRCode_Title_Gzgzh" Margin="1325,785,57,118" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh.png" Stretch="Fill"/>
+        <Image x:Name="QRCode_Image_Gzgzh" Margin="1090,780,112,123" Stretch="Fill"/>
         <local:RoilingTextBlock x:Name="TemplInfo_TextBlock" 
                                 FontSize="18" Height="189" Width="Auto" 
                                 Margin="195,202,205,0" VerticalAlignment="Top" Grid.ColumnSpan="2" 
@@ -122,19 +118,19 @@
             <Rectangle Fill="#FFF4F4F5" Height="20" Stroke="Black" Width="270"/>
         </ListView>
         <Image x:Name="NewsBackground_Img" Margin="601,0,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/news.png" Stretch="Fill" Visibility="Visible" Height="159" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Button x:Name="UpPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="220,504,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="UpPage_Button_Click_1" Visibility="Visible" Grid.Column="1">
+        <Button x:Name="UpPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="1240,504,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="UpPage_Button_Click_1" Visibility="Visible">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn01.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
-        <Button x:Name="DownPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="220,584,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="DownPage_Button_Click" Visibility="Visible" Grid.Column="1">
+        <Button x:Name="DownPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="1240,584,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="DownPage_Button_Click" Visibility="Visible">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn03.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
         <Image Name="Temple_Name_Title" Margin="0,0,214,48" Source="pack://SiteOfOrigin:,,,/Res/Page19/logo.png" Stretch="Fill" HorizontalAlignment="Right" Width="270" Height="46" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
 
-        <Button x:Name="TempInfo_Detail" Content="" HorizontalAlignment="Left" Margin="222,276,0,0" Width="120" RenderTransformOrigin="0.473,0.08" Click="TemplInfo_Detail_Click" Height="44" VerticalAlignment="Top" Grid.Column="1">
+        <Button x:Name="TempInfo_Detail" Content="" HorizontalAlignment="Left" Margin="1240,274,0,0" Width="120" RenderTransformOrigin="0.473,0.08" Click="TemplInfo_Detail_Click" Height="44" VerticalAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn.png" Stretch="Fill"/>
             </Button.Background>
@@ -150,9 +146,9 @@
                Foreground="#FFDFAA00" VerticalContentAlignment="Center" 
                MouseDoubleClick="ActivityInfo_Label_MouseDoubleClick" 
                MouseUp="ActivityInfo_Label_MouseUp" Visibility="Visible" Grid.ColumnSpan="2"/>
-        <Image x:Name="Donate_Title_Pic" Margin="45,709,304,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gdlf.png" Stretch="Fill" Height="70" VerticalAlignment="Top"/>
+        <Image x:Name="Donate_Title_Pic" Margin="44,709,716,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gdlf.png" Stretch="Fill" Height="70" VerticalAlignment="Top"/>
 
-        <StackPanel Orientation="Vertical" Margin="43,775,306,32" DataContext="{Binding}" Background="#FF720600" Style="{DynamicResource FZXKJW}" >
+        <StackPanel Orientation="Vertical" Margin="43,775,717,32" DataContext="{Binding}" Background="#FF720600" Style="{DynamicResource FZXKJW}" >
             <StackPanel Orientation="Horizontal" Height="35" Margin="12,0,10,0" DataContext="{Binding}" Background="#FF720600" VerticalAlignment="Center" >
                 <TextBox x:Name="HouseName" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="252" Style="{DynamicResource FZXKJW}" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold"/>
                 <TextBox x:Name="HousepayTypeName" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="202" Style="{DynamicResource FZXKJW}" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold" />
@@ -185,21 +181,21 @@
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
-        <Button x:Name="ActivityInfo_Next_Button" Visibility="Visible" HorizontalAlignment="Left" Height="45" Margin="220,585,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="ActivityInfo_Next_Button_Click" Grid.Column="1">
+        <Button x:Name="ActivityInfo_Next_Button" Visibility="Visible" HorizontalAlignment="Left" Height="45" Margin="1240,584,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="ActivityInfo_Next_Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn03.png" Stretch="Fill"/>
             </Button.Background>
 
         </Button>
-        <Button x:Name="ActivityInfo_Prev_Button" Visibility="Visible" HorizontalAlignment="Left" Height="45" Margin="220,505,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="ActivityInfo_Prev_Button_Click" Grid.Column="1">
+        <Button x:Name="ActivityInfo_Prev_Button" Visibility="Visible" HorizontalAlignment="Left" Height="45" Margin="1240,504,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="ActivityInfo_Prev_Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn01.png" Stretch="Fill"/>
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="540" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="43,104,37,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Hidden" Grid.ColumnSpan="2"/>
+        <MediaElement x:Name="MediaPlay" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="559" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="43,145,37,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Visible"/>
         <Label Content="" Margin="760,0,56,99" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="15" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
-        <Label Content="" Margin="960,0,264,208" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5" Height="16" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+        <Label Content="" Margin="963,0,261,208" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5" Height="16" VerticalAlignment="Bottom">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -209,7 +205,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="" HorizontalAlignment="Left" Height="14" Margin="70,570,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
+        <Label Name="Seprate_Line2" Content="" HorizontalAlignment="Left" Height="14" Margin="70,563,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -219,7 +215,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="" HorizontalAlignment="Right" Height="14" Margin="0,296,771,0" VerticalAlignment="Top" Width="169" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
+        <Label  Name="Seprate_Line1" Content="" HorizontalAlignment="Right" Height="14" Margin="0,290,1177,0" VerticalAlignment="Top" Width="169" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

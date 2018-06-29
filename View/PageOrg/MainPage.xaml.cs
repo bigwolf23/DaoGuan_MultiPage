@@ -318,6 +318,8 @@ namespace RenJiCaoZuo.View.PageOrg
                 this.ActivityInfo_Label.Visibility = Visibility.Hidden;
                 this.MonkInfo_ListView.Visibility = Visibility.Hidden;
 
+                TempInfo_Intrduce_Pic.Visibility = Visibility.Hidden;
+
                 Activity_Detail.Visibility = Visibility.Hidden;
                 ActivityInfo_Next_Button.Visibility = Visibility.Hidden;
                 ActivityInfo_Prev_Button.Visibility = Visibility.Hidden;
@@ -732,7 +734,7 @@ namespace RenJiCaoZuo.View.PageOrg
                 //LoginPassord LoginPasswordWin = new LoginPassord();
                 //LoginPasswordWin.ParentWindow = ParentWindow;
                 //LoginPasswordWin.Show();
-                NavigationService.Navigate(new Uri(@"View\LoginPassord.xaml", UriKind.Relative));
+                NavigationService.Navigate(new Uri(@"View\PageOrg\LoginPassord.xaml", UriKind.Relative));
                 //this.Hide();
                 //this();
             }

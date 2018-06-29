@@ -344,7 +344,10 @@ namespace RenJiCaoZuo.View.Page19
                 TempInfo_Detail.Visibility = Visibility.Hidden;
                 TempInfo_Intrduce.Visibility = Visibility.Hidden;
                 Temple_Intrduce_Frame.Visibility = Visibility.Hidden;
-                //Activity_Intrduce_Frame.Visibility = Visibility.Hidden;
+                TempInfo_Intrduce_Pic.Visibility = Visibility.Hidden;
+                this.MonkOrActive_Intrduce_Pic.Visibility = Visibility.Hidden;
+                Seprate_Line1.Visibility = Visibility.Hidden;
+                Seprate_Line2.Visibility = Visibility.Hidden;
 
                 this.MediaPlay.Visibility = Visibility.Visible;
             }

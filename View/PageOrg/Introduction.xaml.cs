@@ -35,12 +35,12 @@ namespace RenJiCaoZuo.View.PageOrg
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             if (nMod == 2)
             {
-                 this.TitleName.Source = new BitmapImage(new Uri("pack://SiteOfOrigin:,,,/Res/title04.png")); 
+                 this.TitleName.Source = new BitmapImage(new Uri("pack://SiteOfOrigin:,,,/Res/PageOrg/title04.png")); 
             }
 
             if (nMod == 3)
             {
-                this.TitleName.Source = new BitmapImage(new Uri("pack://SiteOfOrigin:,,,/Res/title02.png"));
+                this.TitleName.Source = new BitmapImage(new Uri("pack://SiteOfOrigin:,,,/Res/PageOrg/title02.png"));
             }
             setButtonAndTimer();
             setAllTempleInfoText(AllTempInfo);            

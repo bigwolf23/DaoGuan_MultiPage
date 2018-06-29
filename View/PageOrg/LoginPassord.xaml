@@ -9,7 +9,7 @@
    
     
     <Grid>
-        <Image Source="pack://SiteOfOrigin:,,,/Res/confirm.png" Stretch="Fill"/>
+        <Image Source="pack://SiteOfOrigin:,,,/Res/PageOrg/confirm.png" Stretch="Fill"/>
 
         <Button x:Name="Confirm_Button1" Content="确认" HorizontalAlignment="Left" Height="80" Margin="400,428,0,0" VerticalAlignment="Top" Width="480" FontSize="36" Click="Confirm_Button_Click" Background="#FFA01E1E" Foreground="White"/>
         <Button x:Name="Return_Button1" Content="返回" HorizontalAlignment="Left" Height="80" Margin="400,542,0,0" VerticalAlignment="Top" Width="480" FontSize="36" Click="Return_Button_Click" Foreground="White" Background="#FFA01E1E"/>

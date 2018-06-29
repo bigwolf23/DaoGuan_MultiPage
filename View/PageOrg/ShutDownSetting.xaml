@@ -7,7 +7,7 @@
         Title="ShutDownSetting" Height="1024" Width="1280" OpacityMask="Black" FocusManager.FocusedElement="{Binding ElementName=ShuDownTime_Edit}" >
     <Grid>
 
-        <Image Source="pack://SiteOfOrigin:,,,/Res/confirm.png" Stretch="Fill"/>
+        <Image Source="pack://SiteOfOrigin:,,,/Res/PageOrg/confirm.png" Stretch="Fill"/>
         <Button x:Name="ResetTime_Button" Content="重置时间" HorizontalAlignment="Left" Height="80" Margin="400,428,0,0" VerticalAlignment="Top" Width="480" FontSize="36" Click="ResetTime_Button_Click" Background="#FFA01E1E" Foreground="White"/>
         <Button x:Name="Return_Button" Content="返回" HorizontalAlignment="Left" Height="80" Margin="400,542,0,0" VerticalAlignment="Top" Width="480" FontSize="36" Click="Return_Button_Click" Background="#FFA01E1E" Foreground="White"/>
         <Label Content="自动关机设置" HorizontalAlignment="Left" Height="96" Margin="400,166,0,0" VerticalAlignment="Top" Width="480" FontSize="48" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0,10" BorderBrush="#FFA01E1E" Foreground="#FFA01E1E"/>
