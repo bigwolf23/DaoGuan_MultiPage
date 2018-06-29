@@ -330,7 +330,6 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModel\" />
     <Folder Include="View\Page21\" />
     <Folder Include="View\Page42\" />
     <Folder Include="View\Page50\" />

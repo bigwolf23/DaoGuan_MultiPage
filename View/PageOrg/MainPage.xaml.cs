@@ -621,6 +621,32 @@ namespace RenJiCaoZuo.View.PageOrg
                     m_MonkinfoDetail.Add(nIndex, MonkTemp.detail);
 
                 }
+
+                //foreach (MonkInfoDatabody MonkTemp in pWebData.m_pMonkInfoData.body.data)
+                //{
+                //    nIndex++;
+                //    monkinfoDisp temp = new monkinfoDisp();
+                //    if (MonkTemp.info != null)
+                //    {
+                //        temp.MonkInfo = MonkTemp.info;
+                //    }
+                //    if (MonkTemp.url != null)
+                //    {
+                //        temp.MonkInfoImage = MonkTemp.url;
+                //    }
+                //    if (MonkTemp.name != null)
+                //    {
+                //        temp.MonkName = MonkTemp.name;
+                //    }
+
+                //    //                 temp.MonkInfoImage = MonkTemp.url;
+                //    //                 temp.MonkName = MonkTemp.name;
+                //    temp.MonkInfoIndex = nIndex;
+                //    m_MonkList.Add(temp);
+
+                //    m_MonkinfoDetail.Add(nIndex, MonkTemp.detail);
+
+                //}
             }
             catch (Exception ex){ }
             //             foreach (MonkInfoDatabody MonkTemp in pWebData.m_pMonkInfoData.body.data)

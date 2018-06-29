@@ -597,6 +597,23 @@ namespace RenJiCaoZuo.View.Page19
             if (myActivityInfoQueue.Count > 0)
             {
                 this.ActivityInfo_ListView.ItemsSource = m_pActivityListInfo.ToList();
+
+                Image img = new Image();
+                img.Source = new BitmapImage(new Uri(@"pack://SiteOfOrigin:,,,/Res/Page19/btn01.png"));
+                this.ActivityInfo_Prev_Button.Content = img;
+
+                if (m_pActivityListInfo.Count <= 1)
+                {
+                    Image imgDown = new Image();
+                    imgDown.Source = new BitmapImage(new Uri(@"pack://SiteOfOrigin:,,,/Res/Page19/btn03.png"));
+                    this.ActivityInfo_Next_Button.Content = imgDown;
+                }
+                else
+                {
+                    Image imgDown = new Image();
+                    imgDown.Source = new BitmapImage(new Uri(@"pack://SiteOfOrigin:,,,/Res/Page19/btn04.png"));
+                    this.ActivityInfo_Next_Button.Content = imgDown;
+                }
             }
 
         }
@@ -632,44 +649,45 @@ namespace RenJiCaoZuo.View.Page19
                         temp.MonkName = MonkTemp.name;
                     }
                 
-    //                 temp.MonkInfoImage = MonkTemp.url;
-    //                 temp.MonkName = MonkTemp.name;
                     temp.MonkInfoIndex = nIndex;
                     m_MonkList.Add(temp);
 
                     m_MonkinfoDetail.Add(nIndex, MonkTemp.detail);
                 }
+
+                ////Test Source
+                //foreach (MonkInfoDatabody MonkTemp in pWebData.m_pMonkInfoData.body.data)
+                //{
+                //    nIndex++;
+                //    monkinfoDisp temp = new monkinfoDisp();
+                //    if (MonkTemp.info != null)
+                //    {
+                //        temp.MonkInfo = MonkTemp.info;
+                //    }
+                //    if (MonkTemp.url != null)
+                //    {
+                //        temp.MonkInfoImage = MonkTemp.url;
+                //    }
+                //    if (MonkTemp.name != null)
+                //    {
+                //        temp.MonkName = MonkTemp.name;
+                //    }
+
+                //    temp.MonkInfoIndex = nIndex;
+                //    m_MonkList.Add(temp);
+
+                //    m_MonkinfoDetail.Add(nIndex, MonkTemp.detail);
+                //}
+                ////Test Source
     
             }
             catch (Exception ex){ }
-            //             foreach (MonkInfoDatabody MonkTemp in pWebData.m_pMonkInfoData.body.data)
-            //             {
-            //                 nIndex++;
-            //                 monkinfoDisp temp = new monkinfoDisp();
-            //                 temp.MonkInfo = MonkTemp.info;
-            //                 temp.MonkInfoImage = MonkTemp.url;
-            //                 temp.MonkName = MonkTemp.name + "1";
-            //                 temp.MonkInfoIndex = nIndex;
-            //                 m_MonkList.Add(temp); m_MonkinfoDetail.Add(nIndex, MonkTemp.detail);
-            //             }
-            // 
-            //             foreach (MonkInfoDatabody MonkTemp in pWebData.m_pMonkInfoData.body.data)
-            //             {
-            //                 nIndex++;
-            //                 monkinfoDisp temp = new monkinfoDisp();
-            //                 temp.MonkInfo = MonkTemp.info;
-            //                 temp.MonkInfoImage = MonkTemp.url;
-            //                 temp.MonkName = MonkTemp.name + "2";
-            //                 temp.MonkInfoIndex = nIndex;
-            //                 m_MonkList.Add(temp); m_MonkinfoDetail.Add(nIndex, MonkTemp.detail);
-            //             }
-
 
             Image img = new Image();
             img.Source = new BitmapImage(new Uri(@"pack://SiteOfOrigin:,,,/Res/Page19/btn01.png"));
             this.UpPage_Button.Content = img;
 
-            if (m_MonkList.Count <= 2)
+            if (m_MonkList.Count <= 1)
             {
                 Image imgDown = new Image();
                 imgDown.Source = new BitmapImage(new Uri(@"pack://SiteOfOrigin:,,,/Res/Page19/btn03.png"));
@@ -735,6 +753,7 @@ namespace RenJiCaoZuo.View.Page19
                 pWebData.m_pTempInfoData.body.data.url != null )
             {
                 Uri ImageFilePathUri = new Uri(pWebData.m_pTempInfoData.body.data.url);
+                //unused source
                 //TempInfo_Image.Source = new BitmapImage(ImageFilePathUri);
             }
 
@@ -751,7 +770,8 @@ namespace RenJiCaoZuo.View.Page19
                 pWebData.m_pTempInfoData.body.data.info != null)
             {
                 TemplInfo_TextBlock.Text = pWebData.m_pTempInfoData.body.data.info;
-                //TemplInfo_TextBlock.Text = pWebData.m_pTempInfoData.body.data.info.ToString() + pWebData.m_pTempInfoData.body.data.info.ToString();
+                //test source
+                //TemplInfo_TextBlock.Text = pWebData.m_pTempInfoData.body.data.info.ToString() + pWebData.m_pTempInfoData.body.data.info.ToString() + pWebData.m_pTempInfoData.body.data.info.ToString();
             }
         }
 
@@ -772,7 +792,6 @@ namespace RenJiCaoZuo.View.Page19
                 NavigationService.Navigate(new Uri(@"View\Page19\LoginPassord.xaml", UriKind.Relative));
             }
         }
-        const int nListViewOffset = 1047;
         //法师下一页预览
         private void DownPage_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -781,8 +800,7 @@ namespace RenJiCaoZuo.View.Page19
                 ListViewAutomationPeer lvap = new ListViewAutomationPeer(MonkInfo_ListView);
                 var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
                 var scroll = svap.Owner as ScrollViewer;
-                //scroll. .LineRight();
-
+                double nListViewOffset = scroll.ViewportWidth;
                 if ((m_MonkList.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) <= (m_MonkList.Count - 2))
                 {
                     if ((scroll.HorizontalOffset / nListViewOffset) == (m_MonkList.Count - 2))
@@ -801,7 +819,6 @@ namespace RenJiCaoZuo.View.Page19
             catch (Exception ex) { }
         }
 
-        int m_nScrollUpMove = 0;
         //法师上一页预览
         private void UpPage_Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -809,12 +826,11 @@ namespace RenJiCaoZuo.View.Page19
                 ListViewAutomationPeer lvap = new ListViewAutomationPeer(MonkInfo_ListView);
                 var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
                 var scroll = svap.Owner as ScrollViewer;
-                //scroll.LineLeft();
-                //m_nScrollMove = scroll.HorizontalOffset / 530;
-                m_nScrollUpMove = 0;
+                double nListViewOffset = scroll.ViewportWidth;
                 if ((m_MonkList.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) >= 0)
                 {
-                    if ((scroll.HorizontalOffset / nListViewOffset) == 1)
+                    if ((scroll.HorizontalOffset < nListViewOffset) || 
+                        (scroll.HorizontalOffset / nListViewOffset) == 1)
                     {
                         Image img = new Image();
                         img.Source = new BitmapImage(new Uri(@"pack://SiteOfOrigin:,,,/Res/Page19/btn01.png"));
@@ -853,7 +869,6 @@ namespace RenJiCaoZuo.View.Page19
             }
 
             Introduction IntroductionWin = new Introduction(strDetail, 2);
-            //IntroductionWin.Owner = ParentWindow;
             IntroductionWin.ShowDialog();
 
         }
@@ -871,7 +886,6 @@ namespace RenJiCaoZuo.View.Page19
             }
 
             Introduction IntroductionWin = new Introduction(strDetail, 1);
-            //IntroductionWin.Owner = ParentWindow;
             IntroductionWin.ShowDialog();
         }
 
@@ -886,12 +900,11 @@ namespace RenJiCaoZuo.View.Page19
                 ListViewAutomationPeer lvap = new ListViewAutomationPeer(ActivityInfo_ListView);
                 var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
                 var scroll = svap.Owner as ScrollViewer;
-                //scroll.LineLeft();
-                //m_nScrollMove = scroll.HorizontalOffset / 530;
-                m_nScrollUpMove = 0;
+                double nListViewOffset = scroll.ViewportWidth;
                 if ((m_MonkList.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) >= 0)
                 {
-                    if ((scroll.HorizontalOffset / nListViewOffset) == 1)
+                    if ((scroll.HorizontalOffset < nListViewOffset) ||
+                        (scroll.HorizontalOffset / nListViewOffset) == 1)
                     {
                         Image img = new Image();
                         img.Source = new BitmapImage(new Uri(@"pack://SiteOfOrigin:,,,/Res/Page19/btn01.png"));
@@ -904,14 +917,6 @@ namespace RenJiCaoZuo.View.Page19
                     scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset - nListViewOffset);
                 }
 
-
-                //ListViewAutomationPeer lvap = new ListViewAutomationPeer(ActivityInfo_ListView);
-                //var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
-                //var scroll = svap.Owner as ScrollViewer;
-                //if ((m_pActivityListInfo.Count > 1) && (scroll.HorizontalOffset / 926) >= 0)
-                //{
-                //    scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset - 926);
-                //}
             }
             catch (Exception ex) { }
         }
@@ -928,8 +933,7 @@ namespace RenJiCaoZuo.View.Page19
                 ListViewAutomationPeer lvap = new ListViewAutomationPeer(ActivityInfo_ListView);
                 var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
                 var scroll = svap.Owner as ScrollViewer;
-                //scroll. .LineRight();
-
+                double nListViewOffset = scroll.ViewportWidth;
                 if ((m_MonkList.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) <= (m_MonkList.Count - 2))
                 {
                     if ((scroll.HorizontalOffset / nListViewOffset) == (m_MonkList.Count - 2))
@@ -944,15 +948,6 @@ namespace RenJiCaoZuo.View.Page19
                     this.ActivityInfo_Prev_Button.Content = img2;
                     scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset + nListViewOffset);
                 }
-
-
-                //ListViewAutomationPeer lvap = new ListViewAutomationPeer(ActivityInfo_ListView);
-                //var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
-                //var scroll = svap.Owner as ScrollViewer;
-                //if ((m_pActivityListInfo.Count > 1) && (scroll.HorizontalOffset / 926) <= (m_pActivityListInfo.Count - 2))
-                //{
-                //    scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset + 926);
-                //}
             }
             catch (Exception ex) { }
         }

@@ -34,7 +34,12 @@
                Source="pack://SiteOfOrigin:,,,/Res/Page19/Dzjsbt.png" 
                Stretch="Fill" Height="171" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
 
-        <ListView Name="MonkInfo_ListView" ScrollViewer.VerticalScrollBarVisibility="Disabled" Height="207" VerticalAlignment="Top" Style="{DynamicResource FZXKJW}" FontSize="18" BorderThickness="0" Background="Transparent" Margin="195,465,207,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="True" Cursor="None" IsEnabled="True" BorderBrush="Transparent" Visibility="Visible" SelectionChanged="MonkInfo_ListView_SelectionChanged" Grid.ColumnSpan="2">
+        <ListView Name="MonkInfo_ListView" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                  Height="207" VerticalAlignment="Top" Style="{DynamicResource FZXKJW}"
+                  FontSize="18" BorderThickness="0" Background="Transparent" Margin="195,465,204,0" 
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="False" 
+                  Cursor="None" IsEnabled="True" BorderBrush="Transparent" Visibility="Visible"
+                  SelectionChanged="MonkInfo_ListView_SelectionChanged">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -54,12 +59,12 @@
                                Stretch="Fill" Margin="0" >
                         </Image>
                         <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
-                            <StackPanel Orientation="Vertical" Margin="15,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                            <StackPanel Orientation="Vertical" Margin="30,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible">
                                 <TextBlock  Text="{Binding MonkName}" Margin="0,2,0,10" 
                                         TextTrimming="CharacterEllipsis" 
                                         TextAlignment="Left" 
                                         VerticalAlignment="Top" 
-                                        Width="830" TextWrapping="Wrap" 
+                                        Width="790" TextWrapping="Wrap" 
                                         Style="{DynamicResource FZXKJW}" 
                                         FontSize="18" Background="Transparent" 
                                         Foreground="#FFA01E1E" >
@@ -70,7 +75,7 @@
                                        Margin="0,0,0,0" 
                                        TextAlignment="Left" 
                                        VerticalAlignment="Top" 
-                                       Width="830" Height="Auto" 
+                                       Width="790" Height="Auto" 
                                        TextWrapping="Wrap" 
                                        Style="{DynamicResource FZXKJW}" 
                                        FontSize="13" Background="Transparent" >
@@ -80,7 +85,7 @@
                                            TextTrimming="CharacterEllipsis" 
                                            TextAlignment="Left" 
                                            VerticalAlignment="Top" 
-                                           Width="830" 
+                                           Width="790" 
                                            TextWrapping="Wrap" 
                                            Style="{DynamicResource FZXKJW}" 
                                            FontSize="13" Background="Transparent" Visibility="Hidden"></TextBlock>
@@ -193,7 +198,7 @@
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="559" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="43,145,37,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Visible"/>
+        <MediaElement x:Name="MediaPlay" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="559" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="43,145,37,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Hidden"/>
         <Label Content="" Margin="760,0,56,99" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="15" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
         <Label Content="" Margin="963,0,261,208" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5" Height="16" VerticalAlignment="Bottom">
             <Label.RenderTransform>
