@@ -147,6 +147,42 @@
     <Compile Include="View\Page19\ShutDownSetting.xaml.cs">
       <DependentUpon>ShutDownSetting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Page21\Introduction.xaml.cs">
+      <DependentUpon>Introduction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page21\LoginPassord.xaml.cs">
+      <DependentUpon>LoginPassord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page21\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page21\ModifyPassword.xaml.cs">
+      <DependentUpon>ModifyPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page21\SettingWindow.xaml.cs">
+      <DependentUpon>SettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page21\ShutDownSetting.xaml.cs">
+      <DependentUpon>ShutDownSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page42\Introduction.xaml.cs">
+      <DependentUpon>Introduction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page42\LoginPassord.xaml.cs">
+      <DependentUpon>LoginPassord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page42\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page42\ModifyPassword.xaml.cs">
+      <DependentUpon>ModifyPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page42\SettingWindow.xaml.cs">
+      <DependentUpon>SettingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Page42\ShutDownSetting.xaml.cs">
+      <DependentUpon>ShutDownSetting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PageOrg\Introduction.xaml.cs">
       <DependentUpon>Introduction.xaml</DependentUpon>
     </Compile>
@@ -190,6 +226,54 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Page19\ShutDownSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page21\Introduction.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page21\LoginPassord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page21\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page21\ModifyPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page21\SettingWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page21\ShutDownSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page42\Introduction.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page42\LoginPassord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page42\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page42\ModifyPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page42\SettingWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page42\ShutDownSetting.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -330,8 +414,6 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="View\Page21\" />
-    <Folder Include="View\Page42\" />
     <Folder Include="View\Page50\" />
   </ItemGroup>
   <ItemGroup>
