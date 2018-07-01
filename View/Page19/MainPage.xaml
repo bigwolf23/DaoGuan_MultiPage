@@ -114,8 +114,8 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <WrapPanel Orientation="Horizontal" Margin="0,0,0,0" DataContext="{Binding}" Background="Transparent" VerticalAlignment="Center">
-                        <TextBox Text="{Binding ActivityMain}" IsReadOnly="True" Height="100" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="1025" Style="{DynamicResource FZXKJW}" FontSize="18" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" ></TextBox>
+                    <WrapPanel Orientation="Horizontal" Margin="5,10,5,10" DataContext="{Binding}" Background="Transparent" VerticalAlignment="Center">
+                        <TextBox Text="{Binding ActivityMain}" IsReadOnly="True" Height="200" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="1025" Style="{DynamicResource FZXKJW}" FontSize="18" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" ></TextBox>
                         <TextBox Text="{Binding ActivityMainDetail}" IsReadOnly="True" Height="0" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="0" Style="{DynamicResource FZXKJW}" FontSize="18" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" ></TextBox>
                     </WrapPanel>
                 </DataTemplate>
