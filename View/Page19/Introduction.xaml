@@ -43,7 +43,7 @@
         <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/pop_bg.png" Stretch="Fill" Margin="-26,-14,-24,-36" HorizontalAlignment="Stretch" Width="Auto"/>
         <Image Name="TitleName" Source="pack://SiteOfOrigin:,,,/Res/Page19/title01.png" Stretch="Fill" Margin="450,10,452,725"/>
 
-        <Label Content="" HorizontalAlignment="Left" Height="15" Margin="32,713,0,0" VerticalAlignment="Top" Width="1108" BorderThickness="0,0,0,6" BorderBrush="#FFD62525"/>
+        <Label Content="" HorizontalAlignment="Left" Height="15" Margin="32,713,0,0" VerticalAlignment="Top" Width="1108" BorderThickness="0,0,0,6" BorderBrush="#FF720600"/>
         <ScrollViewer x:Name="scrolls" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Margin="0,101,40,108" HorizontalAlignment="Right" Width="1108">
             <ScrollViewer.Content>
                 <StackPanel x:Name="addControl" Orientation="Vertical" ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -57,7 +57,7 @@
             </ScrollViewer.Content>
         </ScrollViewer>
 
-        <Button x:Name="Return_Button" Content="" HorizontalAlignment="Left" Height="48" Margin="522,748,0,0" VerticalAlignment="Top" Width="128" FontSize="20" Click="Return_Button_Click" Background="#FFA01E1E" Foreground="White" RenderTransformOrigin="0.787,0.625"/>
+        <Button x:Name="Return_Button" Content="" HorizontalAlignment="Left" Height="48" Margin="522,748,0,0" VerticalAlignment="Top" Width="128" FontSize="20" Click="Return_Button_Click" Background="#FF720600" Foreground="White" RenderTransformOrigin="0.787,0.625"/>
         
 
     </Grid>

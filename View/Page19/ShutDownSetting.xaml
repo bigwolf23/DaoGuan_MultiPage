@@ -8,9 +8,9 @@
     <Grid>
 
         <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/confirm.png" Stretch="Fill"/>
-        <Button x:Name="ResetTime_Button" Content="重置时间" HorizontalAlignment="Left" Height="80" Margin="469,437,0,0" VerticalAlignment="Top" Width="480" FontSize="36" Click="ResetTime_Button_Click" Background="#FFA01E1E" Foreground="White"/>
-        <Button x:Name="Return_Button" Content="返回" HorizontalAlignment="Left" Height="80" Margin="469,551,0,0" VerticalAlignment="Top" Width="480" FontSize="36" Click="Return_Button_Click" Background="#FFA01E1E" Foreground="White"/>
-        <Label Content="自动关机设置" HorizontalAlignment="Left" Height="96" Margin="469,175,0,0" VerticalAlignment="Top" Width="480" FontSize="48" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0,10" BorderBrush="#FFA01E1E" Foreground="#FFA01E1E"/>
+        <Button x:Name="ResetTime_Button" Content="重置时间" HorizontalAlignment="Left" Height="80" Margin="469,437,0,0" VerticalAlignment="Top" Width="480" FontSize="36" Click="ResetTime_Button_Click" Background="#FF720600" Foreground="White"/>
+        <Button x:Name="Return_Button" Content="返回" HorizontalAlignment="Left" Height="80" Margin="469,551,0,0" VerticalAlignment="Top" Width="480" FontSize="36" Click="Return_Button_Click" Background="#FF720600" Foreground="White"/>
+        <Label Content="自动关机设置" HorizontalAlignment="Left" Height="96" Margin="469,175,0,0" VerticalAlignment="Top" Width="480" FontSize="48" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0,10" BorderBrush="#FF720600" Foreground="#FF720600"/>
         <TextBox x:Name="ShuDownTime_Edit" 
                  HorizontalAlignment="Left" 
                  Height="80" 
@@ -20,7 +20,7 @@
                  Width="480" 
                  VerticalContentAlignment="Center" 
                  FontSize="36" 
-                 BorderBrush="#FFA01E1E" 
+                 BorderBrush="#FF720600" 
                  BorderThickness="3" 
                  HorizontalContentAlignment="Center" 
                  MaxLength="5" 
