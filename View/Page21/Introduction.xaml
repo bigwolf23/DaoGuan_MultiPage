@@ -1,7 +1,11 @@
 ﻿<Window x:Class="RenJiCaoZuo.View.Page21.Introduction"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Introduction" Height="821" Width="1180" WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize" OpacityMask="White" WindowStartupLocation="CenterOwner" Opacity="100" >
+        Title="Introduction" Height="821" Width="1180"
+        WindowStyle="None" AllowsTransparency="True" 
+        ResizeMode="NoResize" OpacityMask="White" 
+        WindowStartupLocation="CenterOwner" Opacity="100"
+        FontFamily="/Touch;component/#FZXingKai-S04S">
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>

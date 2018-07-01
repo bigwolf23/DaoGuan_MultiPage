@@ -57,7 +57,7 @@
             </ScrollViewer.Content>
         </ScrollViewer>
 
-        <Button x:Name="Return_Button" Content="" HorizontalAlignment="Left" Height="48" Margin="522,748,0,0" VerticalAlignment="Top" Width="128" FontSize="20" Click="Return_Button_Click" Background="#FF720600" Foreground="White" RenderTransformOrigin="0.787,0.625"/>
+        <Button x:Name="Return_Button" Content="" FontFamily="/Touch;component/#FZXingKai-S04S" HorizontalAlignment="Left" Height="48" Margin="522,748,0,0" VerticalAlignment="Top" Width="128" FontSize="20" Click="Return_Button_Click" Background="#FF720600" Foreground="White" RenderTransformOrigin="0.787,0.625"/>
         
 
     </Grid>

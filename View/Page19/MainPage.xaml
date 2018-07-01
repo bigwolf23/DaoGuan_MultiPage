@@ -27,7 +27,7 @@
         <Image Name="QRCode_Title_Gzgzh" Margin="1325,785,57,118" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh.png" Stretch="Fill"/>
         <Image x:Name="QRCode_Image_Gzgzh" Margin="1090,780,112,123" Stretch="Fill"/>
         <local:RoilingTextBlock x:Name="TemplInfo_TextBlock" 
-                                FontSize="18" Height="189" Width="Auto" 
+                                FontSize="25" Height="189" Width="Auto" 
                                 Margin="195,202,205,0" VerticalAlignment="Top" Grid.ColumnSpan="2" 
                                 />
         <Image x:Name="MonkOrActive_Intrduce_Pic" Margin="105,484,0,0" 
@@ -35,7 +35,7 @@
                Stretch="Fill" Height="171" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
 
         <ListView Name="MonkInfo_ListView" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                  Height="207" VerticalAlignment="Top" Style="{DynamicResource FZXKJW}"
+                  Height="207" VerticalAlignment="Top" FontFamily="/Touch;component/#FZXingKai-S04S"
                   FontSize="18" BorderThickness="0" Background="Transparent" Margin="195,465,204,0" 
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="False" 
                   Cursor="None" IsEnabled="True" BorderBrush="Transparent" Visibility="Visible"
@@ -65,8 +65,8 @@
                                         TextAlignment="Left" 
                                         VerticalAlignment="Top" 
                                         Width="790" TextWrapping="Wrap" 
-                                        Style="{DynamicResource FZXKJW}" 
-                                        FontSize="18" Background="Transparent" 
+                                        FontFamily="/Touch;component/#FZXingKai-S04S"
+                                        FontSize="30" Background="Transparent" 
                                         Foreground="#FFA01E1E" >
                                 </TextBlock>
                                 <TextBlock x:Name="MyWipedText" 
@@ -77,8 +77,8 @@
                                        VerticalAlignment="Top" 
                                        Width="790" Height="Auto" 
                                        TextWrapping="Wrap" 
-                                       Style="{DynamicResource FZXKJW}" 
-                                       FontSize="13" Background="Transparent" >
+                                       FontFamily="/Touch;component/#FZXingKai-S04S"
+                                       FontSize="25" Background="Transparent" >
                                 </TextBlock>
                                 <TextBlock Text="{Binding MonkInfoIndex}" 
                                            Margin="0,0,0,0" 
@@ -87,8 +87,8 @@
                                            VerticalAlignment="Top" 
                                            Width="790" 
                                            TextWrapping="Wrap" 
-                                           Style="{DynamicResource FZXKJW}" 
-                                           FontSize="13" Background="Transparent" Visibility="Hidden"></TextBlock>
+                                           FontFamily="/Touch;component/#FZXingKai-S04S" 
+                                           FontSize="25" Background="Transparent" Visibility="Hidden"></TextBlock>
                             </StackPanel>
 
                         </ScrollViewer>
@@ -100,8 +100,8 @@
         <ListView Name="ActivityInfo_ListView" Visibility="Visible" 
                   ScrollViewer.VerticalScrollBarVisibility="Disabled"
                   Height="210" VerticalAlignment="Bottom" 
-                  Style="{DynamicResource FZXKJW}" 
-                  FontSize="18" BorderThickness="0" 
+                  FontFamily="/Touch;component/#FZXingKai-S04S"
+                  FontSize="25" BorderThickness="0" 
                   Background="Transparent" Margin="195,0,0,464" 
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                   ScrollViewer.CanContentScroll="False" Cursor="None" 
@@ -115,8 +115,8 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Orientation="Horizontal" Margin="5,10,5,10" DataContext="{Binding}" Background="Transparent" VerticalAlignment="Center">
-                        <TextBox Text="{Binding ActivityMain}" IsReadOnly="True" Height="200" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="1025" Style="{DynamicResource FZXKJW}" FontSize="18" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" ></TextBox>
-                        <TextBox Text="{Binding ActivityMainDetail}" IsReadOnly="True" Height="0" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="0" Style="{DynamicResource FZXKJW}" FontSize="18" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" ></TextBox>
+                        <TextBox Text="{Binding ActivityMain}" IsReadOnly="True" Height="200" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="1025" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="25" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" ></TextBox>
+                        <TextBox Text="{Binding ActivityMainDetail}" IsReadOnly="True" Height="0" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="0" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="25" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" ></TextBox>
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -155,16 +155,16 @@
 
         <StackPanel Orientation="Vertical" Margin="43,775,717,32" DataContext="{Binding}" Background="#FF720600" Style="{DynamicResource FZXKJW}" >
             <StackPanel Orientation="Horizontal" Height="35" Margin="12,0,10,0" DataContext="{Binding}" Background="#FF720600" VerticalAlignment="Center" >
-                <TextBox x:Name="HouseName" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="252" Style="{DynamicResource FZXKJW}" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold"/>
-                <TextBox x:Name="HousepayTypeName" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="202" Style="{DynamicResource FZXKJW}" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold" />
-                <TextBox x:Name="Houseamount" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="152" Style="{DynamicResource FZXKJW}" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Margin="0,2,0,7" Foreground="#FFDFAA00" FontWeight="Bold"/>
+                <TextBox x:Name="HouseName" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="252" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold"/>
+                <TextBox x:Name="HousepayTypeName" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="202" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold" />
+                <TextBox x:Name="Houseamount" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="152" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Margin="0,2,0,7" Foreground="#FFDFAA00" FontWeight="Bold"/>
             </StackPanel>
             <Line xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
                         X1="25" Y1="1"  
                         X2="640" Y2="1"  
                         Stroke="#FFDFAA00" StrokeDashArray="2, 2"  
                         StrokeThickness="2" />
-            <ListView x:Name="DonateInfo_List" Height="248" Margin="10,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Auto" Style="{DynamicResource FZXKJW}" FontSize="18" BorderThickness="0" Background="#FF720600" IsEnabled="True">
+            <ListView x:Name="DonateInfo_List" Height="248" Margin="10,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="18" BorderThickness="0" Background="#FF720600" IsEnabled="True">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel/>
@@ -173,9 +173,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Height="30" Margin="0,0,0,0" DataContext="{Binding}" Background="Transparent" VerticalAlignment="Center" Style="{DynamicResource FZXKJW}" >
-                            <TextBox Text="{Binding Name}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="252" Style="{DynamicResource FZXKJW}" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="#FFDFAA00" BorderThickness="0" />
-                            <TextBox Text="{Binding payTypeName}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="202" Style="{DynamicResource FZXKJW}" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="#FFDFAA00" BorderThickness="0" />
-                            <TextBox Text="{Binding amount}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="152" Style="{DynamicResource FZXKJW}" FontSize="18" Background="Transparent" HorizontalAlignment="Center"  Foreground="#FFDFAA00" BorderThickness="0" />
+                            <TextBox Text="{Binding Name}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="252" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="#FFDFAA00" BorderThickness="0" />
+                            <TextBox Text="{Binding payTypeName}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="202" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="#FFDFAA00" BorderThickness="0" />
+                            <TextBox Text="{Binding amount}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="152" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="18" Background="Transparent" HorizontalAlignment="Center"  Foreground="#FFDFAA00" BorderThickness="0" />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

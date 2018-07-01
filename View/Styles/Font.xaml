@@ -2,6 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:Common="clr-namespace:RenJiCaoZuo.Common">
     <Style x:Key="FZXKJW">
-        <Setter Property="TextElement.FontFamily" Value="Microsoft YaHei"/>
+        <Setter Property="TextElement.FontFamily" Value="/Touch;component/#FZXingKai-S04S"/>
     </Style>
 </ResourceDictionary>
