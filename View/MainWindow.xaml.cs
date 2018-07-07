@@ -58,6 +58,12 @@ namespace RenJiCaoZuo
                 this.Height = 1139;
                 this.Width = 1424;
             }
+            else if (strDisplayInch == "19_2")
+            {
+                this.Source = new Uri(@"\View\Page19\MainPage_2.xaml", UriKind.Relative);
+                this.Height = 1139;
+                this.Width = 1424;
+            }
             else if (strDisplayInch == "21")
             {
                 this.Source = new Uri(@"\View\Page21\MainPage.xaml", UriKind.Relative);

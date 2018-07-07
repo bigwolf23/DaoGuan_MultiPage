@@ -15,6 +15,7 @@
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/SfgTitle.png" Stretch="Fill"/>
             </Border.Background>
         </Border>
+
         <!--<Image Name="Temple_Name_Title" Margin="43,10,1089,1035" Source="pack://SiteOfOrigin:,,,/Res/Page19/SfgTitle.png" Stretch="Fill"/>-->
 
         <Image Name ="TempInfo_Intrduce" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="43,161,0,0"  Stretch="None" HorizontalAlignment="Left" Width="1344" Height="259" VerticalAlignment="Top" Grid.ColumnSpan="2" />
@@ -227,6 +228,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        <Image x:Name ="Temple_Print_pic"  Source="pack://SiteOfOrigin:,,,/Res/Page19/Temple_Print.png" Stretch="Fill" Unloaded="Image_Unloaded" Margin="374,42,998,1051" RenderTransformOrigin="-1.51,-6.685"/>
 
 
     </Grid>

@@ -31,13 +31,7 @@ namespace RenJiCaoZuo.View.Page19
     /// </summary>
     public partial class MainPage : Page
     {
-        MainWindow parentWindow;
-        public MainWindow ParentWindow
-        {
-            get { return parentWindow; }
-            set { parentWindow = value; }
-        }  
-
+        
         //public GetWebData m_pAllWebData = new GetWebData();
         class PayListHistory
         {
@@ -985,7 +979,6 @@ namespace RenJiCaoZuo.View.Page19
                     {
                         string strDetail = m_MonkinfoDetail[emp.MonkInfoIndex];
                         Introduction IntroductionWin = new Introduction(strDetail, 3);
-                        //IntroductionWin.Owner = ParentWindow;
                         IntroductionWin.ShowDialog();
                     }
                     MonkInfo_ListView.UnselectAll();

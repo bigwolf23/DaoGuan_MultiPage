@@ -138,6 +138,9 @@
     <Compile Include="View\Page19\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Page19\MainPage_2.xaml.cs">
+      <DependentUpon>MainPage_2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Page19\ModifyPassword.xaml.cs">
       <DependentUpon>ModifyPassword.xaml</DependentUpon>
     </Compile>
@@ -210,6 +213,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Page19\LoginPassord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Page19\MainPage_2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -419,6 +426,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="QrCodeFram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
