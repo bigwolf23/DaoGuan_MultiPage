@@ -44,7 +44,7 @@ namespace RenJiCaoZuo
             InitializeComponent();
             string strDisplayInch = ConfigurationManager.AppSettings["DisplayInch"];
             WindowStartupLocation = WindowStartupLocation.Manual;
-            this.Left = 0;
+            this.Left = 30;
             this.Top = 0;
             if (strDisplayInch == "Org")
             {

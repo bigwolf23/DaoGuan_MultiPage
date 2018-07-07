@@ -517,10 +517,6 @@ namespace RenJiCaoZuo.View.Page19
         {
             try
             {
-                if (m_pActivityListInfo.Count == 0)
-                {
-                    return;
-                }
                 this.ActivityInfo_ListView.ItemsSource = m_pActivityListInfo.ToList();
                 if (pWebData == null ||
                     pWebData.m_pActivityInfoData == null || 
@@ -538,6 +534,13 @@ namespace RenJiCaoZuo.View.Page19
                     m_pActivityListInfo.Add(pTemp);
                     myActivityInfoQueue.Enqueue(pTemp);
                 }
+
+                if (m_pActivityListInfo.Count == 0)
+                {
+                    return;
+                }
+                //this.ActivityInfo_ListView.ItemsSource = null;
+                //this.ActivityInfo_ListView.ItemsSource = m_pActivityListInfo.ToList();
 
                 //             foreach (ActivityInfoDatabody ActivityInfTemp in pWebData.m_pActivityInfoData.body.data)
                 //             {
@@ -854,7 +857,8 @@ namespace RenJiCaoZuo.View.Page19
                 ListViewAutomationPeer lvap = new ListViewAutomationPeer(ActivityInfo_ListView);
                 var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
                 var scroll = svap.Owner as ScrollViewer;
-                int nSelIndex = (int)scroll.ContentHorizontalOffset / 922;
+                double nListViewOffset = scroll.ViewportWidth;
+                int nSelIndex = (int)scroll.ContentHorizontalOffset / (int)nListViewOffset;
 
                 int n = 0;
                 foreach (ActivityList temp in m_pActivityListInfo)
@@ -901,7 +905,7 @@ namespace RenJiCaoZuo.View.Page19
                 var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
                 var scroll = svap.Owner as ScrollViewer;
                 double nListViewOffset = scroll.ViewportWidth;
-                if ((m_MonkList.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) >= 0)
+                if ((m_pActivityListInfo.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) >= 0)
                 {
                     if ((scroll.HorizontalOffset < nListViewOffset) ||
                         (scroll.HorizontalOffset / nListViewOffset) == 1)
@@ -934,9 +938,10 @@ namespace RenJiCaoZuo.View.Page19
                 var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
                 var scroll = svap.Owner as ScrollViewer;
                 double nListViewOffset = scroll.ViewportWidth;
-                if ((m_MonkList.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) <= (m_MonkList.Count - 2))
+                if ((m_pActivityListInfo.Count > 1) &&
+                    (scroll.HorizontalOffset / nListViewOffset) <= (m_pActivityListInfo.Count - 2))
                 {
-                    if ((scroll.HorizontalOffset / nListViewOffset) == (m_MonkList.Count - 2))
+                    if ((scroll.HorizontalOffset / nListViewOffset) == (m_pActivityListInfo.Count - 2))
                     {
                         Image img = new Image();
                         img.Source = new BitmapImage(new Uri("pack://SiteOfOrigin:,,,/Res/Page19/btn03.png"));

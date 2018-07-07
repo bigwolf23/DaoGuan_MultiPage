@@ -120,7 +120,6 @@
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <Rectangle Fill="#FFF4F4F5" Height="20" Stroke="Black" Width="270"/>
         </ListView>
         <Image x:Name="NewsBackground_Img" Margin="601,0,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page42/news.png" Stretch="Fill" Visibility="Visible" Height="159" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Button x:Name="UpPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="1240,504,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="UpPage_Button_Click_1" Visibility="Visible">
