@@ -9,7 +9,7 @@
 	Title="MainPage">
 
     <Grid>
-        <Image Name ="Main_Page_Background_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page19/bg.png" Stretch="Fill" Grid.ColumnSpan="2" Unloaded="Image_Unloaded"/>
+        <Image Name ="Main_Page_Background_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page19/bg.png" Stretch="Fill" Unloaded="Image_Unloaded" Height="1139" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1424"/>
         <Border x:Name="SettingBorder_DoubleClick_Copy" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="100" Margin="46,40,0,0" VerticalAlignment="Top" Width="319" MouseDown="SettingBorder_DoubleClick_MouseDown" Opacity="100">
             <Border.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/SfgTitle.png" Stretch="Fill"/>

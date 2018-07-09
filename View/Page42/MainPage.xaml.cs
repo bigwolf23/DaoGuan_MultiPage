@@ -539,24 +539,6 @@ namespace RenJiCaoZuo.View.Page42
                     myActivityInfoQueue.Enqueue(pTemp);
                 }
 
-                //             foreach (ActivityInfoDatabody ActivityInfTemp in pWebData.m_pActivityInfoData.body.data)
-                //             {
-                //                 ActivityList pTemp = new ActivityList();
-                //                 pTemp.ActivityMain =  "1" + ActivityInfTemp.activity ;
-                //                 pTemp.ActivityMainDetail = "1" + ActivityInfTemp.detail;
-                //                 m_pActivityListInfo.Add(pTemp);
-                //                 myActivityInfoQueue.Enqueue(ActivityInfTemp.activity);
-                //             }
-                // 
-                //             foreach (ActivityInfoDatabody ActivityInfTemp in pWebData.m_pActivityInfoData.body.data)
-                //             {
-                //                 ActivityList pTemp = new ActivityList();
-                //                 pTemp.ActivityMain = "2" + ActivityInfTemp.activity;
-                //                 pTemp.ActivityMainDetail = "2" + ActivityInfTemp.detail;
-                //                 m_pActivityListInfo.Add(pTemp);
-                //                 myActivityInfoQueue.Enqueue(ActivityInfTemp.activity);
-                //             }
-
                 this.ActivityInfo_ListView.ItemsSource = m_pActivityListInfo.ToList();
             }
             catch (Exception ex){ }
@@ -854,7 +836,7 @@ namespace RenJiCaoZuo.View.Page42
                 ListViewAutomationPeer lvap = new ListViewAutomationPeer(ActivityInfo_ListView);
                 var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
                 var scroll = svap.Owner as ScrollViewer;
-                int nSelIndex = (int)scroll.ContentHorizontalOffset / 922;
+                int nSelIndex = (int)scroll.ContentHorizontalOffset / (int)scroll.ViewportWidth;
 
                 int n = 0;
                 foreach (ActivityList temp in m_pActivityListInfo)
@@ -901,7 +883,7 @@ namespace RenJiCaoZuo.View.Page42
                 var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
                 var scroll = svap.Owner as ScrollViewer;
                 double nListViewOffset = scroll.ViewportWidth;
-                if ((m_MonkList.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) >= 0)
+                if ((m_pActivityListInfo.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) >= 0)
                 {
                     if ((scroll.HorizontalOffset < nListViewOffset) ||
                         (scroll.HorizontalOffset / nListViewOffset) == 1)
@@ -934,9 +916,10 @@ namespace RenJiCaoZuo.View.Page42
                 var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
                 var scroll = svap.Owner as ScrollViewer;
                 double nListViewOffset = scroll.ViewportWidth;
-                if ((m_MonkList.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) <= (m_MonkList.Count - 2))
+                if ((m_pActivityListInfo.Count > 1) && 
+                    (scroll.HorizontalOffset / nListViewOffset) <= (m_pActivityListInfo.Count - 2))
                 {
-                    if ((scroll.HorizontalOffset / nListViewOffset) == (m_MonkList.Count - 2))
+                    if ((scroll.HorizontalOffset / nListViewOffset) == (m_pActivityListInfo.Count - 2))
                     {
                         Image img = new Image();
                         img.Source = new BitmapImage(new Uri("pack://SiteOfOrigin:,,,/Res/Page42/btn03.png"));
@@ -980,7 +963,6 @@ namespace RenJiCaoZuo.View.Page42
                     {
                         string strDetail = m_MonkinfoDetail[emp.MonkInfoIndex];
                         Introduction IntroductionWin = new Introduction(strDetail, 3);
-                        //IntroductionWin.Owner = ParentWindow;
                         IntroductionWin.ShowDialog();
                     }
                     MonkInfo_ListView.UnselectAll();
