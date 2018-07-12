@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RenJiCaoZuo"
-        Title="SettingWindow" Height="1055" Width="1874" OpacityMask="Black" 
+        Title="SettingWindow" Height="1024" Width="1920" OpacityMask="Black" 
       FontFamily="/Touch;component/#FZXingKai-S04S">
     <Grid>
         <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/confirm.png" Stretch="Fill"/>

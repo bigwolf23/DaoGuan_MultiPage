@@ -277,7 +277,7 @@ namespace RenJiCaoZuo.View.Page19
             }
             else
             {
-                Activity_MonkImage = "pack://SiteOfOrigin:,,,/Res/Page19/zxgd.png";
+                Activity_MonkImage = "pack://SiteOfOrigin:,,,/Res/Page19/hdxx.png";
             }
             Uri ImageFilePathUri = new Uri(Activity_MonkImage);
             this.MonkOrActive_Intrduce_Pic.Source = new BitmapImage(ImageFilePathUri);
@@ -333,7 +333,7 @@ namespace RenJiCaoZuo.View.Page19
                 ActivityInfo_ListView.Visibility = Visibility.Hidden;
 
                 TemplInfo_TextBlock.Visibility = Visibility.Hidden;
-                //TempInfo_Image.Visibility = Visibility.Hidden;
+//                TempInfo_Image.Visibility = Visibility.Hidden;
                 ActivityAndMonk_Img.Visibility = Visibility.Hidden;
                 TempInfo_Detail.Visibility = Visibility.Hidden;
                 TempInfo_Intrduce.Visibility = Visibility.Hidden;
@@ -705,39 +705,51 @@ namespace RenJiCaoZuo.View.Page19
         //获取在线功德二维码
         private void setQRCodePic_Zxgdx()
         {
-            if (pWebData != null && 
-                pWebData.m_pqRCodeInfoData != null && 
-                pWebData.m_pqRCodeInfoData.body != null && 
-                pWebData.m_pqRCodeInfoData.body.data != null && 
-                pWebData.m_pqRCodeInfoData.body.data.url != null)
+            try
             {
-                if (pWebData.m_pqRCodeInfoData.body.data.url.Length > 0)
+                if (pWebData != null &&
+                    pWebData.m_pqRCodeInfoData != null &&
+                    pWebData.m_pqRCodeInfoData.body != null &&
+                    pWebData.m_pqRCodeInfoData.body.data != null &&
+                    pWebData.m_pqRCodeInfoData.body.data.url != null)
                 {
-                    Uri ImageFilePathUri = new Uri(pWebData.m_pqRCodeInfoData.body.data.url);
-                    QRCode_Image_Zxgdx.Source = new BitmapImage(ImageFilePathUri);
+                    if (pWebData.m_pqRCodeInfoData.body.data.url.Length > 0)
+                    {
+                        Uri ImageFilePathUri = new Uri(pWebData.m_pqRCodeInfoData.body.data.url);
+                        QRCode_Image_Zxgdx.Source = new BitmapImage(ImageFilePathUri);
+                    }
+
                 }
+            }
+            catch (Exception ex)
+            {
 
             }
-
         }
 
         //获取关注公众号二维码
         private void setQRCodePic_Gzgzh()
         {
-            if (pWebData != null &&
-                pWebData.m_pqRCodeInfoData != null &&
-                pWebData.m_pqRCodeInfoData.body != null &&
-                pWebData.m_pqRCodeInfoData.body.data != null &&
-                pWebData.m_pqRCodeInfoData.body.data.url != null)
+            try
             {
-                if (pWebData.m_pqRCodeInfoData.body.data.url.Length > 0)
+                if (pWebData != null &&
+                pWebData.m_pTempInfoData != null &&
+                pWebData.m_pTempInfoData.body != null &&
+                pWebData.m_pTempInfoData.body.data != null &&
+                pWebData.m_pTempInfoData.body.data.wcqr != null)
                 {
-                    Uri ImageFilePathUri = new Uri(pWebData.m_pqRCodeInfoData.body.data.url);
-                    QRCode_Image_Gzgzh.Source = new BitmapImage(ImageFilePathUri);
+                    if (pWebData.m_pTempInfoData.body.data.wcqr.Length > 0)
+                    {
+                        Uri ImageFilePathUri = new Uri(pWebData.m_pTempInfoData.body.data.wcqr);
+                        QRCode_Image_Gzgzh.Source = new BitmapImage(ImageFilePathUri);
+                    }
+
                 }
+            }
+            catch (Exception ex)
+            {
 
             }
-
         }
 
         //获取寺庙名字的图片
@@ -750,8 +762,11 @@ namespace RenJiCaoZuo.View.Page19
                 pWebData.m_pTempInfoData.body.data.url != null )
             {
                 Uri ImageFilePathUri = new Uri(pWebData.m_pTempInfoData.body.data.url);
-                //unused source
-                //TempInfo_Image.Source = new BitmapImage(ImageFilePathUri);
+
+                TempInfo_Image.Background = new ImageBrush
+                {
+                    ImageSource = new BitmapImage(ImageFilePathUri)
+                };
             }
 
         }

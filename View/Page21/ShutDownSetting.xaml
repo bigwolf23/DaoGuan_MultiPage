@@ -4,12 +4,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:local="clr-namespace:RenJiCaoZuo"
-        Title="ShutDownSetting" Height="1055" Width="1874" OpacityMask="Black"
+        Title="ShutDownSetting" Height="1024" Width="1920" OpacityMask="Black"
       FocusManager.FocusedElement="{Binding ElementName=ShuDownTime_Edit}" 
       FontFamily="/Touch;component/#FZXingKai-S04S">
     <Grid>
 
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/confirm.png" Stretch="Fill"/>
+        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/confirm.png" Stretch="Fill" HorizontalAlignment="Left" Width="1910"/>
         <Button x:Name="ResetTime_Button" Content="重置时间" HorizontalAlignment="Left" Height="80" Margin="698,437,0,0" VerticalAlignment="Top" Width="480" FontSize="40" Click="ResetTime_Button_Click" Background="#FF720600" Foreground="White"/>
         <Button x:Name="Return_Button" Content="返 回" HorizontalAlignment="Left" Height="80" Margin="698,551,0,0" VerticalAlignment="Top" Width="480" FontSize="40" Click="Return_Button_Click" Background="#FF720600" Foreground="White"/>
         <Label Content="自动关机设置" HorizontalAlignment="Left" Height="96" Margin="698,175,0,0" VerticalAlignment="Top" Width="480" FontSize="48" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0,10" BorderBrush="#FF720600" Foreground="#FF720600"/>

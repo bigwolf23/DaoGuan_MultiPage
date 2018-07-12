@@ -42,12 +42,13 @@ namespace RenJiCaoZuo
 
             setWindowsShutDown();
             InitializeComponent();
+
             string strDisplayInch = ConfigurationManager.AppSettings["DisplayInch"];
             WindowStartupLocation = WindowStartupLocation.Manual;
-            this.Left = +30;
+            this.Left = 0;
             //this.Left = -300;
-            //this.Top = 0;
-            this.Top = -300;
+            this.Top = 0;
+            //this.Top = -200;
             if (strDisplayInch == "Org")
             {
                 this.Source = new Uri(@"\View\PageOrg\MainPage.xaml", UriKind.Relative);
@@ -56,21 +57,23 @@ namespace RenJiCaoZuo
             }
             else if (strDisplayInch == "19")
             {
+                this.Height = 1024;
+                this.Width = 1280; 
                 this.Source = new Uri(@"\View\Page19\MainPage.xaml", UriKind.Relative);
-                this.Height = 1139;
-                this.Width = 1424;
+
             }
             else if (strDisplayInch == "19_2")
             {
+                this.Height = 1024;
+                this.Width = 1280; 
                 this.Source = new Uri(@"\View\Page19\MainPage_2.xaml", UriKind.Relative);
-                this.Height = 1139;
-                this.Width = 1424;
+
             }
             else if (strDisplayInch == "21")
             {
                 this.Source = new Uri(@"\View\Page21\MainPage.xaml", UriKind.Relative);
-                this.Height = 1055;
-                this.Width = 1874;
+                this.Height = 1024;
+                this.Width = 1920;
             }
             else if (strDisplayInch == "42")
             {

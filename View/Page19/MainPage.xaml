@@ -5,42 +5,44 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RenJiCaoZuo"
       OpacityMask="Black" Loaded="Page_Loaded" mc:Ignorable="d" 
-      d:DesignHeight="1139" d:DesignWidth="1424"
+      d:DesignHeight="1024" d:DesignWidth="1280"
 	Title="MainPage">
 
     <Grid>
-        <Image Name ="Main_Page_Background_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page19/bg.png" Stretch="Fill" Unloaded="Image_Unloaded" Height="1139" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1424"/>
-        <Border x:Name="SettingBorder_DoubleClick_Copy" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="100" Margin="46,40,0,0" VerticalAlignment="Top" Width="319" MouseDown="SettingBorder_DoubleClick_MouseDown" Opacity="100">
-            <Border.Background>
+        <Image Name ="Main_Page_Background_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page19/bg.png" Stretch="Fill" Unloaded="Image_Unloaded" Height="1024" VerticalAlignment="Top" />
+        <Border x:Name="TempInfo_Image" BorderBrush="Black" BorderThickness="0" 
+                HorizontalAlignment="Left" Height="100" Margin="46,44,0,0" 
+                VerticalAlignment="Top" Width="319" MouseDown="SettingBorder_DoubleClick_MouseDown" Opacity="100" >
+            <!--<Border.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/SfgTitle.png" Stretch="Fill"/>
-            </Border.Background>
+            </Border.Background>-->
         </Border>
 
         <!--<Image Name="Temple_Name_Title" Margin="43,10,1089,1035" Source="pack://SiteOfOrigin:,,,/Res/Page19/SfgTitle.png" Stretch="Fill"/>-->
 
-        <Image Name ="TempInfo_Intrduce" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="43,161,0,0"  Stretch="None" HorizontalAlignment="Left" Width="1344" Height="259" VerticalAlignment="Top" Grid.ColumnSpan="2" />
-        <Image Name ="Temple_Intrduce_Frame" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="45,439,0,0"  Stretch="None" Height="282" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1344" Grid.ColumnSpan="2"/>
-        <Image Name ="Donate_List_Frame_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page19/QrCodeFram.png" Margin="736,735,37,32" Stretch="Fill" Grid.ColumnSpan="2"/>
-        <Image Name="TempInfo_Intrduce_Pic" Margin="105,216,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/Ggjsbt.png" Stretch="None" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46"/>
+        <Image Name ="TempInfo_Intrduce" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="33,183,0,0"  Stretch="Fill" Height="219" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1216" />
+        <Image Name ="Temple_Intrduce_Frame" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="33,415,0,0"  Stretch="Fill" Height="223" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1216"/>
+        <Image Name ="Donate_List_Frame_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page19/QrCodeFram.png" Margin="642,661,0,0" Stretch="Fill" HorizontalAlignment="Left" Width="609" Height="353" VerticalAlignment="Top"/>
+        <Image Name="TempInfo_Intrduce_Pic" Margin="74,213,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/Ggjsbt.png" Stretch="Fill" Height="160" Width="40" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <Image x:Name="ActivityAndMonk_Img" Margin="74,407,542,536" Source="{Binding Activity_MonkImage}" Stretch="Fill" Visibility="Hidden"/>
-        <Image Name="QRCode_Title_Zxgdx" Margin="1008,805,0,146" Source="pack://SiteOfOrigin:,,,/Res/Page19/zxgd.png" Stretch="Fill" HorizontalAlignment="Left" Width="39"/>
-        <Image Name="QRCode_Image_Zxgdx" Margin="755,780,429,123" Stretch="Fill"/>
-        <Image Name="QRCode_Title_Gzgzh" Margin="1325,785,57,118" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh.png" Stretch="Fill"/>
-        <Image x:Name="QRCode_Image_Gzgzh" Margin="1090,780,112,123" Stretch="Fill"/>
+        <Image Name="QRCode_Title_Zxgdx" Margin="887,726,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/zxgd.png" Stretch="Fill" HorizontalAlignment="Left" Width="37" Height="153" VerticalAlignment="Top"/>
+        <Image Name="QRCode_Image_Zxgdx" Margin="667,704,0,0" Stretch="Fill" HorizontalAlignment="Left" Width="205" Height="205" VerticalAlignment="Top"/>
+        <Image Name="QRCode_Title_Gzgzh" Margin="1192,709,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" Height="200" VerticalAlignment="Top"/>
+        <Image x:Name="QRCode_Image_Gzgzh" Margin="968,704,0,0" Stretch="Fill" HorizontalAlignment="Left" Width="205" Height="205" VerticalAlignment="Top"/>
         <local:RoilingTextBlock x:Name="TemplInfo_TextBlock" 
-                                FontSize="25" Height="189" Width="Auto" 
-                                Margin="195,202,205,0" VerticalAlignment="Top" Grid.ColumnSpan="2" 
+                                FontSize="20" Height="171" Width="903" 
+                                Margin="160,208,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" 
                                 />
-        <Image x:Name="MonkOrActive_Intrduce_Pic" Margin="105,484,0,0" 
+        <Image x:Name="MonkOrActive_Intrduce_Pic" Margin="74,441,0,0" 
                Source="pack://SiteOfOrigin:,,,/Res/Page19/Dzjsbt.png" 
-               Stretch="Fill" Height="171" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
+               Stretch="Fill" Height="160" Width="40" VerticalAlignment="Top" HorizontalAlignment="Left" />
 
         <ListView Name="MonkInfo_ListView" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                  Height="207" VerticalAlignment="Top" FontFamily="/Touch;component/#FZXingKai-S04S"
-                  FontSize="18" BorderThickness="0" Background="Transparent" Margin="195,465,204,0" 
+                  Height="178" VerticalAlignment="Top" FontFamily="/Touch;component/#FZXingKai-S04S"
+                  FontSize="18" BorderThickness="0" Background="Transparent" Margin="160,438,0,0" 
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="False" 
                   Cursor="None" IsEnabled="True" BorderBrush="Transparent" Visibility="Visible"
-                  SelectionChanged="MonkInfo_ListView_SelectionChanged">
+                  SelectionChanged="MonkInfo_ListView_SelectionChanged" HorizontalAlignment="Left" Width="903">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -53,7 +55,7 @@
                         <Image Source="{Binding MonkInfoImage}" 
                                HorizontalAlignment="Left" 
                                VerticalAlignment="Top" 
-                               Width="200" Height="200" 
+                               Width="180" Height="180" 
                                StretchDirection="Both" 
                                ScrollViewer.VerticalScrollBarVisibility="Hidden" 
                                ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
@@ -65,9 +67,9 @@
                                         TextTrimming="CharacterEllipsis" 
                                         TextAlignment="Left" 
                                         VerticalAlignment="Top" 
-                                        Width="790" TextWrapping="Wrap" 
+                                        Width="691" TextWrapping="Wrap" 
                                         FontFamily="/Touch;component/#FZXingKai-S04S"
-                                        FontSize="30" Background="Transparent" 
+                                        FontSize="25" Background="Transparent" 
                                         Foreground="#FFA01E1E" >
                                 </TextBlock>
                                 <TextBlock x:Name="MyWipedText" 
@@ -76,20 +78,20 @@
                                        Margin="0,0,0,0" 
                                        TextAlignment="Left" 
                                        VerticalAlignment="Top" 
-                                       Width="790" Height="Auto" 
+                                       Width="691" Height="Auto" 
                                        TextWrapping="Wrap" 
                                        FontFamily="/Touch;component/#FZXingKai-S04S"
-                                       FontSize="25" Background="Transparent" >
+                                       FontSize="20" Background="Transparent" >
                                 </TextBlock>
                                 <TextBlock Text="{Binding MonkInfoIndex}" 
                                            Margin="0,0,0,0" 
                                            TextTrimming="CharacterEllipsis" 
                                            TextAlignment="Left" 
                                            VerticalAlignment="Top" 
-                                           Width="790" 
+                                           Width="691" 
                                            TextWrapping="Wrap" 
                                            FontFamily="/Touch;component/#FZXingKai-S04S" 
-                                           FontSize="25" Background="Transparent" Visibility="Hidden"></TextBlock>
+                                           FontSize="20" Background="Transparent" Visibility="Hidden"></TextBlock>
                             </StackPanel>
 
                         </ScrollViewer>
@@ -101,11 +103,11 @@
         <ListView Name="ActivityInfo_ListView" Visibility="Visible" 
                   ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                   FontFamily="/Touch;component/#FZXingKai-S04S"
-                  FontSize="25" BorderThickness="0" 
-                  Background="Transparent" Margin="195,465,0,464" 
+                  FontSize="25" BorderThickness="0" Width="903" 
+                  Background="Transparent" Margin="160,438,0,409" 
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                   ScrollViewer.CanContentScroll="False" Cursor="None" 
-                  IsEnabled="True" BorderBrush="Transparent" HorizontalAlignment="Left" Width="1025">
+                  IsEnabled="True" BorderBrush="Transparent" HorizontalAlignment="Left">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -114,33 +116,33 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Orientation="Horizontal" Margin="0,5,0,5" DataContext="{Binding}" Background="Transparent" VerticalAlignment="Center">
-                        <TextBox Text="{Binding ActivityMain}" IsReadOnly="True" Height="200" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="1021" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="25" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" TextWrapping="Wrap" ></TextBox>
+                        <TextBox Text="{Binding ActivityMain}" IsReadOnly="True" Height="200" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="899" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="25" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" TextWrapping="Wrap" ></TextBox>
                         <TextBox Text="{Binding ActivityMainDetail}" IsReadOnly="True" Height="0" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="0" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="25" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" ></TextBox>
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Image x:Name="NewsBackground_Img" Margin="601,0,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/news.png" Stretch="Fill" Visibility="Visible" Height="159" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Button x:Name="UpPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="1240,504,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="UpPage_Button_Click_1" Visibility="Visible">
+        <Image x:Name="NewsBackground_Img" Margin="487,12,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/news.png" Stretch="Fill" Visibility="Visible" Height="133" VerticalAlignment="Top" HorizontalAlignment="Left" Width="783"/>
+        <Button x:Name="UpPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="1096,463,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="UpPage_Button_Click_1" Visibility="Visible">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn01.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
-        <Button x:Name="DownPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="1240,584,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="DownPage_Button_Click" Visibility="Visible">
+        <Button x:Name="DownPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="1096,539,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="DownPage_Button_Click" Visibility="Visible">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn03.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
-        <Image Name="Temple_Name_Title" Margin="0,0,214,48" Source="pack://SiteOfOrigin:,,,/Res/Page19/logo.png" Stretch="Fill" HorizontalAlignment="Right" Width="270" Height="46" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
+        <Image Name="Temple_Name_Title" Margin="814,942,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/logo.png" Stretch="Fill" HorizontalAlignment="Left" Width="249" Height="53" VerticalAlignment="Top"/>
 
-        <Button x:Name="TempInfo_Detail" Content="" HorizontalAlignment="Left" Margin="1240,274,0,0" Width="120" RenderTransformOrigin="0.473,0.08" Click="TemplInfo_Detail_Click" Height="44" VerticalAlignment="Top">
+        <Button x:Name="TempInfo_Detail" Content="" HorizontalAlignment="Left" Margin="1096,266,0,0" Width="120" RenderTransformOrigin="0.473,0.08" Click="TemplInfo_Detail_Click" Height="48" VerticalAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
         <!--</ScrollViewer>-->
         <Label x:Name="ActivityInfo_Label" 
-               Height="50" Margin="668,55,54,0" 
+               Height="50" Margin="570,55,0,0" 
                VerticalAlignment="Top" 
                ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                FontWeight="Medium" 
@@ -148,21 +150,21 @@
                Style="{DynamicResource 'FZXKJW'}" FontSize="25" 
                Foreground="#FFDFAA00" VerticalContentAlignment="Center" 
                MouseDoubleClick="ActivityInfo_Label_MouseDoubleClick" 
-               MouseUp="ActivityInfo_Label_MouseUp" Visibility="Visible" Grid.ColumnSpan="2"/>
-        <Image x:Name="Donate_Title_Pic" Margin="44,709,716,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gdlf.png" Stretch="Fill" Height="70" VerticalAlignment="Top"/>
+               MouseUp="ActivityInfo_Label_MouseUp" Visibility="Visible" HorizontalAlignment="Left" Width="650"/>
+        <Image x:Name="Donate_Title_Pic" Margin="31,637,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gdlf.png" Stretch="Fill" Height="56" VerticalAlignment="Top" HorizontalAlignment="Left" Width="606"/>
 
-        <StackPanel Orientation="Vertical" Margin="43,775,717,32" DataContext="{Binding}" Background="#FF720600" Style="{DynamicResource FZXKJW}" >
+        <StackPanel Orientation="Vertical" Margin="31,687,0,0" DataContext="{Binding}" Background="#FF720600" Style="{DynamicResource FZXKJW}" Height="327" VerticalAlignment="Top" HorizontalAlignment="Left" Width="606" >
             <StackPanel Orientation="Horizontal" Height="35" Margin="12,0,10,0" DataContext="{Binding}" Background="#FF720600" VerticalAlignment="Center" >
-                <TextBox x:Name="HouseName" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="252" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold"/>
-                <TextBox x:Name="HousepayTypeName" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="202" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold" />
-                <TextBox x:Name="Houseamount" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="152" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Margin="0,2,0,7" Foreground="#FFDFAA00" FontWeight="Bold"/>
+                <TextBox x:Name="HouseName" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="248" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold"/>
+                <TextBox x:Name="HousepayTypeName" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="200" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold" />
+                <TextBox x:Name="Houseamount" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="138" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Margin="0,2,0,7" Foreground="#FFDFAA00" FontWeight="Bold"/>
             </StackPanel>
             <Line xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
                         X1="25" Y1="1"  
-                        X2="640" Y2="1"  
+                        X2="590" Y2="1"  
                         Stroke="#FFDFAA00" StrokeDashArray="2, 2"  
                         StrokeThickness="2" />
-            <ListView x:Name="DonateInfo_List" Height="248" Margin="10,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="18" BorderThickness="0" Background="#FF720600" IsEnabled="True">
+            <ListView x:Name="DonateInfo_List" Height="276" Margin="10,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="18" BorderThickness="0" Background="#FF720600" IsEnabled="True">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel/>
@@ -184,21 +186,31 @@
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
-        <Button x:Name="ActivityInfo_Next_Button" Visibility="Visible" HorizontalAlignment="Left" Height="45" Margin="1240,584,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="ActivityInfo_Next_Button_Click">
+        <Button x:Name="ActivityInfo_Next_Button" Visibility="Visible" HorizontalAlignment="Left" Height="45" Margin="1096,539,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="ActivityInfo_Next_Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn03.png" Stretch="Fill"/>
             </Button.Background>
 
         </Button>
-        <Button x:Name="ActivityInfo_Prev_Button" Visibility="Visible" HorizontalAlignment="Left" Height="45" Margin="1240,504,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="ActivityInfo_Prev_Button_Click">
+        <Button x:Name="ActivityInfo_Prev_Button" Visibility="Visible" HorizontalAlignment="Left" Height="45" Margin="1096,463,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="ActivityInfo_Prev_Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn01.png" Stretch="Fill"/>
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="559" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="43,145,37,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Hidden"/>
-        <Label Content="" Margin="760,0,56,99" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="15" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
-        <Label Content="" Margin="963,0,261,208" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5" Height="16" VerticalAlignment="Bottom">
+        <MediaElement x:Name="MediaPlay" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="579" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="40,53,40,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Hidden"/>
+        <Label Content="" Margin="667,924,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="553"/>
+        <Label Content="" Margin="840,821,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5" Height="12" VerticalAlignment="Top" HorizontalAlignment="Left" Width="205">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1.097" ScaleX="0.911"/>
+                    <SkewTransform AngleX="0.071"/>
+                    <RotateTransform Angle="-89.583"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Name="Seprate_Line2" Content="" HorizontalAlignment="Left" Height="14" Margin="34,521,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -208,7 +220,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Name="Seprate_Line2" Content="" HorizontalAlignment="Left" Height="14" Margin="70,563,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
+        <Label  Name="Seprate_Line1" Content="" HorizontalAlignment="Left" Height="14" Margin="44,288,0,0" VerticalAlignment="Top" Width="169" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -218,17 +230,6 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label  Name="Seprate_Line1" Content="" HorizontalAlignment="Right" Height="14" Margin="0,290,1177,0" VerticalAlignment="Top" Width="169" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-89.62"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Image x:Name ="Temple_Print_pic"  Source="pack://SiteOfOrigin:,,,/Res/Page19/Temple_Print.png" Stretch="Fill" Unloaded="Image_Unloaded" Margin="374,42,998,1051" RenderTransformOrigin="-1.51,-6.685"/>
 
 
     </Grid>

@@ -5,42 +5,42 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RenJiCaoZuo"
       OpacityMask="Black" Loaded="Page_Loaded" mc:Ignorable="d" 
-      d:DesignHeight="1055" d:DesignWidth="1874"
+      d:DesignHeight="1024" d:DesignWidth="1920"
 	Title="MainPage">
 
     <Grid>
-        <Image Name ="Main_Page_Background_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page21/bg.png" Stretch="Fill" Unloaded="Image_Unloaded"/>
-        <Border x:Name="SettingBorder_DoubleClick" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="100" Margin="358,45,0,0" VerticalAlignment="Top" Width="305" Opacity="100">
+        <Image Name ="Main_Page_Background_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page21/bg.png" Stretch="Fill" Unloaded="Image_Unloaded" HorizontalAlignment="Left" Width="1920"/>
+        <!--<Border x:Name="SettingBorder_DoubleClick" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="100" Margin="358,45,0,0" VerticalAlignment="Top" Width="305" Opacity="100">
             <Border.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page21/SfgTitle.png" Stretch="Fill"/>
             </Border.Background>
-        </Border>
+        </Border>-->
 
-        <Border x:Name="SettingBorder_DoubleClick_Copy" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="100" Margin="45,45,0,0" VerticalAlignment="Top" Width="305" MouseDown="SettingBorder_DoubleClick_MouseDown" Opacity="100">
-            <Border.Background>
+        <Border x:Name="TempInfo_Image" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="100" Margin="45,45,0,0" VerticalAlignment="Top" Width="305" MouseDown="SettingBorder_DoubleClick_MouseDown" Opacity="100">
+            <!--<Border.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page21/SfgSymbol.png" Stretch="Fill"/>
-            </Border.Background>
+            </Border.Background>-->
         </Border>
         <!--<Image Name="Temple_Name_Title" Margin="43,10,1089,1035" Source="pack://SiteOfOrigin:,,,/Res/Page21/SfgTitle.png" Stretch="Fill"/>-->
 
-        <Image Name ="TempInfo_Intrduce" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsFrame.png" Margin="39,172,39,640"  Stretch="Fill" />
-        <Image Name ="Temple_Intrduce_Frame" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsFrame.png" Margin="39,443,39,363"  Stretch="Fill"/>
-        <Image Name="TempInfo_Intrduce_Pic" Margin="105,216,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page21/Ggjsbt.png" Stretch="Fill" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46"/>
+        <Image Name ="TempInfo_Intrduce" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsFrame.png" Margin="63,163,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1796" Height="243" VerticalAlignment="Top" />
+        <Image Name ="Temple_Intrduce_Frame" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsFrame.png" Margin="63,425,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1796" Height="249" VerticalAlignment="Top"/>
+        <Image Name="TempInfo_Intrduce_Pic" Margin="129,207,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page21/Ggjsbt.png" Stretch="Fill" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46"/>
         <Image x:Name="ActivityAndMonk_Img" Margin="74,407,542,536" Source="{Binding Activity_MonkImage}" Stretch="Fill" Visibility="Hidden"/>
         <local:RoilingTextBlock x:Name="TemplInfo_TextBlock" 
-                                FontSize="25" Height="189" Width="Auto" 
-                                Margin="195,202,221,0" VerticalAlignment="Top" 
+                                FontSize="25" Height="189" Width="1458" 
+                                Margin="219,193,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" 
                                 />
-        <Image x:Name="MonkOrActive_Intrduce_Pic" Margin="105,484,0,0" 
+        <Image x:Name="MonkOrActive_Intrduce_Pic" Margin="129,466,0,0" 
                Source="pack://SiteOfOrigin:,,,/Res/Page21/Dzjsbt.png" 
                Stretch="Fill" Height="171" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
 
         <ListView Name="MonkInfo_ListView" ScrollViewer.VerticalScrollBarVisibility="Disabled"
                   Height="207" VerticalAlignment="Top" FontFamily="/Touch;component/#FZXingKai-S04S"
-                  FontSize="18" BorderThickness="0" Background="Transparent" Margin="195,465,221,0" 
+                  FontSize="18" BorderThickness="0" Background="Transparent" Margin="219,447,0,0" 
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="False" 
                   Cursor="None" IsEnabled="True" BorderBrush="Transparent" Visibility="Visible"
-                  SelectionChanged="MonkInfo_ListView_SelectionChanged">
+                  SelectionChanged="MonkInfo_ListView_SelectionChanged" HorizontalAlignment="Left" Width="1458">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -102,11 +102,11 @@
                   ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                   FontFamily="/Touch;component/#FZXingKai-S04S" 
                   FontSize="25" BorderThickness="0" 
-                  Background="Transparent" Margin="195,464,0,381" 
+                  Background="Transparent" Margin="219,446,0,0" 
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                   ScrollViewer.CanContentScroll="False" Cursor="None" 
                   IsEnabled="True" BorderBrush="Transparent" 
-                  HorizontalAlignment="Left" Width="1458">
+                  HorizontalAlignment="Left" Width="1458" Height="210" VerticalAlignment="Top">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -121,26 +121,26 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Image x:Name="NewsBackground_Img" Margin="668,0,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page21/news.png" Stretch="Fill" Visibility="Visible" Height="159" VerticalAlignment="Top"/>
-        <Button x:Name="UpPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="1675,504,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="UpPage_Button_Click_1" Visibility="Visible">
+        <Image x:Name="NewsBackground_Img" Margin="668,0,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page21/news.png" Stretch="Fill" Visibility="Visible" Height="159" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1215"/>
+        <Button x:Name="UpPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="1699,486,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="UpPage_Button_Click_1" Visibility="Visible">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page21/btn01.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
-        <Button x:Name="DownPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="1675,584,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="DownPage_Button_Click" Visibility="Visible">
+        <Button x:Name="DownPage_Button" Content="" HorizontalAlignment="Left" Height="45" Margin="1699,566,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="DownPage_Button_Click" Visibility="Visible">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page21/btn03.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
 
-        <Button x:Name="TempInfo_Detail" Content="" HorizontalAlignment="Left" Margin="1675,278,0,0" Width="120" RenderTransformOrigin="0.473,0.08" Click="TemplInfo_Detail_Click" Height="44" VerticalAlignment="Top">
+        <Button x:Name="TempInfo_Detail" Content="" HorizontalAlignment="Left" Margin="1699,269,0,0" Width="120" RenderTransformOrigin="0.473,0.08" Click="TemplInfo_Detail_Click" Height="44" VerticalAlignment="Top">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page21/btn.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
         <!--</ScrollViewer>-->
         <Label x:Name="ActivityInfo_Label" 
-               Height="50" Margin="756,55,54,0" 
+               Height="50" Margin="762,55,0,0" 
                VerticalAlignment="Top" 
                ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                FontWeight="Medium" 
@@ -148,10 +148,10 @@
                Style="{DynamicResource 'FZXKJW'}" FontSize="25" 
                Foreground="#FFDFAA00" VerticalContentAlignment="Center" 
                MouseDoubleClick="ActivityInfo_Label_MouseDoubleClick" 
-               MouseUp="ActivityInfo_Label_MouseUp" Visibility="Visible"/>
-        <Image x:Name="Donate_Title_Pic" Margin="250,707,971,0" Source="pack://SiteOfOrigin:,,,/Res/Page21/gdlf.png" Stretch="Fill" Height="70" VerticalAlignment="Top"/>
+               MouseUp="ActivityInfo_Label_MouseUp" Visibility="Visible" HorizontalAlignment="Left" Width="1042"/>
+        <Image x:Name="Donate_Title_Pic" Margin="250,677,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page21/gdlf.png" Stretch="Fill" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="653"/>
 
-        <StackPanel Orientation="Vertical" Margin="249,773,971,34" DataContext="{Binding}" Background="#FF720600" Style="{DynamicResource FZXKJW}" >
+        <StackPanel Orientation="Vertical" Margin="249,743,0,0" DataContext="{Binding}" Background="#FF720600" Style="{DynamicResource FZXKJW}" Height="257" VerticalAlignment="Top" HorizontalAlignment="Left" Width="654" >
             <StackPanel Orientation="Horizontal" Height="35" Margin="12,0,10,0" DataContext="{Binding}" Background="#FF720600" VerticalAlignment="Center" >
                 <TextBox x:Name="HouseName" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="252" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold"/>
                 <TextBox x:Name="HousepayTypeName" Text="" IsReadOnly="True" VerticalContentAlignment="Center" TextAlignment="Left" Width="202" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold" />
@@ -162,7 +162,7 @@
                         X2="640" Y2="1"  
                         Stroke="#FFDFAA00" StrokeDashArray="2, 2"  
                         StrokeThickness="2" />
-            <ListView x:Name="DonateInfo_List" Height="182" Margin="10,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="18" BorderThickness="0" Background="#FF720600" IsEnabled="True">
+            <ListView x:Name="DonateInfo_List" Height="210" Margin="10,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="18" BorderThickness="0" Background="#FF720600" IsEnabled="True">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel/>
@@ -184,44 +184,37 @@
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page21/btn.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
-        <Button x:Name="ActivityInfo_Next_Button" Visibility="Visible" HorizontalAlignment="Left" Height="45" Margin="1675,584,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="ActivityInfo_Next_Button_Click">
+        <Button x:Name="ActivityInfo_Next_Button" Visibility="Visible" HorizontalAlignment="Left" Height="45" Margin="1699,566,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="ActivityInfo_Next_Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page21/btn03.png" Stretch="Fill"/>
             </Button.Background>
 
         </Button>
-        <Button x:Name="ActivityInfo_Prev_Button" Visibility="Visible" HorizontalAlignment="Left" Height="45" Margin="1675,504,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="ActivityInfo_Prev_Button_Click">
+        <Button x:Name="ActivityInfo_Prev_Button" Visibility="Visible" HorizontalAlignment="Left" Height="45" Margin="1699,486,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.473,0.08" Click="ActivityInfo_Prev_Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page21/btn01.png" Stretch="Fill"/>
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="559" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="43,145,37,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Hidden"/>
-        <Grid Margin="966,726,311,41">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="49*"/>
-                <RowDefinition Height="23*"/>
-            </Grid.RowDefinitions>
-            <Image x:Name ="Donate_List_Frame_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page21/QrCodeFram.png" Stretch="Fill" Grid.RowSpan="2"/>
-            <Image x:Name="QRCode_Title_Zxgdx" Margin="256,35,0,6" Source="pack://SiteOfOrigin:,,,/Res/Page21/zxgd.png" Stretch="None" HorizontalAlignment="Left" Width="39"/>
-            <Image x:Name="QRCode_Image_Zxgdx" Margin="26,23,360,91" Stretch="Fill" Grid.RowSpan="2"/>
-            <Image x:Name="QRCode_Title_Gzgzh" Margin="545,28,20,82" Source="pack://SiteOfOrigin:,,,/Res/Page21/gzgzh.png" Stretch="None" Grid.RowSpan="2"/>
-            <Image x:Name="QRCode_Image_Gzgzh" Margin="332,23,69,91" Stretch="Fill" Grid.RowSpan="2"/>
-            <Image x:Name="Temple_Name_Title" Margin="0,0,149,12" Source="pack://SiteOfOrigin:,,,/Res/Page21/logo.png" Stretch="Fill" HorizontalAlignment="Right" Width="270" Height="46" VerticalAlignment="Bottom" Grid.Row="1"/>
-
-            <Label Content="" Margin="32,0,19,67" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="14" VerticalAlignment="Bottom" Grid.Row="1"/>
-            <Label Content="" Margin="229,0,220,64" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5" Height="14" VerticalAlignment="Bottom">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-89.62"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-        </Grid>
-        <Label Name="Seprate_Line2" Content="" HorizontalAlignment="Left" Height="14" Margin="70,563,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
+        <MediaElement x:Name="MediaPlay" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="613" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="43,55,37,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Hidden"/>
+        <Image x:Name ="Donate_List_Frame_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page21/QrCodeFram.png" Stretch="Fill" Height="296" VerticalAlignment="Bottom" Margin="966,0,311,24"/>
+        <Image x:Name="QRCode_Title_Zxgdx" Source="pack://SiteOfOrigin:,,,/Res/Page21/zxgd.png" Stretch="None" HorizontalAlignment="Left" Width="39" Margin="1237,758,0,0" Height="134" VerticalAlignment="Top"/>
+        <Image x:Name="QRCode_Image_Zxgdx" Stretch="Fill" Margin="1018,726,0,0" Height="190" VerticalAlignment="Top" HorizontalAlignment="Left" Width="190"/>
+        <Image x:Name="QRCode_Title_Gzgzh" Source="pack://SiteOfOrigin:,,,/Res/Page21/gzgzh.png" Stretch="None" Margin="1542,743,0,0" HorizontalAlignment="Left" Width="32" Height="173" VerticalAlignment="Top"/>
+        <Image x:Name="QRCode_Image_Gzgzh" Stretch="Fill" Margin="1318,726,0,0" HorizontalAlignment="Left" Width="190" Height="190" VerticalAlignment="Top"/>
+        <Image x:Name="Temple_Name_Title" Source="pack://SiteOfOrigin:,,,/Res/Page21/logo.png" Stretch="Fill" HorizontalAlignment="Left" Width="270" Height="46" VerticalAlignment="Top" Margin="1158,943,0,0"/>
+        <Label Content="" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="14" VerticalAlignment="Top" Margin="998,920,0,0" HorizontalAlignment="Left" Width="592"/>
+        <Label Content="" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5" Height="12" VerticalAlignment="Top" Margin="1208,829,0,0" HorizontalAlignment="Left" Width="166">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.99999999999999989" ScaleX="0.99999999999999989"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-89.62"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Name="Seprate_Line2" Content="" HorizontalAlignment="Left" Height="14" Margin="94,545,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -231,7 +224,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label  Name="Seprate_Line1" Content="" HorizontalAlignment="Right" Height="14" Margin="0,293,1625,0" VerticalAlignment="Top" Width="169" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
+        <Label  Name="Seprate_Line1" Content="" HorizontalAlignment="Left" Height="14" Margin="104,284,0,0" VerticalAlignment="Top" Width="169" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
