@@ -22,7 +22,7 @@
                                TextWrapping="Wrap"
                                Height="Auto"
                                ClipToBounds="True"
-                               Style="{DynamicResource FZXKJW}"
+                               Style="{DynamicResource WRYH}"
                                Canvas.Left="{Binding Left,Mode=OneWay}"
                                Canvas.Top="{Binding Top,Mode=OneWay}"
                                FontSize="{Binding FontSize,Mode=OneWay}"

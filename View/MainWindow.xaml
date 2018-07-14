@@ -6,7 +6,5 @@
                   ResizeMode="NoResize"
                   OpacityMask="Black" WindowStartupLocation="CenterScreen" 
                   ShowsNavigationUI="False" 
-                  
-                  Navigating="NavigationWindow_Navigating" >
-    
-</NavigationWindow>
+                  Background="White"
+                  Navigating="NavigationWindow_Navigating" AllowDrop="False" />

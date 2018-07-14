@@ -72,14 +72,14 @@ namespace RenJiCaoZuo
             else if (strDisplayInch == "21")
             {
                 this.Source = new Uri(@"\View\Page21\MainPage.xaml", UriKind.Relative);
-                this.Height = 1024;
+                this.Height = 1080;
                 this.Width = 1920;
             }
             else if (strDisplayInch == "42")
             {
                 this.Source = new Uri(@"\View\Page42\MainPage.xaml", UriKind.Relative);
-                this.Height = 3660;
-                this.Width = 2059;
+                this.Height = 1920;
+                this.Width = 1080;
             }
             else if (strDisplayInch == "50")
             {
@@ -132,14 +132,14 @@ namespace RenJiCaoZuo
                     }
                     break;
                 case NavigationMode.Back:
-                    NavigationService.GoBack();
+                    //NavigationService.GoBack();
                     break;
 
                 case NavigationMode.Forward:
-                    NavigationService.GoForward();
+                   // NavigationService.GoForward();
                     break;
                 case NavigationMode.Refresh:
-                    NavigationService.Refresh();
+                   // NavigationService.Refresh();
                     break;
             }
 

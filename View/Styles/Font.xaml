@@ -4,4 +4,7 @@
     <Style x:Key="FZXKJW">
         <Setter Property="TextElement.FontFamily" Value="/Touch;component/#FZXingKai-S04S"/>
     </Style>
+    <Style x:Key="WRYH">
+        <Setter Property="TextElement.FontFamily" Value="Microsoft YaHei"/>
+    </Style>
 </ResourceDictionary>

@@ -21,7 +21,15 @@
         </Setter>
         
         <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" 
+                                    Value="Transparent"/>
+                <Setter Property="BorderThickness" 
+                                    Value="0"/>
+                <!--<Setter Property="BorderBrush" 
+                                    Value="{StaticResource ResourceKey= ItemSelectedColor}"/>-->
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="False">
                 <Setter Property="Background" 
                                     Value="Transparent"/>
                 <Setter Property="BorderThickness" 
@@ -38,6 +46,8 @@
                 <Setter Property="Foreground"
                                     Value="Black"/>
             </Trigger>
+
+            
         </Style.Triggers>
 
     </Style>

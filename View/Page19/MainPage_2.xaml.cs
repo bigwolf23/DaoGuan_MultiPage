@@ -767,6 +767,7 @@ namespace RenJiCaoZuo.View.Page19
                 {
                     ImageSource = new BitmapImage(ImageFilePathUri)
                 };
+                
             }
 
         }

@@ -10,10 +10,12 @@
 
     <Grid>
         <Image Name ="Main_Page_Background_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page19/bg.png" Stretch="Fill" Unloaded="Image_Unloaded"/>
-        <Border x:Name="TempInfo_Image" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="100" Margin="46,40,0,0" VerticalAlignment="Top" Width="319" MouseDown="SettingBorder_DoubleClick_MouseDown" Opacity="100">
-            <!--<Border.Background>
-                <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/SfgTitle.png" Stretch="Fill"/>
-            </Border.Background>-->
+        <Border x:Name="TempInfo_Image" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" 
+                Height="100" Margin="32,40,0,0" VerticalAlignment="Top" Width="378" 
+                MouseDown="SettingBorder_DoubleClick_MouseDown" Opacity="100">
+            <Border.Background>
+                <ImageBrush Stretch="Fill"/>
+            </Border.Background>
         </Border>
         <!--<Image Name="Temple_Name_Title" Margin="43,10,1089,1035" Source="pack://SiteOfOrigin:,,,/Res/Page19/SfgTitle.png" Stretch="Fill"/>-->
 
@@ -38,7 +40,7 @@
                Stretch="Fill" Height="171" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
 
         <ListView Name="MonkInfo_ListView" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                  Height="188" VerticalAlignment="Top" FontFamily="/Touch;component/#FZXingKai-S04S"
+                  Height="188" VerticalAlignment="Top" FontFamily="Microsoft YaHei"
                   FontSize="18" BorderThickness="0" Background="Transparent" Margin="147,444,0,0" 
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="False" 
                   Cursor="None" IsEnabled="True" BorderBrush="Transparent" Visibility="Visible"
@@ -68,7 +70,7 @@
                                         TextAlignment="Left" 
                                         VerticalAlignment="Top" 
                                         Width="726" TextWrapping="Wrap" 
-                                        FontFamily="/Touch;component/#FZXingKai-S04S"
+                                        FontFamily="Microsoft YaHei"
                                         FontSize="30" Background="Transparent" 
                                         Foreground="#FFA01E1E" >
                                 </TextBlock>
@@ -80,7 +82,7 @@
                                        VerticalAlignment="Top" 
                                        Width="726" Height="Auto" 
                                        TextWrapping="Wrap" 
-                                       FontFamily="/Touch;component/#FZXingKai-S04S"
+                                       FontFamily="Microsoft YaHei"
                                        FontSize="25" Background="Transparent" >
                                 </TextBlock>
                                 <TextBlock Text="{Binding MonkInfoIndex}" 
@@ -90,7 +92,7 @@
                                            VerticalAlignment="Top" 
                                            Width="726" 
                                            TextWrapping="Wrap" 
-                                           FontFamily="/Touch;component/#FZXingKai-S04S" 
+                                           FontFamily="Microsoft YaHei" 
                                            FontSize="25" Background="Transparent" Visibility="Hidden"></TextBlock>
                             </StackPanel>
 
@@ -102,7 +104,7 @@
 
         <ListView Name="ActivityInfo_ListView" Visibility="Visible" 
                   ScrollViewer.VerticalScrollBarVisibility="Disabled" 
-                  FontFamily="/Touch;component/#FZXingKai-S04S"
+                  FontFamily="Microsoft YaHei"
                   FontSize="25" BorderThickness="0" 
                   Background="Transparent" Margin="147,444,0,392" 
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
@@ -116,8 +118,8 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel Orientation="Horizontal" Margin="0,5,0,5" DataContext="{Binding}" Background="Transparent" VerticalAlignment="Center">
-                        <TextBox Text="{Binding ActivityMain}" IsReadOnly="True" Height="200" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="934" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="25" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" TextWrapping="Wrap" ></TextBox>
-                        <TextBox Text="{Binding ActivityMainDetail}" IsReadOnly="True" Height="0" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="0" FontFamily="/Touch;component/#FZXingKai-S04S" FontSize="25" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" ></TextBox>
+                        <TextBox Text="{Binding ActivityMain}" IsReadOnly="True" Height="200" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="934" FontFamily="Microsoft YaHei" FontSize="25" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" TextWrapping="Wrap" ></TextBox>
+                        <TextBox Text="{Binding ActivityMainDetail}" IsReadOnly="True" Height="0" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="0" FontFamily="Microsoft YaHei" FontSize="25" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" ></TextBox>
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -198,7 +200,7 @@
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="559" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="31,73,35,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" Visibility="Hidden"/>
+        <MediaElement x:Name="MediaPlay"  Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="463" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="31,169,35,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
         <Label Content="" Margin="676,907,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="550"/>
         <Label Name="Seprate_Line2" Content="" HorizontalAlignment="Left" Height="14" Margin="30,533,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
