@@ -19,6 +19,9 @@
         </Border>
 
         <!--<Image Name="Temple_Name_Title" Margin="43,10,1089,1035" Source="pack://SiteOfOrigin:,,,/Res/Page19/SfgTitle.png" Stretch="Fill"/>-->
+        <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/QRcodeBackGround.png" Stretch="Fill" Height="373" VerticalAlignment="Top" Margin="627,651,0,0" HorizontalAlignment="Left" Width="640"/>
+        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="35,183,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1213" Height="219" VerticalAlignment="Top" />
+        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="36,414,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1213" Height="223" VerticalAlignment="Top"/>
 
         <Image Name ="TempInfo_Intrduce" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="33,183,0,0"  Stretch="Fill" Height="219" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1216" />
         <Image Name ="Temple_Intrduce_Frame" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="33,415,0,0"  Stretch="Fill" Height="223" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1216"/>
@@ -39,7 +42,7 @@
 
         <ListView Name="MonkInfo_ListView" ScrollViewer.VerticalScrollBarVisibility="Disabled"
                   Height="178" VerticalAlignment="Top" FontFamily="Microsoft YaHei"
-                  FontSize="18" BorderThickness="0" Background="Transparent" Margin="160,438,0,0" 
+                  FontSize="20" BorderThickness="0" Background="Transparent" Margin="160,438,0,0" 
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="False" 
                   Cursor="None" IsEnabled="True" BorderBrush="Transparent" Visibility="Visible"
                   SelectionChanged="MonkInfo_ListView_SelectionChanged" HorizontalAlignment="Left" Width="903">
@@ -69,7 +72,7 @@
                                         VerticalAlignment="Top" 
                                         Width="691" TextWrapping="Wrap" 
                                         FontFamily="Microsoft YaHei"
-                                        FontSize="25" Background="Transparent" 
+                                        FontSize="30" Background="Transparent" 
                                         Foreground="#FFA01E1E" >
                                 </TextBlock>
                                 <TextBlock x:Name="MyWipedText" 
@@ -103,7 +106,7 @@
         <ListView Name="ActivityInfo_ListView" Visibility="Visible" 
                   ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                   FontFamily="Microsoft YaHei"
-                  FontSize="25" BorderThickness="0" Width="903" 
+                  FontSize="20" BorderThickness="0" Width="903" 
                   Background="Transparent" Margin="160,438,0,409" 
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                   ScrollViewer.CanContentScroll="False" Cursor="None" 
@@ -118,10 +121,10 @@
                     <WrapPanel Orientation="Horizontal" Margin="0,5,0,5" DataContext="{Binding}" Background="Transparent" VerticalAlignment="Center">
                         <TextBox Text="{Binding ActivityMain}" IsReadOnly="True" Height="200" VerticalContentAlignment="Center" 
                                  TextAlignment="Left" VerticalAlignment="Center" Width="899" FontFamily="Microsoft YaHei"
-                                 FontSize="25" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" TextWrapping="Wrap" ></TextBox>
+                                 FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" TextWrapping="Wrap" ></TextBox>
                         <TextBox Text="{Binding ActivityMainDetail}" IsReadOnly="True" Height="0" VerticalContentAlignment="Center" 
                                  TextAlignment="Left" VerticalAlignment="Center" Width="0" FontFamily="Microsoft YaHei" 
-                                 FontSize="25" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" ></TextBox>
+                                 FontSize="20" Background="Transparent" HorizontalAlignment="Center" BorderThickness="0" ></TextBox>
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
