@@ -129,6 +129,10 @@ namespace RenJiCaoZuo.WebData
         //获取全部link的字符串长度
         public string getFullpathPicLink(string URLfromDatastruct)
         {
+            if ((URLfromDatastruct.Length - 2) <= 0)
+            {
+                return "";
+            }
             string str3 = URLfromDatastruct.Substring(2, (URLfromDatastruct.Length - 2));
             return getLinkByPic() + str3;
         }
@@ -156,12 +160,14 @@ namespace RenJiCaoZuo.WebData
                         m_pTempInfoData.body.data.detail = NoHTML(m_pTempInfoData.body.data.detail);
                     }
 
-                    if (m_pTempInfoData.body.data.url != null)
+                    if (m_pTempInfoData.body.data.url != null && m_pTempInfoData.body.data.url.Length > 0)
                     {
                         m_pTempInfoData.body.data.url = getFullpathPicLink(m_pTempInfoData.body.data.url);
                     }
 
-                    if (m_pTempInfoData.body.data != null && m_pTempInfoData.body.data.wcqr != null)
+                    if (m_pTempInfoData.body.data != null 
+					&& m_pTempInfoData.body.data.wcqr != null
+					&& m_pTempInfoData.body.data.wcqr.Length > 0)
                     {
                         m_pTempInfoData.body.data.wcqr = getFullpathPicLink(m_pTempInfoData.body.data.wcqr);
                     }
@@ -183,7 +189,7 @@ namespace RenJiCaoZuo.WebData
 
                 foreach (MonkInfoDatabody temp in m_pMonkInfoData.body.data)
                 {
-                    if (temp.url != null)
+                    if (temp.url != null && temp.url.Length > 0)
                     {
                         temp.url = getFullpathPicLink(temp.url);
                     }
@@ -270,7 +276,9 @@ namespace RenJiCaoZuo.WebData
             if (ssString.Length > 0)
             {
                 m_pqRCodeInfoData = JsonConvert.DeserializeObject<qRCodeInfo>(ssString);
-                if (m_pqRCodeInfoData.body.data != null && m_pqRCodeInfoData.body.data.url != null)
+                if (m_pqRCodeInfoData.body.data != null 
+                    && m_pqRCodeInfoData.body.data.url != null
+                    && m_pqRCodeInfoData.body.data.url.Length > 0)
                 {
                     m_pqRCodeInfoData.body.data.url = getFullpathPicLink(m_pqRCodeInfoData.body.data.url);
                 }

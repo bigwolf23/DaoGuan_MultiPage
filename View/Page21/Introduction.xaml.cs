@@ -83,16 +83,23 @@ namespace RenJiCaoZuo.View.Page21
             int nCount = 0;
             string sTempText = sText;
             string strtempa = Key;
-            while (true)
+            try
             {
-                int IndexofA = sTempText.IndexOf(strtempa);
-
-                if (IndexofA == -1)
+                while (true)
                 {
-                    break;
+                    int IndexofA = sTempText.IndexOf(strtempa);
+
+                    if (IndexofA == -1)
+                    {
+                        break;
+                    }
+                    sTempText = sTempText.Substring(IndexofA + Key.Length, sTempText.Length - IndexofA - Key.Length);
+                    nCount++;
+
                 }
-                sTempText = sTempText.Substring(IndexofA + Key.Length, sTempText.Length - IndexofA - Key.Length);
-                nCount++;
+            }
+            catch (Exception ex)
+            {
 
             }
             return nCount;
@@ -112,6 +119,34 @@ namespace RenJiCaoZuo.View.Page21
             sImage.HorizontalAlignment = HorizontalAlignment.Left;
             this.addControl.Children.Add(sImage);
         }
+
+
+        private string getPicKey(string Wenzi)
+        {
+            string picKey = "";
+            if (Wenzi.Contains("<img src=\"data:image/jpeg;base64,"))
+            {
+                picKey = "<img src=\"data:image/jpeg;base64,";
+            }
+            if (Wenzi.Contains("<img src=\"data:image/png;base64,"))
+            {
+                picKey = "<img src=\"data:image/png;base64,";
+            }
+            if (Wenzi.Contains("<img src=\"data:image/bmp;base64,"))
+            {
+                picKey = "<img src=\"data:image/bmp;base64,";
+            }
+            if (Wenzi.Contains("<img src=\"data:image/jpg;base64,"))
+            {
+                picKey = "<img src=\"data:image/jpg;base64,";
+            }
+
+            if (Wenzi.Contains("<img src=\"data:image/jpg;base64,"))
+            {
+                picKey = "<img src=\"data:image/jpg;base64,";
+            }
+            return picKey;
+        }
         /// <summary>
         /// 定时器回调函数
         /// </summary>
@@ -119,61 +154,74 @@ namespace RenJiCaoZuo.View.Page21
         /// <param name="e"></param>
         private void setAllTempleInfoText(string AllTempInfo)
         {
-            if (AllTempInfo == null)
+            try
             {
-                return;
-            }
-
-            if (AllTempInfo.Length < 0)
-            {
-                return;
-            }
-
-            string Wenzi = AllTempInfo;
-            
-
-            Wenzi = Wenzi.TrimStart((char[])"\n\r".ToCharArray());
-
-            string strtempa = "<img src=\"data:image/jpeg;base64,";
-            string strtempb = ">";
-            int nKeyLength = strtempa.Length;
-            int nFound = 0;
-            while(true)
-            {
-                int IndexofA = Wenzi.IndexOf(strtempa);
-                int IndexofB = Wenzi.IndexOf(strtempb);
-                string ImgString = null;
-                if (IndexofA == -1)
+                if (AllTempInfo == null)
                 {
-                    setTextControl(Wenzi);
-                    break;
+                    return;
                 }
 
-                if (IndexofA != -1 && IndexofB != -1)
+                if (AllTempInfo.Length < 0)
                 {
-                    if (IndexofA > 0)
+                    return;
+                }
+
+                string Wenzi = AllTempInfo;
+                Wenzi = Wenzi.TrimStart((char[])"\n\r".ToCharArray());
+
+                string strtempa = getPicKey(Wenzi);
+                string strtempb = ">";
+                int nKeyLength = strtempa.Length;
+                int nFound = 0;
+                while (true)
+                {
+
+                    int IndexofA = Wenzi.IndexOf(strtempa);
+                    int IndexofB = Wenzi.IndexOf(strtempb);
+                    string ImgString = null;
+
+                    if (IndexofA == 0)
                     {
-                        string WenziFirst = Wenzi.Substring(0, IndexofA);
-                        setTextControl(WenziFirst);
+                        setTextControl(Wenzi);
+                        break;
                     }
 
-                    ImgString = Wenzi.Substring(IndexofA, IndexofB - IndexofA - nKeyLength);
-                    Wenzi = Wenzi.Substring(IndexofB + 1, Wenzi.Length - IndexofB - 1);
+                    if (IndexofA == -1)
+                    {
+                        setTextControl(Wenzi);
+                        break;
+                    }
 
-                    nFound = IndexofB;
-                    seprateImg(ImgString);
+                    if (IndexofA != -1 && IndexofB != -1)
+                    {
+                        if (IndexofA > 0)
+                        {
+                            string WenziFirst = Wenzi.Substring(0, IndexofA);
+                            setTextControl(WenziFirst);
+                        }
+
+                        ImgString = Wenzi.Substring(IndexofA, IndexofB - IndexofA - nKeyLength);
+                        Wenzi = Wenzi.Substring(IndexofB + 1, Wenzi.Length - IndexofB - 1);
+
+                        nFound = IndexofB;
+                        seprateImg(ImgString, strtempa);
+                    }
+                    strtempa = getPicKey(Wenzi);
                 }
             }
-            
+            catch (Exception ex)
+            {
+
+            }
             
            
         }
 
-        private void seprateImg(string ImgString)
+        private void seprateImg(string ImgString,string picKey)
         {
             if (ImgString != null && ImgString.Length > 0)
             {
-                string strtempa = "<img src=\"data:image/jpeg;base64,";
+                string strtempa = picKey;
                 string strtempb = "\" ";
                 //string strtempb = "\" ";
                 int IndexofA = ImgString.IndexOf(strtempa);
@@ -237,7 +285,7 @@ namespace RenJiCaoZuo.View.Page21
             }
             catch (Exception ex)
             {
-                throw ex;
+
             }
             return null;
         }

@@ -758,7 +758,8 @@ namespace RenJiCaoZuo.View.Page21
                 pWebData.m_pTempInfoData != null &&
                 pWebData.m_pTempInfoData.body != null &&
                 pWebData.m_pTempInfoData.body.data != null &&
-                pWebData.m_pTempInfoData.body.data.url != null )
+                pWebData.m_pTempInfoData.body.data.url != null &&
+                pWebData.m_pTempInfoData.body.data.url.Length > 0)
             {
                 Uri ImageFilePathUri = new Uri(pWebData.m_pTempInfoData.body.data.url);
                 TempInfo_Image.Background = new ImageBrush
