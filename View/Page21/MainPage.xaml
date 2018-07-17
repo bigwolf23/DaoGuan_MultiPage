@@ -27,6 +27,8 @@
         <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="63,164,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1796" Height="243" VerticalAlignment="Top" />
         <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="63,438,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1796" Height="250" VerticalAlignment="Top"/>
 
+        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="219,462,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1458" Height="206" VerticalAlignment="Top" Opacity="0.01" />
+
         <Image Name ="TempInfo_Intrduce" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsFrame.png" Margin="63,164,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1796" Height="243" VerticalAlignment="Top" />
         <Image Name ="Temple_Intrduce_Frame" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsFrame.png" Margin="63,438,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1796" Height="250" VerticalAlignment="Top"/>
 
@@ -161,15 +163,15 @@
                 <TextBox x:Name="HouseName" Text="" IsReadOnly="True" VerticalContentAlignment="Bottom"
                          TextAlignment="Left" Width="252" FontFamily="/Touch;component/#FZXingKai-S04S" 
                          FontSize="25" Background="Transparent" HorizontalAlignment="Center" 
-                         BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold"/>
+                         BorderThickness="0" Foreground="Yellow" Margin="0,2,0,7" FontWeight="Bold"/>
                 <TextBox x:Name="HousepayTypeName" Text="" IsReadOnly="True" VerticalContentAlignment="Bottom" 
                          TextAlignment="Left" Width="202" FontFamily="/Touch;component/#FZXingKai-S04S"
                          FontSize="25" Background="Transparent" HorizontalAlignment="Center"
-                         BorderThickness="0" Foreground="#FFDFAA00" Margin="0,2,0,7" FontWeight="Bold" />
+                         BorderThickness="0" Foreground="Yellow" Margin="0,2,0,7" FontWeight="Bold" />
                 <TextBox x:Name="Houseamount" Text="" IsReadOnly="True" VerticalContentAlignment="Bottom" 
                          TextAlignment="Left" Width="108" FontFamily="/Touch;component/#FZXingKai-S04S" 
                          FontSize="25" Background="Transparent" HorizontalAlignment="Center" 
-                         BorderThickness="0" Margin="0,2,0,7" Foreground="#FFDFAA00" FontWeight="Bold"/>
+                         BorderThickness="0" Margin="0,2,0,7" Foreground="Yellow" FontWeight="Bold"/>
             </StackPanel>
             <Line xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
                         X1="50" Y1="1"  
@@ -188,9 +190,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Height="30" Margin="0,0,0,0" DataContext="{Binding}" Background="Transparent" VerticalAlignment="Center" Style="{DynamicResource FZXKJW}" >
-                            <TextBox Text="{Binding Name}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="252" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="#FFDFAA00" BorderThickness="0" />
-                            <TextBox Text="{Binding payTypeName}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="202" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="#FFDFAA00" BorderThickness="0" />
-                            <TextBox Text="{Binding amount}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="152" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center"  Foreground="#FFDFAA00" BorderThickness="0" />
+                            <TextBox Text="{Binding Name}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="252" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
+                            <TextBox Text="{Binding payTypeName}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="202" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
+                            <TextBox Text="{Binding amount}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="152" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center"  Foreground="Yellow" BorderThickness="0" />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -234,7 +236,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Border BorderBrush="Yellow" BorderThickness="5" HorizontalAlignment="Left" Height="273" Margin="74,777,0,0" VerticalAlignment="Top" Width="622"/>
+        <Border BorderBrush="#FF720600" BorderThickness="5" HorizontalAlignment="Left" Height="273" Margin="74,777,0,0" VerticalAlignment="Top" Width="622"/>
 
         <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/QRcodeBackGround.png" Stretch="Fill" Height="329" VerticalAlignment="Top" Margin="746,727,0,0" HorizontalAlignment="Left" Width="548"/>
         <Image x:Name ="Donate_List_Frame_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page21/QrCodeFram.png" Stretch="Fill" Height="316" VerticalAlignment="Top" Margin="756,734,0,0" HorizontalAlignment="Left" Width="529"/>

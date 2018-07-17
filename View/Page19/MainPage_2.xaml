@@ -19,8 +19,8 @@
         </Border>
         <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/QRcodeBackGround.png" Stretch="Fill" Margin="643,662,0,0" HorizontalAlignment="Left" Width="614" Height="356" VerticalAlignment="Top"/>
         <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/QRcodeBackGround.png" Stretch="Fill" Margin="20,663,0,0" HorizontalAlignment="Left" Width="614" Height="356" VerticalAlignment="Top"/>
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="35,171,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1210" Height="231" VerticalAlignment="Top" />
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="36,417,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1211" Height="241" VerticalAlignment="Top"/>
+        <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" Margin="35,171,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1210" Height="231" VerticalAlignment="Top" />
+        <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" Margin="36,417,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1211" Height="241" VerticalAlignment="Top"/>
 
         <Image Name ="TempInfo_Intrduce" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="32,169,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1215" Height="234" VerticalAlignment="Top" />
         <Image Name ="Temple_Intrduce_Frame" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="32,417,0,0"  Stretch="Fill" Height="241" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1215"/>
@@ -229,6 +229,7 @@
         <Image x:Name="Temple_Name_Title_Copy" Margin="195,939,0,0" Source="/Touch;component/logo1.png" Stretch="Fill" HorizontalAlignment="Left" Width="257" Height="54" VerticalAlignment="Top"/>
         <Image x:Name="QRCode_Title_Zxgdx" Margin="344,717,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/zxgd_2.png" Stretch="Fill" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="227"/>
         <Image x:Name="QRCode_Title_Gzgzh" Margin="955,717,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh_2.png" Stretch="Fill" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="227"/>
+        <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" Margin="155,444,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="934" Height="188" VerticalAlignment="Top" Opacity="0.01"/>
 
 
     </Grid>
