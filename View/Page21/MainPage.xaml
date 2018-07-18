@@ -24,10 +24,9 @@
             </Border.Background>
         </Border>
         <!--<Image Name="Temple_Name_Title" Margin="43,10,1089,1035" Source="pack://SiteOfOrigin:,,,/Res/Page21/SfgTitle.png" Stretch="Fill"/>-->
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="63,164,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1796" Height="243" VerticalAlignment="Top" />
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="63,438,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1796" Height="250" VerticalAlignment="Top"/>
+        <Image Name ="Temple_Intrduce_Back" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="63,164,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1796" Height="243" VerticalAlignment="Top" />
+        <Image Name ="Temple_Intrduce_Frame_Back" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="63,438,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1796" Height="250" VerticalAlignment="Top"/>
 
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="219,462,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1458" Height="206" VerticalAlignment="Top" Opacity="0.01" />
 
         <Image Name ="TempInfo_Intrduce" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsFrame.png" Margin="63,164,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1796" Height="243" VerticalAlignment="Top" />
         <Image Name ="Temple_Intrduce_Frame" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsFrame.png" Margin="63,438,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1796" Height="250" VerticalAlignment="Top"/>
@@ -156,7 +155,7 @@
                Foreground="#FFDFAA00" VerticalContentAlignment="Center" 
                MouseDoubleClick="ActivityInfo_Label_MouseDoubleClick" 
                MouseUp="ActivityInfo_Label_MouseUp" Visibility="Visible" HorizontalAlignment="Left" Width="1057"/>
-        <Image x:Name="Donate_Title_Pic" Margin="58,707,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page21/gdlf.png" Stretch="Fill" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="653"/>
+        <Image x:Name="Donate_Title_Pic" Margin="59,713,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page21/gdlf.png" Stretch="Fill" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="653"/>
 
         <StackPanel Orientation="Vertical" Margin="74,777,0,0" DataContext="{Binding}" Background="#FFE32523" Style="{DynamicResource FZXKJW}" Height="273" VerticalAlignment="Top" HorizontalAlignment="Left" Width="622" >
             <StackPanel Orientation="Horizontal" Height="53" Margin="40,0,28,0" DataContext="{Binding}" Background="#FFE32523" VerticalAlignment="Center" >
@@ -215,7 +214,7 @@
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay" Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="525" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="43,163,37,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+        <MediaElement x:Name="MediaPlay" Visibility="Visible" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="525" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="43,163,37,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
         <Label Name="Seprate_Line2" Content="" HorizontalAlignment="Left" Height="14" Margin="94,559,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -252,5 +251,6 @@
         <Image x:Name="QRCode_Title_Gzgzh" Source="pack://SiteOfOrigin:,,,/Res/Page21/gzgzh_2.png" Stretch="None" Margin="1614,788,0,0" HorizontalAlignment="Left" Width="223" Height="54" VerticalAlignment="Top"/>
         <Image x:Name="Temple_Name_Title_Copy" Source="pack://SiteOfOrigin:,,,/Res/Page21/logo.png" Stretch="Fill" HorizontalAlignment="Left" Width="271" Height="50" VerticalAlignment="Top" Margin="1479,971,0,0"/>
         <Image x:Name="QRCode_Image_Gzgzh" Stretch="Fill" Margin="1377,756,0,0" HorizontalAlignment="Left" Width="191" Height="190" VerticalAlignment="Top"/>
+        <Image x:Name="Ggjs_Page_Flow"  Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="219,462,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1458" Height="206" VerticalAlignment="Top" Opacity="0.01" />
     </Grid>
 </Page>

@@ -19,8 +19,8 @@
         </Border>
         <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/QRcodeBackGround.png" Stretch="Fill" Margin="643,662,0,0" HorizontalAlignment="Left" Width="614" Height="356" VerticalAlignment="Top"/>
         <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/QRcodeBackGround.png" Stretch="Fill" Margin="20,663,0,0" HorizontalAlignment="Left" Width="614" Height="356" VerticalAlignment="Top"/>
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" Margin="35,171,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1210" Height="231" VerticalAlignment="Top" />
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" Margin="36,417,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1211" Height="241" VerticalAlignment="Top"/>
+        <Image Name ="Temple_Intrduce_Back"  Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" Margin="35,171,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1210" Height="231" VerticalAlignment="Top" />
+        <Image Name ="Temple_Intrduce_Frame_Back"  Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" Margin="36,417,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1211" Height="241" VerticalAlignment="Top"/>
 
         <Image Name ="TempInfo_Intrduce" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="32,169,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1215" Height="234" VerticalAlignment="Top" />
         <Image Name ="Temple_Intrduce_Frame" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="32,417,0,0"  Stretch="Fill" Height="241" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1215"/>
@@ -138,7 +138,7 @@
                 <ImageBrush ImageSource="pack://SiteOfOrigin:,,,/Res/Page19/btn03.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
-        <Image Name="Temple_Name_Title" Margin="835,939,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/logo.png" Stretch="Fill" HorizontalAlignment="Left" Width="257" Height="54" VerticalAlignment="Top"/>
+        <Image Name="Temple_Name_Title" Margin="811,939,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/logo.png" Stretch="Fill" HorizontalAlignment="Left" Width="302" Height="54" VerticalAlignment="Top"/>
 
         <Button x:Name="TempInfo_Detail" Content="" HorizontalAlignment="Left" Margin="1104,262,0,0" Width="120" RenderTransformOrigin="0.473,0.08" Click="TemplInfo_Detail_Click" Height="44" VerticalAlignment="Top">
             <Button.Background>
@@ -203,7 +203,7 @@
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay"  Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="463" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="31,169,35,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+        <MediaElement x:Name="MediaPlay"  Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="488" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="35,169,35,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
         <Label Content="" Margin="680,907,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="550"/>
         <Label Name="Seprate_Line2" Content="" HorizontalAlignment="Left" Height="14" Margin="34,533,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
@@ -226,10 +226,10 @@
             </Label.RenderTransform>
         </Label>
         <Label Content="" Margin="58,907,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="549"/>
-        <Image x:Name="Temple_Name_Title_Copy" Margin="195,939,0,0" Source="/Touch;component/logo1.png" Stretch="Fill" HorizontalAlignment="Left" Width="257" Height="54" VerticalAlignment="Top"/>
-        <Image x:Name="QRCode_Title_Zxgdx" Margin="344,717,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/zxgd_2.png" Stretch="Fill" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="227"/>
-        <Image x:Name="QRCode_Title_Gzgzh" Margin="955,717,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh_2.png" Stretch="Fill" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="227"/>
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" Margin="155,444,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="934" Height="188" VerticalAlignment="Top" Opacity="0.01"/>
+        <Image x:Name="Temple_Name_Title_Copy" Margin="190,939,0,0" Source="/Touch;component/logo1.png" Stretch="Fill" HorizontalAlignment="Left" Width="301" Height="54" VerticalAlignment="Top"/>
+        <Image x:Name="QRCode_Title_Zxgdx" Margin="334,717,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/zxgd_2.png" Stretch="Fill" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="248"/>
+        <Image x:Name="QRCode_Title_Gzgzh" Margin="955,717,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh_2.png" Stretch="Fill" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="249"/>
+        <Image x:Name="Ggjs_Page_Flow" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" Margin="155,444,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="934" Height="188" VerticalAlignment="Top" Opacity="0.01"/>
 
 
     </Grid>

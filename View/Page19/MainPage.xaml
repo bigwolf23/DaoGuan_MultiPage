@@ -20,8 +20,8 @@
 
         <!--<Image Name="Temple_Name_Title" Margin="43,10,1089,1035" Source="pack://SiteOfOrigin:,,,/Res/Page19/SfgTitle.png" Stretch="Fill"/>-->
         <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/QRcodeBackGround.png" Stretch="Fill" Height="373" VerticalAlignment="Top" Margin="627,651,0,0" HorizontalAlignment="Left" Width="640"/>
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="35,183,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1213" Height="219" VerticalAlignment="Top" />
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="36,414,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1213" Height="223" VerticalAlignment="Top"/>
+        <Image Name ="Temple_Intrduce_Back" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="35,183,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1213" Height="219" VerticalAlignment="Top" />
+        <Image Name ="Temple_Intrduce_Frame_Back" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="36,414,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1213" Height="223" VerticalAlignment="Top"/>
 
         <Image Name ="TempInfo_Intrduce" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="33,183,0,0"  Stretch="Fill" Height="219" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1216" />
         <Image Name ="Temple_Intrduce_Frame" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsFrame.png" Margin="33,415,0,0"  Stretch="Fill" Height="223" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1216"/>
@@ -226,7 +226,7 @@
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay" Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="449" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="40,183,40,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+        <MediaElement x:Name="MediaPlay" Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="449" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="36,183,32,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
         <Label Content="" Margin="667,924,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="553"/>
         <Label Content="" Margin="840,821,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5" Height="12" VerticalAlignment="Top" HorizontalAlignment="Left" Width="205">
             <Label.RenderTransform>
@@ -259,7 +259,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="160,438,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="910" Height="178" VerticalAlignment="Top" Opacity="0.01"/>
+        <Image x:Name="Ggjs_Page_Flow" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="160,438,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="910" Height="178" VerticalAlignment="Top" Opacity="0.01"/>
 
 
 

@@ -342,7 +342,10 @@ namespace RenJiCaoZuo.View.Page19
                 this.MonkOrActive_Intrduce_Pic.Visibility = Visibility.Hidden;
                 Seprate_Line1.Visibility = Visibility.Hidden;
                 Seprate_Line2.Visibility = Visibility.Hidden;
+                Ggjs_Page_Flow.Visibility = Visibility.Hidden;
 
+                Temple_Intrduce_Back.Visibility = Visibility.Hidden;
+                Temple_Intrduce_Frame_Back.Visibility = Visibility.Hidden;
                 this.MediaPlay.Visibility = Visibility.Visible;
             }
 
