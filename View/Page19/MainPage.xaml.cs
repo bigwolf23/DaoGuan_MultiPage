@@ -76,6 +76,11 @@ namespace RenJiCaoZuo.View.Page19
         //显示法师ListView内容
         List<monkinfoDisp> m_MonkList = new List<monkinfoDisp>();
         private Dictionary<int, string> m_MonkinfoDetail = new Dictionary<int, string>();
+
+        Stack<monkinfoDisp> m_MonkStack1 = new Stack<monkinfoDisp>();
+        Stack<monkinfoDisp> m_MonkStack2 = new Stack<monkinfoDisp>();
+
+
         //显示活动横向list内容
         List<ActivityList> m_pActivityListInfo = new List<ActivityList>();
         string strMode = ConfigurationManager.AppSettings["FirstPageName"];
@@ -342,7 +347,7 @@ namespace RenJiCaoZuo.View.Page19
                 this.MonkOrActive_Intrduce_Pic.Visibility = Visibility.Hidden;
                 Seprate_Line1.Visibility = Visibility.Hidden;
                 Seprate_Line2.Visibility = Visibility.Hidden;
-                Ggjs_Page_Flow.Visibility = Visibility.Hidden;
+//                 Ggjs_Page_Flow.Visibility = Visibility.Hidden;
                 Temple_Intrduce_Back.Visibility = Visibility.Hidden;
                 Temple_Intrduce_Frame_Back.Visibility = Visibility.Hidden;
 
@@ -569,6 +574,11 @@ namespace RenJiCaoZuo.View.Page19
             {
                 if (myActivityInfoQueue.Count > 0)
                 {
+                    if (strMode == "1")
+                    {
+                        this.NewsBackground_Img.Visibility = Visibility.Visible;
+                        this.ActivityInfo_Label.Visibility = Visibility.Visible;
+                    }
                     ActivityList pTemp = myActivityInfoQueue.Dequeue();
                     string strDisp = pTemp.ActivityMain;
                     ActivityInfo_Label.Content = strDisp;
@@ -584,6 +594,11 @@ namespace RenJiCaoZuo.View.Page19
                         myActivityInfoQueue.Enqueue(pTemp);  // 把队列中派头的放到队尾
                     };
                     dispatcherTimerList.Start();
+                }
+                else
+                {
+                    this.NewsBackground_Img.Visibility = Visibility.Hidden;
+                    this.ActivityInfo_Label.Visibility = Visibility.Hidden;
                 }
             }
             catch (Exception ex) { }

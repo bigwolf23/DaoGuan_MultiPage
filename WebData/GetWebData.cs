@@ -158,6 +158,8 @@ namespace RenJiCaoZuo.WebData
                     if (m_pTempInfoData.body.data.detail != null)
                     {
                         m_pTempInfoData.body.data.detail = NoHTML(m_pTempInfoData.body.data.detail);
+                        m_pTempInfoData.body.data.detail = "  " + m_pTempInfoData.body.data.detail;
+
                     }
 
                     if (m_pTempInfoData.body.data.url != null && m_pTempInfoData.body.data.url.Length > 0)

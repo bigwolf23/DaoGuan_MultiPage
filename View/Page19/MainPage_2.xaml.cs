@@ -569,6 +569,11 @@ namespace RenJiCaoZuo.View.Page19
             {
                 if (myActivityInfoQueue.Count > 0)
                 {
+                    if (strMode == "1")
+                    {
+                        this.NewsBackground_Img.Visibility = Visibility.Visible;
+                        this.ActivityInfo_Label.Visibility = Visibility.Visible;
+                    }
                     ActivityList pTemp = myActivityInfoQueue.Dequeue();
                     string strDisp = pTemp.ActivityMain;
                     ActivityInfo_Label.Content = strDisp;
@@ -584,6 +589,11 @@ namespace RenJiCaoZuo.View.Page19
                         myActivityInfoQueue.Enqueue(pTemp);  // 把队列中派头的放到队尾
                     };
                     dispatcherTimerList.Start();
+                }
+                else
+                {
+                    this.NewsBackground_Img.Visibility = Visibility.Hidden ;
+                    this.ActivityInfo_Label.Visibility = Visibility.Hidden;
                 }
             }
             catch (Exception ex) { }

@@ -33,11 +33,21 @@
         <Image x:Name="QRCode_Image_Gzgzh" Margin="699,696,0,0" Stretch="Fill" HorizontalAlignment="Left" Width="210" Height="210" VerticalAlignment="Top"/>
         <Label x:Name="Zxgd_Prompt_Text" Content="微信、支付宝&#xA;     扫一扫" Margin="352,814,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" Style="{DynamicResource FZXKJW}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Height="89" VerticalAlignment="Top" HorizontalAlignment="Left" Width="217"/>
         <Label x:Name="Gzwm_Prompt_Text" Content="      扫码关注&#xA;官方微信公众号" Margin="952,814,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" Style="{DynamicResource FZXKJW}" Height="89" VerticalAlignment="Top" HorizontalAlignment="Left" Width="267"/>
-
-        <local:RoilingTextBlock x:Name="TemplInfo_TextBlock" 
+        <TextBox x:Name="TemplInfo_TextBlock" 
+               Height="173" Margin="155,197,0,652"  
+               VerticalAlignment="Center" 
+               ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+               FontWeight="Medium" 
+               TextOptions.TextHintingMode="Fixed" 
+               FontFamily="Microsoft YaHei" FontSize="20" 
+               Foreground="Black" VerticalContentAlignment="Center"
+               Visibility="Visible" HorizontalAlignment="Left" Width="934"
+               IsReadOnly="True"
+               TextWrapping="Wrap" Background="Transparent" BorderThickness="0" />
+        <!--<local:RoilingTextBlock x:Name="TemplInfo_TextBlock" 
                                 FontSize="20" Height="176" Width="934" 
                                 Margin="155,198,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" 
-                                />
+                                />-->
         <Image x:Name="MonkOrActive_Intrduce_Pic" Margin="69,454,0,0" 
                Source="pack://SiteOfOrigin:,,,/Res/Page19/Dzjsbt.png" 
                Stretch="Fill" Height="171" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
@@ -72,7 +82,7 @@
                                         TextTrimming="CharacterEllipsis" 
                                         TextAlignment="Left" 
                                         VerticalAlignment="Top" 
-                                        Width="726" TextWrapping="Wrap" 
+                                        Width="724" TextWrapping="Wrap" 
                                         FontFamily="Microsoft YaHei"
                                         FontSize="30" Background="Transparent" 
                                         Foreground="#FFA01E1E" >
@@ -83,7 +93,7 @@
                                        Margin="0,0,0,0" 
                                        TextAlignment="Left" 
                                        VerticalAlignment="Top" 
-                                       Width="726" Height="Auto" 
+                                       Width="724" Height="Auto" 
                                        TextWrapping="Wrap" 
                                        FontFamily="Microsoft YaHei"
                                        FontSize="20" Background="Transparent" >
@@ -93,7 +103,7 @@
                                            TextTrimming="CharacterEllipsis" 
                                            TextAlignment="Left" 
                                            VerticalAlignment="Top" 
-                                           Width="726" 
+                                           Width="724" 
                                            TextWrapping="Wrap" 
                                            FontFamily="Microsoft YaHei" 
                                            FontSize="20" Background="Transparent" Visibility="Hidden"></TextBlock>
@@ -203,7 +213,7 @@
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay"  Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="488" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="35,169,35,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+        <MediaElement x:Name="MediaPlay"  Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="488" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="10,169,10,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
         <Label Content="" Margin="680,907,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="550"/>
         <Label Name="Seprate_Line2" Content="" HorizontalAlignment="Left" Height="14" Margin="34,533,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
@@ -229,7 +239,7 @@
         <Image x:Name="Temple_Name_Title_Copy" Margin="190,939,0,0" Source="/Touch;component/logo1.png" Stretch="Fill" HorizontalAlignment="Left" Width="301" Height="54" VerticalAlignment="Top"/>
         <Image x:Name="QRCode_Title_Zxgdx" Margin="334,717,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/zxgd_2.png" Stretch="Fill" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="248"/>
         <Image x:Name="QRCode_Title_Gzgzh" Margin="955,717,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh_2.png" Stretch="Fill" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="249"/>
-        <Image x:Name="Ggjs_Page_Flow" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" Margin="155,444,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="934" Height="188" VerticalAlignment="Top" Opacity="0.01"/>
+        <Image x:Name="Ggjs_Page_Flow" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" Margin="155,444,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="934" Height="188" VerticalAlignment="Top" Opacity="0.01" Visibility="Hidden"/>
 
 
     </Grid>

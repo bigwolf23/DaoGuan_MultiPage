@@ -33,10 +33,18 @@
 
         <Image Name="TempInfo_Intrduce_Pic" Margin="129,205,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page21/Ggjsbt.png" Stretch="Fill" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46"/>
         <Image x:Name="ActivityAndMonk_Img" Margin="74,407,542,536" Source="{Binding Activity_MonkImage}" Stretch="Fill" Visibility="Hidden"/>
-        <local:RoilingTextBlock x:Name="TemplInfo_TextBlock" 
-                                FontSize="20" Height="Auto" Width="Auto" 
-                                Margin="219,191,243,700" 
-                                />
+        <TextBox x:Name="TemplInfo_TextBlock" 
+               Height="189" Margin="219,191,0,700"  
+               VerticalAlignment="Center" 
+               ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+               FontWeight="Medium" 
+               TextOptions.TextHintingMode="Fixed" 
+               FontFamily="Microsoft YaHei" FontSize="25" 
+               Foreground="Black" VerticalContentAlignment="Center"
+               Visibility="Visible" HorizontalAlignment="Left" Width="1458"
+               IsReadOnly="True"
+               TextWrapping="Wrap" Background="Transparent" BorderThickness="0" />
+
         <Image x:Name="MonkOrActive_Intrduce_Pic" Margin="129,480,0,0" 
                Source="pack://SiteOfOrigin:,,,/Res/Page21/Dzjsbt.png" 
                Stretch="Fill" Height="171" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
@@ -214,7 +222,7 @@
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay" Visibility="Visible" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="525" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="43,163,37,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+        <MediaElement x:Name="MediaPlay" Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="525" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="43,163,37,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
         <Label Name="Seprate_Line2" Content="" HorizontalAlignment="Left" Height="14" Margin="94,559,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -251,6 +259,6 @@
         <Image x:Name="QRCode_Title_Gzgzh" Source="pack://SiteOfOrigin:,,,/Res/Page21/gzgzh_2.png" Stretch="None" Margin="1614,788,0,0" HorizontalAlignment="Left" Width="223" Height="54" VerticalAlignment="Top"/>
         <Image x:Name="Temple_Name_Title_Copy" Source="pack://SiteOfOrigin:,,,/Res/Page21/logo.png" Stretch="Fill" HorizontalAlignment="Left" Width="271" Height="50" VerticalAlignment="Top" Margin="1479,971,0,0"/>
         <Image x:Name="QRCode_Image_Gzgzh" Stretch="Fill" Margin="1377,756,0,0" HorizontalAlignment="Left" Width="191" Height="190" VerticalAlignment="Top"/>
-        <Image x:Name="Ggjs_Page_Flow"  Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="219,462,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1458" Height="206" VerticalAlignment="Top" Opacity="0.01" />
+        <Image x:Name="Ggjs_Page_Flow"  Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="219,462,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1458" Height="206" VerticalAlignment="Top" Opacity="0.01" Visibility="Hidden" />
     </Grid>
 </Page>

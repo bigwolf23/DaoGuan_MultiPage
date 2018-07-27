@@ -75,7 +75,10 @@ namespace RenJiCaoZuo.View.Page19
             //sTextBlock1.TextOptions.TextHintingMode = TextHintingMode.Fixed;
             
             //sTextBlock1.Padding = "0,0,0,3";
-            this.addControl.Children.Add(sTextBlock1);
+            if (sText != @"NUll")
+            { 
+                this.addControl.Children.Add(sTextBlock1);
+            }
             
         }
         private int getReturnNumberByKey(string sText,string Key)

@@ -32,10 +32,21 @@
         <Image Name="QRCode_Image_Zxgdx" Margin="667,704,0,0" Stretch="Fill" HorizontalAlignment="Left" Width="205" Height="205" VerticalAlignment="Top"/>
         <Image Name="QRCode_Title_Gzgzh" Margin="1192,709,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" Height="200" VerticalAlignment="Top"/>
         <Image x:Name="QRCode_Image_Gzgzh" Margin="968,704,0,0" Stretch="Fill" HorizontalAlignment="Left" Width="205" Height="205" VerticalAlignment="Top"/>
-        <local:RoilingTextBlock x:Name="TemplInfo_TextBlock" 
+        <!--<local:RoilingTextBlock x:Name="TemplInfo_TextBlock" 
                                 FontSize="20" Height="171" Width="903" 
                                 Margin="160,208,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" 
-                                />
+                                />-->
+        <TextBox x:Name="TemplInfo_TextBlock" 
+               Height="173" Margin="160,206,0,644"  
+               VerticalAlignment="Center" 
+               ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+               FontWeight="Medium" 
+               TextOptions.TextHintingMode="Fixed" 
+               FontFamily="Microsoft YaHei" FontSize="20" 
+               Foreground="Black" VerticalContentAlignment="Center"
+               Visibility="Visible" HorizontalAlignment="Left" Width="903"
+               IsReadOnly="True"
+               TextWrapping="Wrap" Background="Transparent" BorderThickness="0" />
         <Image x:Name="MonkOrActive_Intrduce_Pic" Margin="74,441,0,0" 
                Source="pack://SiteOfOrigin:,,,/Res/Page19/Dzjsbt.png" 
                Stretch="Fill" Height="160" Width="40" VerticalAlignment="Top" HorizontalAlignment="Left" />
@@ -70,7 +81,7 @@
                                         TextTrimming="CharacterEllipsis" 
                                         TextAlignment="Left" 
                                         VerticalAlignment="Top" 
-                                        Width="691" TextWrapping="Wrap" 
+                                        Width="689" TextWrapping="Wrap" 
                                         FontFamily="Microsoft YaHei"
                                         FontSize="30" Background="Transparent" 
                                         Foreground="#FFA01E1E" >
@@ -81,7 +92,7 @@
                                        Margin="0,0,0,0" 
                                        TextAlignment="Left" 
                                        VerticalAlignment="Top" 
-                                       Width="691" Height="Auto" 
+                                       Width="689" Height="Auto" 
                                        TextWrapping="Wrap" 
                                        FontFamily="Microsoft YaHei"
                                        FontSize="20" Background="Transparent" >
@@ -91,7 +102,7 @@
                                            TextTrimming="CharacterEllipsis" 
                                            TextAlignment="Left" 
                                            VerticalAlignment="Top" 
-                                           Width="691" 
+                                           Width="689" 
                                            TextWrapping="Wrap" 
                                            FontFamily="Microsoft YaHei" 
                                            FontSize="20" Background="Transparent" Visibility="Hidden"></TextBlock>
@@ -226,7 +237,7 @@
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay" Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="449" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="36,183,32,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+        <MediaElement x:Name="MediaPlay" Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="463" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="12,170,11,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
         <Label Content="" Margin="667,924,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="553"/>
         <Label Content="" Margin="840,821,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5" Height="12" VerticalAlignment="Top" HorizontalAlignment="Left" Width="205">
             <Label.RenderTransform>
@@ -259,7 +270,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Image x:Name="Ggjs_Page_Flow" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="160,438,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="910" Height="178" VerticalAlignment="Top" Opacity="0.01"/>
+        <!--<Image x:Name="Ggjs_Page_Flow" Visibility="Hidden" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="160,438,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="910" Height="178" VerticalAlignment="Top" Opacity="0.01"/>-->
 
 
 
