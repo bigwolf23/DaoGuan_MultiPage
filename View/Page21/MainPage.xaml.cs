@@ -81,7 +81,10 @@ namespace RenJiCaoZuo.View.Page21
         Queue<PayListHistory> myPayQueue = new Queue<PayListHistory>();
         //显示法师ListView内容
         List<monkinfoDisp> m_MonkList = new List<monkinfoDisp>();
-        private Dictionary<int, string> m_MonkinfoDetail = new Dictionary<int, string>();
+        private List<string> m_MonkinfoDetail = new List<string>();
+
+        private string m_strMonkinfoDetail;
+        private string m_strActivityinfoDetail;
         //显示活动横向list内容
         List<ActivityList> m_pActivityListInfo = new List<ActivityList>();
         string strMode = ConfigurationManager.AppSettings["FirstPageName"];
@@ -500,9 +503,7 @@ namespace RenJiCaoZuo.View.Page21
                                 myPayQueue.Enqueue(myPayQueue.Dequeue());  // 把队列中派头的放到队尾
                                 this.DonateInfo_List.ItemsSource = myPayQueue.ToList();
                             }
-
                         }
-
                     };
                     dispatcherDonateTimerList.Start();
                 }
@@ -519,7 +520,6 @@ namespace RenJiCaoZuo.View.Page21
         {
             try
             {
- 
                 this.ActivityInfo_ListView.ItemsSource = m_pActivityListInfo.ToList();
                 if (pWebData == null ||
                     pWebData.m_pActivityInfoData == null || 
@@ -529,8 +529,14 @@ namespace RenJiCaoZuo.View.Page21
                     return;
                 }
 
+                int nIndex = 0;
                 foreach (ActivityInfoDatabody ActivityInfTemp in pWebData.m_pActivityInfoData.body.data)
                 {
+                    if (nIndex == 0)
+                    {
+                        m_strActivityinfoDetail = ActivityInfTemp.detail;
+                    }
+                    nIndex++;
                     ActivityList pTemp = new ActivityList();
                     pTemp.ActivityMain = ActivityInfTemp.activity;
                     pTemp.ActivityMainDetail = ActivityInfTemp.detail;
@@ -542,6 +548,9 @@ namespace RenJiCaoZuo.View.Page21
                 {
                     return;
                 }
+                //this.ActivityInfo_ListView.ItemsSource = null;
+                //this.ActivityInfo_ListView.ItemsSource = m_pActivityListInfo.ToList();
+
                 //             foreach (ActivityInfoDatabody ActivityInfTemp in pWebData.m_pActivityInfoData.body.data)
                 //             {
                 //                 ActivityList pTemp = new ActivityList();
@@ -644,9 +653,14 @@ namespace RenJiCaoZuo.View.Page21
                 {
                     return;
                 }
-
+                
                 foreach (MonkInfoDatabody MonkTemp in pWebData.m_pMonkInfoData.body.data)
                 {
+                    if(nIndex == 0)
+                    {
+                        //add the display monk information detail
+                        m_strMonkinfoDetail = MonkTemp.detail;
+                    }
                     nIndex++;
                     monkinfoDisp temp = new monkinfoDisp();
                     if (MonkTemp.info!=null)
@@ -665,7 +679,7 @@ namespace RenJiCaoZuo.View.Page21
                     temp.MonkInfoIndex = nIndex;
                     m_MonkList.Add(temp);
 
-                    m_MonkinfoDetail.Add(nIndex, MonkTemp.detail);
+                    m_MonkinfoDetail.Add(MonkTemp.detail);
                 }
 
                 ////Test Source
@@ -683,13 +697,14 @@ namespace RenJiCaoZuo.View.Page21
                 //    }
                 //    if (MonkTemp.name != null)
                 //    {
-                //        temp.MonkName = MonkTemp.name;
+                //        temp.MonkName = nIndex.ToString() + MonkTemp.name;
                 //    }
 
                 //    temp.MonkInfoIndex = nIndex;
                 //    m_MonkList.Add(temp);
 
-                //    m_MonkinfoDetail.Add(nIndex, MonkTemp.detail);
+                //    MonkTemp.detail = nIndex.ToString() + MonkTemp.detail;
+                //    m_MonkinfoDetail.Add(MonkTemp.detail);
                 //}
                 ////Test Source
     
@@ -721,20 +736,25 @@ namespace RenJiCaoZuo.View.Page21
         //获取在线功德二维码
         private void setQRCodePic_Zxgdx()
         {
-            if (pWebData != null && 
-                pWebData.m_pqRCodeInfoData != null && 
-                pWebData.m_pqRCodeInfoData.body != null && 
-                pWebData.m_pqRCodeInfoData.body.data != null && 
-                pWebData.m_pqRCodeInfoData.body.data.url != null)
+            try
             {
-                if (pWebData.m_pqRCodeInfoData.body.data.url.Length > 0)
+                if (pWebData != null &&
+                pWebData.m_pqRCodeInfoData != null &&
+                pWebData.m_pqRCodeInfoData.body != null &&
+                pWebData.m_pqRCodeInfoData.body.data != null &&
+                pWebData.m_pqRCodeInfoData.body.data.url != null)
                 {
-                    Uri ImageFilePathUri = new Uri(pWebData.m_pqRCodeInfoData.body.data.url);
-                    QRCode_Image_Zxgdx.Source = new BitmapImage(ImageFilePathUri);
+                    if (pWebData.m_pqRCodeInfoData.body.data.url.Length > 0)
+                    {
+                        Uri ImageFilePathUri = new Uri(pWebData.m_pqRCodeInfoData.body.data.url);
+                        QRCode_Image_Zxgdx.Source = new BitmapImage(ImageFilePathUri);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
 
             }
-
         }
 
         //获取关注公众号二维码
@@ -753,14 +773,11 @@ namespace RenJiCaoZuo.View.Page21
                         Uri ImageFilePathUri = new Uri(pWebData.m_pTempInfoData.body.data.wcqr);
                         QRCode_Image_Gzgzh.Source = new BitmapImage(ImageFilePathUri);
                     }
-
                 }
             }
             catch (Exception ex)
             {
-
             }
-
         }
 
         //获取寺庙名字的图片
@@ -779,9 +796,7 @@ namespace RenJiCaoZuo.View.Page21
                     ImageSource = new BitmapImage(ImageFilePathUri)
                 };
             }
-
         }
-
 
         //获取寺庙的基本信息
         private void setTempInfoData()
@@ -826,7 +841,8 @@ namespace RenJiCaoZuo.View.Page21
                 double nListViewOffset = scroll.ViewportWidth;
                 if ((m_MonkList.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) <= (m_MonkList.Count - 2))
                 {
-                    if ((scroll.HorizontalOffset / nListViewOffset) == (m_MonkList.Count - 2))
+                    int nPosOf = (int)(scroll.HorizontalOffset / nListViewOffset);
+                    if (nPosOf == (m_MonkList.Count - 2))
                     {
                         Image img = new Image();
                         img.Source = new BitmapImage(new Uri("pack://SiteOfOrigin:,,,/Res/Page21/btn03.png"));
@@ -836,6 +852,11 @@ namespace RenJiCaoZuo.View.Page21
                     Image img2 = new Image();
                     img2.Source = new BitmapImage(new Uri("pack://SiteOfOrigin:,,,/Res/Page21/btn02.png"));
                     this.UpPage_Button.Content = img2;
+
+                    if (nPosOf >=0 && (nPosOf) < m_MonkinfoDetail.Count())
+                    {
+                        m_strMonkinfoDetail = m_MonkinfoDetail[nPosOf+1];
+                    }
                     scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset + nListViewOffset);
                 }
             }
@@ -852,6 +873,7 @@ namespace RenJiCaoZuo.View.Page21
                 double nListViewOffset = scroll.ViewportWidth;
                 if ((m_MonkList.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) >= 0)
                 {
+                    int nPosOf = (int)(scroll.HorizontalOffset / nListViewOffset);
                     if ((scroll.HorizontalOffset < nListViewOffset) || 
                         (scroll.HorizontalOffset / nListViewOffset) == 1)
                     {
@@ -863,6 +885,12 @@ namespace RenJiCaoZuo.View.Page21
                     Image img2 = new Image();
                     img2.Source = new BitmapImage(new Uri(@"pack://SiteOfOrigin:,,,/Res/Page21/btn04.png"));
                     this.DownPage_Button.Content = img2;
+
+                    if (nPosOf >= 0 && (nPosOf - 1) >= 0)
+                    {
+                        m_strMonkinfoDetail = m_MonkinfoDetail[nPosOf - 1];
+                    }
+
                     scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset - nListViewOffset);
                 }
              }
@@ -927,6 +955,7 @@ namespace RenJiCaoZuo.View.Page21
                 double nListViewOffset = scroll.ViewportWidth;
                 if ((m_pActivityListInfo.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) >= 0)
                 {
+                    int nPosOf = (int)(scroll.HorizontalOffset / nListViewOffset);
                     if ((scroll.HorizontalOffset < nListViewOffset) ||
                         (scroll.HorizontalOffset / nListViewOffset) == 1)
                     {
@@ -935,6 +964,11 @@ namespace RenJiCaoZuo.View.Page21
                         this.ActivityInfo_Prev_Button.Content = img;
                     }
 
+                    if (nPosOf >= 0 && (nPosOf - 1) >= 0)
+                    {
+                        m_strActivityinfoDetail = m_pActivityListInfo[nPosOf - 1].ActivityMainDetail;
+                    }
+                    
                     Image img2 = new Image();
                     img2.Source = new BitmapImage(new Uri(@"pack://SiteOfOrigin:,,,/Res/Page21/btn04.png"));
                     this.ActivityInfo_Next_Button.Content = img2;
@@ -961,6 +995,7 @@ namespace RenJiCaoZuo.View.Page21
                 if ((m_pActivityListInfo.Count > 1) &&
                     (scroll.HorizontalOffset / nListViewOffset) <= (m_pActivityListInfo.Count - 2))
                 {
+                    int nPosOf = (int)(scroll.HorizontalOffset / nListViewOffset);
                     if ((scroll.HorizontalOffset / nListViewOffset) == (m_pActivityListInfo.Count - 2))
                     {
                         Image img = new Image();
@@ -968,6 +1003,10 @@ namespace RenJiCaoZuo.View.Page21
                         this.ActivityInfo_Next_Button.Content = img;
                     }
 
+                    if (nPosOf >= 0 && (nPosOf) < m_pActivityListInfo.Count())
+                    {
+                        m_strActivityinfoDetail = m_pActivityListInfo[nPosOf + 1].ActivityMainDetail;
+                    }
                     Image img2 = new Image();
                     img2.Source = new BitmapImage(new Uri("pack://SiteOfOrigin:,,,/Res/Page21/btn02.png"));
                     this.ActivityInfo_Prev_Button.Content = img2;
@@ -998,18 +1037,17 @@ namespace RenJiCaoZuo.View.Page21
         {
             try 
             {
-                monkinfoDisp emp = MonkInfo_ListView.SelectedItem as monkinfoDisp;
-                if (emp != null)
-                {
-                    if (m_MonkinfoDetail.ContainsKey(emp.MonkInfoIndex))
-                    {
-                        string strDetail = m_MonkinfoDetail[emp.MonkInfoIndex];
-                        Introduction IntroductionWin = new Introduction(strDetail, 3);
-                        //IntroductionWin.Owner = ParentWindow;
-                        IntroductionWin.ShowDialog();
-                    }
-                    MonkInfo_ListView.UnselectAll();
-                }
+                //monkinfoDisp emp = MonkInfo_ListView.SelectedItem as monkinfoDisp;
+                //if (emp != null)
+                //{
+                //    if (m_MonkinfoDetail.ContainsKey(emp.MonkInfoIndex))
+                //    {
+                //        string strDetail = m_MonkinfoDetail[emp.MonkInfoIndex];
+                //        Introduction IntroductionWin = new Introduction(strDetail, 3);
+                //        IntroductionWin.ShowDialog();
+                //    }
+                //    MonkInfo_ListView.UnselectAll();
+                //}
             }
             catch (Exception ex) { }
 
@@ -1021,6 +1059,22 @@ namespace RenJiCaoZuo.View.Page21
 
         }
 
-
+        private void Ggjs_Page_Flow_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (strMode == "1")
+                {
+                    Introduction IntroductionWin = new Introduction(m_strMonkinfoDetail, 3);
+                    IntroductionWin.ShowDialog();
+                }
+                else if (strMode == "2")
+                {
+                    Introduction IntroductionWin = new Introduction(m_strActivityinfoDetail, 2);
+                    IntroductionWin.ShowDialog();
+                }
+            }
+            catch (Exception ex) { }
+        }
     }
 }

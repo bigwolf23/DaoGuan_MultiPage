@@ -121,7 +121,7 @@
                   Background="Transparent" Margin="160,438,0,409" 
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                   ScrollViewer.CanContentScroll="False" Cursor="None" 
-                  IsEnabled="True" BorderBrush="Transparent" HorizontalAlignment="Left">
+                  IsEnabled="True" BorderBrush="Transparent" HorizontalAlignment="Left" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -270,7 +270,11 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <!--<Image x:Name="Ggjs_Page_Flow" Visibility="Hidden" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="160,438,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="910" Height="178" VerticalAlignment="Top" Opacity="0.01"/>-->
+        <Image x:Name="Ggjs_Page_Flow" Visibility="Visible" 
+               Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" 
+               Margin="160,438,0,0" Stretch="Fill" HorizontalAlignment="Left" 
+               Width="910" Height="178" VerticalAlignment="Top" 
+               Opacity="0.01" MouseLeftButtonUp="Ggjs_Page_Flow_MouseLeftButtonUp"/>
 
 
 

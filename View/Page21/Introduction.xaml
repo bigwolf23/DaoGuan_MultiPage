@@ -4,8 +4,7 @@
         Title="Introduction" Height="821" Width="1180"
         WindowStyle="None" AllowsTransparency="True" 
         ResizeMode="NoResize" OpacityMask="White" 
-        WindowStartupLocation="CenterOwner" Opacity="100"
-        FontFamily="/Touch;component/#FZXingKai-S04S">
+        WindowStartupLocation="CenterOwner" Opacity="100">
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>

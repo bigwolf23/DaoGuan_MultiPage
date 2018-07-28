@@ -239,7 +239,11 @@
         <Image x:Name="Temple_Name_Title_Copy" Margin="190,939,0,0" Source="/Touch;component/logo1.png" Stretch="Fill" HorizontalAlignment="Left" Width="301" Height="54" VerticalAlignment="Top"/>
         <Image x:Name="QRCode_Title_Zxgdx" Margin="334,717,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/zxgd_2.png" Stretch="Fill" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="248"/>
         <Image x:Name="QRCode_Title_Gzgzh" Margin="955,717,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh_2.png" Stretch="Fill" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="249"/>
-        <Image x:Name="Ggjs_Page_Flow" Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" Margin="155,444,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="934" Height="188" VerticalAlignment="Top" Opacity="0.01" Visibility="Hidden"/>
+        <Image x:Name="Ggjs_Page_Flow" 
+               Source="pack://SiteOfOrigin:,,,/Res/Page19/GgjsBackGround.png" 
+               Margin="155,444,0,0"  Stretch="Fill" HorizontalAlignment="Left" 
+               Width="934" Height="188" VerticalAlignment="Top" 
+               Opacity="0.01" Visibility="Visible"  MouseLeftButtonUp="Ggjs_Page_Flow_MouseLeftButtonUp"/>
 
 
     </Grid>
