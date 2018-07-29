@@ -57,7 +57,7 @@ namespace RenJiCaoZuo.View.Page42
             sTextBlock1.VerticalAlignment = VerticalAlignment.Top;
             //sTextBlock1.Margin =  "32,10,0,0";
             //sTextBlock1.FontWeight = 18;
-            int nFontCollum = 59;
+            int nFontCollum = 28;
             sTextBlock1.FontSize = 18;
             sTextBlock1.LineHeight = 27;
             sTextBlock1.Width = nFontCollum * sTextBlock1.FontSize;
@@ -75,16 +75,19 @@ namespace RenJiCaoZuo.View.Page42
             //sTextBlock1.TextOptions.TextHintingMode = TextHintingMode.Fixed;
             
             //sTextBlock1.Padding = "0,0,0,3";
-            this.addControl.Children.Add(sTextBlock1);
+            if (sText != @"NUll")
+            {
+                this.addControl.Children.Add(sTextBlock1);
+            }
             
         }
-
         private int getReturnNumberByKey(string sText,string Key)
         {
             int nCount = 0;
-            try{
-                string sTempText = sText;
-                string strtempa = Key;
+            string sTempText = sText;
+            string strtempa = Key;
+            try
+            {
                 while (true)
                 {
                     int IndexofA = sTempText.IndexOf(strtempa);
@@ -104,13 +107,11 @@ namespace RenJiCaoZuo.View.Page42
             }
             return nCount;
         }
-
         private int getReturnNumber(string sText)
         {
             int nCount = getReturnNumberByKey(sText, "\r\n") + getReturnNumberByKey(sText, "\n\r"); ;
             return nCount;
         }
-
         private void setImgControl(BitmapImage Pic_img)
         {
             Image sImage = new Image();
@@ -142,9 +143,13 @@ namespace RenJiCaoZuo.View.Page42
             {
                 picKey = "<img src=\"data:image/jpg;base64,";
             }
+
+            if (Wenzi.Contains("<img src=\"data:image/jpg;base64,"))
+            {
+                picKey = "<img src=\"data:image/jpg;base64,";
+            }
             return picKey;
         }
-
         /// <summary>
         /// 定时器回调函数
         /// </summary>
@@ -211,7 +216,8 @@ namespace RenJiCaoZuo.View.Page42
             {
 
             }
-          
+            
+           
         }
 
         private void seprateImg(string ImgString,string picKey)

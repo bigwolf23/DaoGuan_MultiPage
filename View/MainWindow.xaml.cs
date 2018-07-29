@@ -83,13 +83,10 @@ namespace RenJiCaoZuo
             }
             else if (strDisplayInch == "50")
             {
-                this.Source = new Uri(@"\View\Page50\MainPage.xaml", UriKind.Relative);
-                this.Height = 1024;
-                this.Width = 1280;
+                this.Source = new Uri(@"\View\Page19\MainPage.xaml", UriKind.Relative);
+                this.Height = 1080;
+                this.Width = 1920;
             }
-
-
-
         }
 
         private void setWindowsShutDown()

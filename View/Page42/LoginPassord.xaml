@@ -4,16 +4,15 @@
           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
           xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
           xmlns:local="clr-namespace:RenJiCaoZuo"
-        Title="LoginPassord" Height="1139" Width="1424" 
-        OpacityMask="Black" FocusManager.FocusedElement="{Binding ElementName=Password_Edit}">
-
-
+        Title="LoginPassord" Height="1920" Width="1080" 
+        OpacityMask="Black" FocusManager.FocusedElement="{Binding ElementName=Password_Edit}"
+        FontFamily="/Touch;component/#FZXingKai-S04S">
     <Grid>
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page42/confirm.png" Stretch="Fill"/>
+        <Image Source="pack://SiteOfOrigin:,,,/Res/Page42/bg1.png" Stretch="Fill"/>
 
-        <Button x:Name="Confirm_Button1" FontFamily="{StaticResource HWXK}" Content="确认" Height="80" Margin="491,469,453,0" VerticalAlignment="Top" FontSize="36" Click="Confirm_Button_Click" Background="#FFA01E1E" Foreground="White"/>
-        <Button x:Name="Return_Button1" FontFamily="{StaticResource HWXK}" Content="返回" Height="80" Margin="491,583,453,0" VerticalAlignment="Top" FontSize="36" Click="Return_Button_Click" Foreground="White" Background="#FFA01E1E"/>
-        <Label Content="密 码 登 录" FontFamily="{StaticResource HWXK}" Height="96" Margin="491,207,453,0" VerticalAlignment="Top" FontSize="48" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0,10" BorderBrush="#FFA01E1E" Foreground="#FFA01E1E"/>
-        <PasswordBox x:Name="Password_Edit" Height="80" Margin="491,347,453,0" VerticalAlignment="Top" BorderBrush="#FFA01E1E" BorderThickness="3" Tag="密码" FontSize="36" VerticalContentAlignment="Center" MaxLength="16" TextOptions.TextFormattingMode="Display" InputMethod.IsInputMethodEnabled="True" FocusableChanged="Password_Edit_FocusableChanged" TabIndex="0"/>
+        <Button x:Name="Confirm_Button1" Content="确 认" Height="80" Margin="323,807,0,0" VerticalAlignment="Top" FontSize="40" Click="Confirm_Button_Click" Background="#FF720600" Foreground="White" HorizontalAlignment="Left" Width="480"/>
+        <Button x:Name="Return_Button1" Content="返 回" Height="80" Margin="323,921,0,0" VerticalAlignment="Top" FontSize="40" Click="Return_Button_Click" Foreground="White" Background="#FF720600" HorizontalAlignment="Left" Width="480"/>
+        <Label Content="密 码 登 录"  Height="96" Margin="323,545,0,0" VerticalAlignment="Top" FontSize="48" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0,10" BorderBrush="#FF720600" Foreground="#FF720600" HorizontalAlignment="Left" Width="480"/>
+        <PasswordBox x:Name="Password_Edit" Height="80" Margin="323,685,0,0" FontFamily="/Touch;component/#FZXingKai-S04S" VerticalAlignment="Top" BorderBrush="#FF720600" BorderThickness="3" Tag="密码" FontSize="36" VerticalContentAlignment="Center" MaxLength="16" TextOptions.TextFormattingMode="Display" InputMethod.IsInputMethodEnabled="True" FocusableChanged="Password_Edit_FocusableChanged" TabIndex="0" HorizontalAlignment="Left" Width="480"/>
     </Grid>
 </Page>
