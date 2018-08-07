@@ -222,7 +222,10 @@
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay" Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="545" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="31,163,37,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+        <MediaElement x:Name="MediaPlay" Visibility="Hidden" LoadedBehavior="Play"
+                      UnloadedBehavior ="Manual"  Height="545" MediaEnded="player_MediaEnded"
+                      HorizontalAlignment="Stretch"   Margin="31,163,37,0" VerticalAlignment="Top" 
+                      ScrollViewer.VerticalScrollBarVisibility="Disabled" />
         <Label Name="Seprate_Line2" Content="" HorizontalAlignment="Left" Height="14" Margin="94,559,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -260,5 +263,7 @@
         <Image x:Name="Temple_Name_Title_Copy" Source="pack://SiteOfOrigin:,,,/Res/Page21/logo.png" Stretch="Fill" HorizontalAlignment="Left" Width="271" Height="50" VerticalAlignment="Top" Margin="1479,971,0,0"/>
         <Image x:Name="QRCode_Image_Gzgzh" Stretch="Fill" Margin="1377,756,0,0" HorizontalAlignment="Left" Width="191" Height="190" VerticalAlignment="Top"/>
         <Image x:Name="Ggjs_Page_Flow"  Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="219,462,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1458" Height="206" VerticalAlignment="Top" Opacity="0.01" Visibility="Visible" MouseLeftButtonUp="Ggjs_Page_Flow_MouseLeftButtonUp"/>
+        <Label Content="" Margin="802,950,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
+        <Label Content="" Margin="1377,950,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
     </Grid>
 </Page>

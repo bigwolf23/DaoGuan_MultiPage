@@ -90,7 +90,7 @@
                                 <TextBlock x:Name="MyWipedText" 
                                        Text="{Binding MonkInfo}" 
                                        ScrollViewer.VerticalScrollBarVisibility="Auto" 
-                                       Margin="0,0,0,0" 
+                                       Margin="0,0,0,5" 
                                        TextAlignment="Left" 
                                        VerticalAlignment="Top" 
                                        Width="724" Height="Auto" 
@@ -99,7 +99,7 @@
                                        FontSize="20" Background="Transparent" >
                                 </TextBlock>
                                 <TextBlock Text="{Binding MonkInfoIndex}" 
-                                           Margin="0,0,0,0" 
+                                           Margin="0,0,0,5" 
                                            TextTrimming="CharacterEllipsis" 
                                            TextAlignment="Left" 
                                            VerticalAlignment="Top" 

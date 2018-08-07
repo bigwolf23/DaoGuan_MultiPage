@@ -153,6 +153,13 @@ namespace RenJiCaoZuo.WebData
                     if (m_pTempInfoData.body.data.info != null)
                     {
                         m_pTempInfoData.body.data.info = NoHTML(m_pTempInfoData.body.data.info);
+                        //m_pTempInfoData.body.data.info = @"其实，“金木水火土”五大元素都能做成砚台。" +
+                        //                @"若想摆出完整的乾坤八卦宇宙混元大矩阵" +
+                        //                @"一个元素都不能少：明代铜砚，古人称青铜器为“吉金" +
+                        //                @"这里的“金”指金属铜，所以铜砚可以代表“金”元素我可真能扯" + @"清代木砚，真是木头做的，可能用作礼品砚，" +
+                        //                            @"图片摘自《器蕴才华：文房清供陈列》，" +
+                        //                            @"清代漆砂砚，外表很像石砚，其实以木胎为心，" +
+                        //                            @"把天然漆和金刚砂混合涂在表面，远比石砚轻巧，乃旅行佳品";
                     }
 
                     if (m_pTempInfoData.body.data.detail != null)

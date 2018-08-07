@@ -57,7 +57,7 @@ namespace RenJiCaoZuo.View.Page42
             sTextBlock1.VerticalAlignment = VerticalAlignment.Top;
             //sTextBlock1.Margin =  "32,10,0,0";
             //sTextBlock1.FontWeight = 18;
-            int nFontCollum = 28;
+            int nFontCollum = 27;
             sTextBlock1.FontSize = 18;
             sTextBlock1.LineHeight = 27;
             sTextBlock1.Width = nFontCollum * sTextBlock1.FontSize;
@@ -115,7 +115,7 @@ namespace RenJiCaoZuo.View.Page42
         private void setImgControl(BitmapImage Pic_img)
         {
             Image sImage = new Image();
-            sImage.Width = Pic_img.PixelWidth > addControl.Width ? addControl.Width : Pic_img.PixelWidth; ;
+            sImage.Width = Pic_img.PixelWidth > 500 ? 500 : Pic_img.PixelWidth; ;
             //sImage.Height = Pic_img.PixelHeight > 480 ? 480 : Pic_img.PixelHeight;
             sImage.Stretch = Stretch.Fill;
             sImage.Source = Pic_img;

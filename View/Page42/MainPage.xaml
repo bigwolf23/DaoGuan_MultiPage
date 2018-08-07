@@ -8,7 +8,7 @@
       d:DesignHeight="1920" d:DesignWidth="1080"
 	Title="MainPage">
 
-    <Grid>
+    <Grid Height="1920" VerticalAlignment="Top">
         <Image Name ="Main_Page_Background_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page42/bg.png" Stretch="Fill" Unloaded="Image_Unloaded" HorizontalAlignment="Left" Width="1080"/>
         <!--<Border x:Name="SettingBorder_DoubleClick" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="100" Margin="358,45,0,0" VerticalAlignment="Top" Width="305" Opacity="100">
             <Border.Background>
@@ -34,12 +34,12 @@
         <Image Name="TempInfo_Intrduce_Pic" Margin="49,290,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page42/Ggjsbt.png" Stretch="Fill" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
         <Image x:Name="ActivityAndMonk_Img" Margin="74,407,542,536" Source="{Binding Activity_MonkImage}" Stretch="Fill" Visibility="Hidden"/>
         <TextBox x:Name="TemplInfo_TextBlock" 
-               Height="303" Margin="122,222,0,1395"  
-               VerticalAlignment="Center" 
+               Height="303" Margin="122,222,0,0"  
+               VerticalAlignment="Top" 
                ScrollViewer.VerticalScrollBarVisibility="Disabled" 
                FontWeight="Medium" 
                TextOptions.TextHintingMode="Fixed" 
-               FontFamily="Microsoft YaHei" FontSize="25" 
+               FontFamily="Microsoft YaHei" FontSize="18" 
                Foreground="Black" VerticalContentAlignment="Center"
                Visibility="Visible" HorizontalAlignment="Left" Width="800"
                IsReadOnly="True"
@@ -66,7 +66,7 @@
                     <WrapPanel Orientation="Horizontal" Margin="0,0,0,0" DataContext="{Binding}" Background="Transparent">
                         <Image Source="{Binding MonkInfoImage}" 
                                HorizontalAlignment="Left" 
-                               VerticalAlignment="Top" 
+                               VerticalAlignment="Center" 
                                Width="150" Height="150" 
                                StretchDirection="Both" 
                                ScrollViewer.VerticalScrollBarVisibility="Hidden" 
@@ -79,7 +79,7 @@
                                         TextTrimming="CharacterEllipsis" 
                                         TextAlignment="Left" 
                                         VerticalAlignment="Top" 
-                                        Width="588" TextWrapping="Wrap" 
+                                        Width="618" TextWrapping="Wrap" 
                                         FontFamily="Microsoft YaHei" 
                                         FontSize="30" Background="Transparent" 
                                         Foreground="#FFA01E1E" >
@@ -90,20 +90,20 @@
                                        Margin="0,0,0,0" 
                                        TextAlignment="Left" 
                                        VerticalAlignment="Top" 
-                                       Width="588" Height="Auto" 
+                                       Width="618" Height="Auto" 
                                        TextWrapping="Wrap" 
                                        FontFamily="Microsoft YaHei" 
-                                       FontSize="20" Background="Transparent" >
+                                       FontSize="18" Background="Transparent" >
                                 </TextBlock>
                                 <TextBlock Text="{Binding MonkInfoIndex}" 
                                            Margin="0,0,0,0" 
                                            TextTrimming="CharacterEllipsis" 
                                            TextAlignment="Left" 
                                            VerticalAlignment="Top" 
-                                           Width="588" 
+                                           Width="618" 
                                            TextWrapping="Wrap" 
                                            FontFamily="Microsoft YaHei" 
-                                           FontSize="20" Background="Transparent" Visibility="Hidden"></TextBlock>
+                                           FontSize="18" Background="Transparent" Visibility="Hidden"></TextBlock>
                             </StackPanel>
 
                         </ScrollViewer>
@@ -235,23 +235,16 @@
             </Button.Background>
 
         </Button>
-        <MediaElement x:Name="MediaPlay" Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="762" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="26,191,912,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+        <MediaElement x:Name="MediaPlay" Visibility="Hidden" LoadedBehavior="Play" 
+                      UnloadedBehavior ="Manual"  Height="762" 
+                      MediaEnded="player_MediaEnded" HorizontalAlignment="Left"  
+                      Margin="20,191,0,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="1043" />
         <Label Name="Seprate_Line2" Content="" HorizontalAlignment="Left" Height="14" Margin="-3,758,0,0" VerticalAlignment="Top" Width="199" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform Angle="-89.62"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label  Name="Seprate_Line1" Content="" HorizontalAlignment="Left" Height="14" Margin="46,372,0,0" VerticalAlignment="Top" Width="107" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="0.539" ScaleX="1.855"/>
-                    <SkewTransform AngleY="-0.5"/>
-                    <RotateTransform Angle="-89.295"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Label.RenderTransform>
@@ -273,5 +266,17 @@
         <Image x:Name="Temple_Name_Title_Copy" Source="pack://SiteOfOrigin:,,,/Res/Page42/logo.png" Stretch="Fill" HorizontalAlignment="Left" Width="290" Height="52" VerticalAlignment="Top" Margin="689,1721,0,0"/>
         <Image x:Name="QRCode_Image_Gzgzh" Stretch="Fill" Margin="599,1461,0,0" HorizontalAlignment="Left" Width="205" Height="198" VerticalAlignment="Top"/>
         <Image x:Name="Ggjs_Page_Flow"  Source="pack://SiteOfOrigin:,,,/Res/Page42/GgjsBackGround.png" Margin="129,622,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="800" Height="286" VerticalAlignment="Top" Opacity="0.01" Visibility="Visible" MouseLeftButtonUp="Ggjs_Page_Flow_MouseLeftButtonUp"/>
+        <Label Content="" Margin="610,1268,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
+        <Label Content="" Margin="601,1693,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
+        <Label x:Name="Seprate_Line1" Content="" HorizontalAlignment="Left" Height="14" Margin="-3,370,0,0" VerticalAlignment="Top" Width="199" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-89.62"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
     </Grid>
 </Page>

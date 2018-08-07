@@ -44,7 +44,7 @@
         <Image Name="TitleName" Source="pack://SiteOfOrigin:,,,/Res/Page19/title01.png" Stretch="Fill" Margin="450,10,452,725"/>
 
         <Label Content="" HorizontalAlignment="Left" Height="15" Margin="32,713,0,0" VerticalAlignment="Top" Width="1108" BorderThickness="0,0,0,6" BorderBrush="#FF720600"/>
-        <ScrollViewer x:Name="scrolls" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Margin="0,101,40,108" HorizontalAlignment="Right" Width="1108">
+        <ScrollViewer x:Name="scrolls" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Margin="0,101,40,126" HorizontalAlignment="Right" Width="1108">
             <ScrollViewer.Content>
                 <StackPanel x:Name="addControl" Orientation="Vertical" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <!--<TextBlock x:Name="All_TemplInfo_TextBlock" Text="test" HorizontalAlignment="Left" Height="173" Margin="16,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1141" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Medium" TextOptions.TextHintingMode="Fixed" Style="{DynamicResource FZXKJW}" FontSize="18" Padding="0,0,0,3"/>

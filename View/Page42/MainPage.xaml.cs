@@ -283,13 +283,15 @@ namespace RenJiCaoZuo.View.Page42
             if (strMode == "1")
             {
                 Activity_MonkImage = "pack://SiteOfOrigin:,,,/Res/Page42/Dzjsbt.png";
+                Uri ImageFilePathUri = new Uri(Activity_MonkImage);
+                this.MonkOrActive_Intrduce_Pic.Source = new BitmapImage(ImageFilePathUri);
             }
-            else
+            else if (strMode == "2")
             {
                 Activity_MonkImage = "pack://SiteOfOrigin:,,,/Res/Page42/hdxx.png";
+                Uri ImageFilePathUri = new Uri(Activity_MonkImage);
+                this.MonkOrActive_Intrduce_Pic.Source = new BitmapImage(ImageFilePathUri);
             }
-            Uri ImageFilePathUri = new Uri(Activity_MonkImage);
-            this.MonkOrActive_Intrduce_Pic.Source = new BitmapImage(ImageFilePathUri);
         }
 
         private void setMonk_PageShow(string strMode)
