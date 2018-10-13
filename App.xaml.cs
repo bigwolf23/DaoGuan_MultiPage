@@ -9,6 +9,8 @@ using System.Configuration;
 using System.Text.RegularExpressions;
 using RenJiCaoZuo.Common;
 using RenJiCaoZuo.WebData;
+using Lierda.WPFHelper;
+using System.Windows.Media.Animation;
 
 namespace RenJiCaoZuo
 {
@@ -19,6 +21,7 @@ namespace RenJiCaoZuo
     public partial class App : Application
     {
         System.Threading.Mutex mutex;
+        LierdaCracker cracker = new LierdaCracker();
 
         public App()
         {
@@ -42,6 +45,11 @@ namespace RenJiCaoZuo
         {
             //Ezhu.AutoUpdater.Updater.CheckUpdateStatus();
             //m_AllWebData = new GetWebData();
+            cracker.Cracker(10);
+            //Timeline.DesiredFrameRateProperty.OverrideMetadata(
+            //    typeof(Timeline),
+            //    new FrameworkPropertyMetadata { DefaultValue = 20 }
+            //);
             Application.Current.StartupUri = new Uri(@"View\MainWindow.xaml", UriKind.Relative);
         }
         

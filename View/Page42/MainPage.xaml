@@ -4,10 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RenJiCaoZuo"
+      xmlns:vm="clr-namespace:RenJiCaoZuo.View.DonateList"
       OpacityMask="Black" Loaded="Page_Loaded" mc:Ignorable="d" 
       d:DesignHeight="1920" d:DesignWidth="1080"
 	Title="MainPage">
-
+    <Page.Resources>
+        <vm:DonateListViewModel x:Key="View"></vm:DonateListViewModel>
+    </Page.Resources>
     <Grid Height="1920" VerticalAlignment="Top">
         <Image Name ="Main_Page_Background_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page42/bg.png" Stretch="Fill" Unloaded="Image_Unloaded" HorizontalAlignment="Left" Width="1080"/>
         <!--<Border x:Name="SettingBorder_DoubleClick" BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="100" Margin="358,45,0,0" VerticalAlignment="Top" Width="305" Opacity="100">
@@ -47,7 +50,7 @@
 
         <Image x:Name="MonkOrActive_Intrduce_Pic" Margin="49,678,0,0" 
                Source="pack://SiteOfOrigin:,,,/Res/Page42/Dzjsbt.png" 
-               Stretch="Fill" Height="171" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
+               Stretch="Fill" Height="175" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40"/>
 
         <ListView Name="MonkInfo_ListView" ScrollViewer.VerticalScrollBarVisibility="Disabled"
                   Height="284" VerticalAlignment="Top" FontFamily="Microsoft YaHei"
@@ -198,7 +201,8 @@
                         X2="600" Y2="1"  
                         Stroke="#FFDFAA00"  
                         StrokeThickness="2" Margin="0,0,16,0" HorizontalAlignment="Right" Width="490" />
-            <ListView x:Name="DonateInfo_List" Height="696" Margin="28,0,28,0" VerticalAlignment="Top"
+            <ListView x:Name="DonateInfo_List" ItemsSource="{Binding Source={StaticResource View}, Path=PayListHistorys, Mode=TwoWay}"
+                      Height="696" Margin="28,0,28,0" VerticalAlignment="Top"
                       ScrollViewer.HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" FontFamily="Microsoft YaHei" 
                       FontSize="18" BorderThickness="0" Background="#FFE32523" IsEnabled="True">
@@ -209,10 +213,10 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Height="30" Margin="0,0,0,0" DataContext="{Binding}" Background="Transparent" VerticalAlignment="Center" Style="{DynamicResource FZXKJW}" >
-                            <TextBox Text="{Binding Name}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="219" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
-                            <TextBox Text="{Binding payTypeName}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="178" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
-                            <TextBox Text="{Binding amount}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="152" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center"  Foreground="Yellow" BorderThickness="0" />
+                        <StackPanel Orientation="Horizontal" Height="30" Margin="0,0,0,0" Background="Transparent" VerticalAlignment="Center" Style="{DynamicResource FZXKJW}" >
+                            <TextBox Text="{Binding Path= Name, Mode=TwoWay}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="219" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
+                            <TextBox Text="{Binding Path= payTypeName, Mode=TwoWay}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="178" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
+                            <TextBox Text="{Binding Path= amount, Mode=TwoWay}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="152" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center"  Foreground="Yellow" BorderThickness="0" />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -266,6 +270,8 @@
         <Image x:Name="Temple_Name_Title_Copy" Source="pack://SiteOfOrigin:,,,/Res/Page42/logo.png" Stretch="Fill" HorizontalAlignment="Left" Width="290" Height="52" VerticalAlignment="Top" Margin="689,1721,0,0"/>
         <Image x:Name="QRCode_Image_Gzgzh" Stretch="Fill" Margin="599,1461,0,0" HorizontalAlignment="Left" Width="205" Height="198" VerticalAlignment="Top"/>
         <Image x:Name="Ggjs_Page_Flow"  Source="pack://SiteOfOrigin:,,,/Res/Page42/GgjsBackGround.png" Margin="129,622,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="800" Height="286" VerticalAlignment="Top" Opacity="0.01" Visibility="Visible" MouseLeftButtonUp="Ggjs_Page_Flow_MouseLeftButtonUp"/>
+        <Image x:Name="Ggjs_Page_Flow2"  Source="pack://SiteOfOrigin:,,,/Res/Page42/GgjsBackGround.png" Margin="27,1017,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="517" Height="769" VerticalAlignment="Top" Opacity="0.01" Visibility="Visible" />
+
         <Label Content="" Margin="610,1268,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
         <Label Content="" Margin="601,1693,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
         <Label x:Name="Seprate_Line1" Content="" HorizontalAlignment="Left" Height="14" Margin="-3,370,0,0" VerticalAlignment="Top" Width="199" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">

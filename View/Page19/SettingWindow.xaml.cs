@@ -48,7 +48,7 @@ namespace RenJiCaoZuo.View.Page19
         private void ReturnMain_Button_Click(object sender, RoutedEventArgs e)
         {
             string strDisplayInch = ConfigurationManager.AppSettings["DisplayInch"];
-            if (strDisplayInch == "19")
+            if (strDisplayInch == "19" || strDisplayInch == "19_3")
             {
                 NavigationService.Navigate(new Uri(@"View/Page19/MainPage.xaml", UriKind.Relative));
             }

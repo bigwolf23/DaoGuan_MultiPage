@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Lierda.WPFHelper</id>
+    <version>1.0.3</version>
+    <title>利尔达垃圾回收帮助类</title>
+    <authors>王雪飞</authors>
+    <owners>王雪飞</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>垃圾回收帮助类(内含黑科技)</description>
+    <summary>解决了强签名问题；
+1.0.2--垃圾回收时间可配置;1.0.2--增加了调用管理员权限运行项</summary>
+    <copyright>利尔达科技集团</copyright>
+  </metadata>
+</package>

@@ -41,18 +41,19 @@ namespace RenJiCaoZuo.WebData
 
         public GetWebData()
         {
-
 //             Thread thr = new Thread(threadProc);
 //             thr.IsBackground = true;
 //             thr.Start();
-
-            GetTempleInfobyWebService();
-            GetMonkInfobyWebService();
-            GetActivityInfobyWebService();
+            string strMode = ConfigurationManager.AppSettings["FirstPageName"];
+            if (strMode != "3")
+            {
+                GetTempleInfobyWebService();
+                GetMonkInfobyWebService();
+                GetActivityInfobyWebService();
+            }
             GetTemplePayHistorybyWebService();
             GetqRCodeInfobyWebService();
             GetHousePayHistorybyWebService();
-           
         }
 
         public string NoHTML(string Htmlstring)  //替换HTML标记

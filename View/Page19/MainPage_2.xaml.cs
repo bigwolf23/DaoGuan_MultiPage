@@ -107,17 +107,33 @@ namespace RenJiCaoZuo.View.Page19
 
             if (strMode == "3")
             {
-                Media_play_Path = ConfigurationManager.AppSettings["Video_Path"];
-                string Media_play_Mode = ConfigurationManager.AppSettings["Video_Play_Mode"];
-                MediaPlay.Source = new Uri(Media_play_Path);
-                if (Media_play_Mode == "None")
+                try
                 {
-                    MediaPlay.Stretch = Stretch.Uniform;
+                    Media_play_Path = ConfigurationManager.AppSettings["Video_Path"];
+                    string Media_play_Mode = ConfigurationManager.AppSettings["Video_Play_Mode"];
+                    if (File.Exists(Media_play_Path))
+                    {
+                        MediaPlay.Source = new Uri(Media_play_Path);
+                        if (Media_play_Mode == "None")
+                        {
+                            MediaPlay.Stretch = Stretch.Uniform;
+                        }
+                        else
+                        {
+                            MediaPlay.Stretch = Stretch.Fill;
+                        }
+                    }
+                    else
+                    {
+                        this.MediaPlay.Close();
+                        this.MediaPlay.Visibility = Visibility.Hidden;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MediaPlay.Stretch = Stretch.Fill;
+
                 }
+                
                 
             }
             else
@@ -182,9 +198,6 @@ namespace RenJiCaoZuo.View.Page19
                 //    getDonateListContent();
                 //    //显示捐赠listview内容
                 //    displayDonateList();
-
-                //    //                     DisplayDonateListByTimer();
-
                 //}
             }
             Page_All_Refresh();
@@ -193,7 +206,11 @@ namespace RenJiCaoZuo.View.Page19
         private void Page_All_Refresh()
         {
             try
-            { 
+            {
+                if (strMode == "3")
+                {
+                    return;
+                }
                 dispatcherAllPageRefreshTimer.Tick += delegate
                 {
                     if(TemplInfo_TextBlock.Text.Length == 0)
@@ -242,9 +259,8 @@ namespace RenJiCaoZuo.View.Page19
                         setQRCodePic_Gzgzh();
                     }
 
-
-
                     if (QRCode_Image_Zxgdx.Source != null &&
+                        QRCode_Image_Gzgzh.Source != null &&
                         TemplInfo_TextBlock.Text.Length != 0)
                     {
                         dispatcherAllPageRefreshTimer.Stop();
@@ -361,38 +377,7 @@ namespace RenJiCaoZuo.View.Page19
             MediaPlay.Position = TimeSpan.Zero;
             MediaPlay.Play();
         }
-
-        //
-        private void DisplayDonateListByTimer()
-        {
-
-            try
-                {
-                //this.DonateInfo_List.ClearValue();
-                dispatcherTimerRefresh.Tick += delegate
-                {
-
-                    //                 myPayQueue.Clear();
-                    //                 dispatcherDonateTimerList.Stop();
-                    //                 this.DonateInfo_List.ItemsSource = null;
-                    //                 this.DonateInfo_List.Items.Clear();
-                    //                 this.DonateInfo_List.Items.Refresh();
-                    //获取捐赠TextBox的内容
-                    getDonateHouseContent();
-                    //                 pWebData.GetTemplePayHistorybyWebService();
-                    //                 if (pWebData.m_pTemplePayHistoryData.success == true)
-                    //                 {
-                    //                     //获取捐赠listview的内容
-                    //                     getDonateListContent();
-                    //                     //显示捐赠listview内容
-                    //                     displayDonateList();
-                    //                 }
-                };
-                dispatcherTimerRefresh.Start();
-            }
-            catch (Exception ex){ }
-        }
-
+       
         //获取捐赠TextBox的内容
         private void getDonateHouseContent()
         {
@@ -471,7 +456,8 @@ namespace RenJiCaoZuo.View.Page19
                             this.DonateInfo_List.ItemsSource = null;
                             this.DonateInfo_List.Items.Clear();
                             this.DonateInfo_List.Items.Refresh();
-
+                            GC.Collect();
+                            GC.WaitForPendingFinalizers();
                             pWebData.GetTemplePayHistorybyWebService();
                             if (pWebData == null ||
                                 pWebData.m_pTemplePayHistoryData == null || 
@@ -496,6 +482,11 @@ namespace RenJiCaoZuo.View.Page19
                             if (myPayQueue.Count > 0)
                             {
                                 myPayQueue.Enqueue(myPayQueue.Dequeue());  // 把队列中派头的放到队尾
+                                this.DonateInfo_List.ItemsSource = null;
+                                this.DonateInfo_List.Items.Clear();
+                                this.DonateInfo_List.Items.Refresh();
+                                GC.Collect();
+                                GC.WaitForPendingFinalizers();
                                 this.DonateInfo_List.ItemsSource = myPayQueue.ToList();
                             }
 

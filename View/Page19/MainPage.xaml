@@ -4,10 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RenJiCaoZuo"
+      xmlns:vm="clr-namespace:RenJiCaoZuo.View.DonateList"
       OpacityMask="Black" Loaded="Page_Loaded" mc:Ignorable="d"
       d:DesignHeight="1024" d:DesignWidth="1280"
 	Title="MainPage">
 
+    <Page.Resources>
+        <vm:DonateListViewModel x:Key="View"></vm:DonateListViewModel>
+    </Page.Resources>
     <Grid>
         <Image Name ="Main_Page_Background_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page19/bg.png" Stretch="Fill" Unloaded="Image_Unloaded" Height="1024" VerticalAlignment="Top" />
         <Border x:Name="TempInfo_Image" BorderBrush="Black" BorderThickness="0" 
@@ -30,8 +34,11 @@
         <Image x:Name="ActivityAndMonk_Img" Margin="74,407,542,536" Source="{Binding Activity_MonkImage}" Stretch="Fill" Visibility="Hidden"/>
         <Image Name="QRCode_Title_Zxgdx" Margin="887,726,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/zxgd.png" Stretch="Fill" HorizontalAlignment="Left" Width="37" Height="153" VerticalAlignment="Top"/>
         <Image Name="QRCode_Image_Zxgdx" Margin="667,704,0,0" Stretch="Fill" HorizontalAlignment="Left" Width="205" Height="205" VerticalAlignment="Top"/>
-        <Image Name="QRCode_Title_Gzgzh" Margin="1192,709,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" Height="200" VerticalAlignment="Top"/>
-        <Image x:Name="QRCode_Image_Gzgzh" Margin="968,704,0,0" Stretch="Fill" HorizontalAlignment="Left" Width="205" Height="205" VerticalAlignment="Top"/>
+        <Image Name="QRCode_Title_Gzgzh" Visibility="Visible" Margin="1192,709,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/gzgzh.png" Stretch="Fill" HorizontalAlignment="Left" Width="35" Height="200" VerticalAlignment="Top"/>
+        <Image x:Name="QRCode_Image_Gzgzh" Visibility="Visible"  Margin="968,704,0,0" Stretch="Fill" HorizontalAlignment="Left" Width="205" Height="205" VerticalAlignment="Top"/>
+        <Image Name="QRCode_Title_Zxgdx2"  Visibility="Hidden" Margin="942,750,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/zxgd_2.png" Stretch="Fill" HorizontalAlignment="Left" Width="253" Height="70" VerticalAlignment="Top"/>
+
+        <Label x:Name="Zxgd_Prompt_Text"  Visibility="Hidden" Content="微信、支付宝 扫一扫" Margin="902,825,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" Style="{DynamicResource FZXKJW}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Height="89" VerticalAlignment="Top" HorizontalAlignment="Left" Width="346"/>
         <!--<local:RoilingTextBlock x:Name="TemplInfo_TextBlock" 
                                 FontSize="20" Height="171" Width="903" 
                                 Margin="160,208,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" 
@@ -199,7 +206,7 @@
                         X2="570" Y2="1"  
                         Stroke="#FFDFAA00" StrokeDashArray="2, 2"  
                         StrokeThickness="2" />
-            <ListView x:Name="DonateInfo_List" Height="246" Margin="28,0,30,0" 
+            <ListView x:Name="DonateInfo_List" ItemsSource="{Binding Source={StaticResource View}, Path=PayListHistorys, Mode=TwoWay}"  Height="246" Margin="28,0,30,0" 
                       VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                       VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Hidden"
                       FontFamily="Microsoft YaHei" FontSize="18" BorderThickness="0"
@@ -211,10 +218,10 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Height="30" Margin="0,0,0,0" DataContext="{Binding}" Background="Transparent" VerticalAlignment="Center" Style="{DynamicResource FZXKJW}" >
-                            <TextBox Text="{Binding Name}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="252" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
-                            <TextBox Text="{Binding payTypeName}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="202" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
-                            <TextBox Text="{Binding amount}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="152" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center"  Foreground="Yellow" BorderThickness="0" />
+                        <StackPanel Orientation="Horizontal" Height="30" Margin="0,0,0,0" Background="Transparent" VerticalAlignment="Center" Style="{DynamicResource FZXKJW}" >
+                            <TextBox Text="{Binding Path= Name, Mode=TwoWay}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="252" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
+                            <TextBox Text="{Binding Path= payTypeName, Mode=TwoWay}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="202" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
+                            <TextBox Text="{Binding Path= amount, Mode=TwoWay}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="152" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center"  Foreground="Yellow" BorderThickness="0" />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -239,7 +246,7 @@
         </Button>
         <MediaElement x:Name="MediaPlay" Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="463" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="12,170,11,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
         <Label Content="" Margin="667,924,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="553"/>
-        <Label Content="" Margin="840,821,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5" Height="12" VerticalAlignment="Top" HorizontalAlignment="Left" Width="205">
+        <Label Name ="V_Sperate_line" Content="" Margin="840,821,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5" Height="12" VerticalAlignment="Top" HorizontalAlignment="Left" Width="205">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1.097" ScaleX="0.911"/>
@@ -276,7 +283,11 @@
                Width="910" Height="178" VerticalAlignment="Top" 
                Opacity="0.01" MouseLeftButtonUp="Ggjs_Page_Flow_MouseLeftButtonUp"/>
 
-
+        <Image x:Name="Ggjs_Page_Flow2" Visibility="Visible" 
+               Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" 
+               Margin="38,698,0,0" Stretch="Fill" HorizontalAlignment="Left" 
+               Width="589" Height="316" VerticalAlignment="Top" 
+               Opacity="0.01"/>
 
     </Grid>
 </Page>

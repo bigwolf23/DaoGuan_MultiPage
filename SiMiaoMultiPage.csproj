@@ -97,10 +97,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Release\AutoUpdater.exe</HintPath>
     </Reference>
+    <Reference Include="Lierda.WPFHelper">
+      <HintPath>packages\Lierda.WPFHelper.1.0.3\lib\net46\Lierda.WPFHelper.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NuGet.Core, Version=1.6.30117.9648, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -129,6 +133,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\DonateList\DonateHouse.cs" />
+    <Compile Include="View\DonateList\DonateList.cs" />
     <Compile Include="View\Page19\Introduction.xaml.cs">
       <DependentUpon>Introduction.xaml</DependentUpon>
     </Compile>
@@ -377,6 +383,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="FZXKJW.TTF" />
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

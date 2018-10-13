@@ -63,7 +63,7 @@ namespace RenJiCaoZuo.View.Page21
             sTextBlock1.Width = nFontCollum * sTextBlock1.FontSize;
 
             int nReturn = getReturnNumber(sText);
-            double nHeight = (((sTextBlock1.Text.Length / nFontCollum) + nReturn *2) * sTextBlock1.LineHeight ) ;
+            double nHeight = (((sTextBlock1.Text.Length / nFontCollum) + 1 + nReturn * 2) * sTextBlock1.LineHeight);
             sTextBlock1.Height = ((nHeight == 0) ? sTextBlock1.LineHeight : nHeight);
 
             //sTextBlock1.Width = 300;
