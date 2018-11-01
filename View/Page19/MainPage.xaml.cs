@@ -245,7 +245,7 @@ namespace RenJiCaoZuo.View.Page19
 
                     if (QRCode_Image_Gzgzh.Source == null)
                     {
-                        pWebData.GetqRCodeInfobyWebService();
+                        pWebData.GetTempleInfobyWebService();
                         //设定二维码
                         setQRCodePic_Gzgzh();
                     }
@@ -308,7 +308,7 @@ namespace RenJiCaoZuo.View.Page19
                 ActivityInfo_Prev_Button.Visibility = Visibility.Hidden;
                 ActivityInfo_ListView.Visibility = Visibility.Hidden;
                 this.MediaPlay.Visibility = Visibility.Hidden;
-               
+                QRCode_Image_Gzgzh.Visibility = Visibility.Visible;
 
                 this.ActivityAndMonk_Img.Visibility = Visibility.Hidden;
             }
@@ -327,6 +327,7 @@ namespace RenJiCaoZuo.View.Page19
                 ActivityInfo_ListView.Visibility = Visibility.Visible;
 
                 this.MediaPlay.Visibility = Visibility.Hidden;
+                QRCode_Image_Gzgzh.Visibility = Visibility.Visible;
             }
             else
             {
@@ -357,6 +358,8 @@ namespace RenJiCaoZuo.View.Page19
                 Temple_Intrduce_Frame_Back.Visibility = Visibility.Hidden;
 
                 this.MediaPlay.Visibility = Visibility.Visible;
+
+                QRCode_Image_Gzgzh.Visibility = Visibility.Visible;
             }
 
             string strDisplayInch = ConfigurationManager.AppSettings["DisplayInch"];

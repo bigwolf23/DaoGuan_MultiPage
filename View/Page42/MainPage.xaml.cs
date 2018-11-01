@@ -256,7 +256,7 @@ namespace RenJiCaoZuo.View.Page42
 
                     if (QRCode_Image_Gzgzh.Source == null)
                     {
-                        pWebData.GetqRCodeInfobyWebService();
+                        pWebData.GetTempleInfobyWebService();
                         //设定二维码
                         setQRCodePic_Gzgzh();
                     }

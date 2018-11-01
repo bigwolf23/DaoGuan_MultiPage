@@ -45,9 +45,9 @@ namespace RenJiCaoZuo.WebData
 //             thr.IsBackground = true;
 //             thr.Start();
             string strMode = ConfigurationManager.AppSettings["FirstPageName"];
+            GetTempleInfobyWebService();
             if (strMode != "3")
             {
-                GetTempleInfobyWebService();
                 GetMonkInfobyWebService();
                 GetActivityInfobyWebService();
             }
@@ -290,7 +290,10 @@ namespace RenJiCaoZuo.WebData
                     && m_pqRCodeInfoData.body.data.url != null
                     && m_pqRCodeInfoData.body.data.url.Length > 0)
                 {
-                    m_pqRCodeInfoData.body.data.url = getFullpathPicLink(m_pqRCodeInfoData.body.data.url);
+                    if (!m_pqRCodeInfoData.body.data.url.Contains(@"http"))
+                    {
+                        m_pqRCodeInfoData.body.data.url = getFullpathPicLink(m_pqRCodeInfoData.body.data.url);
+                    }
                 }
             }
         }
