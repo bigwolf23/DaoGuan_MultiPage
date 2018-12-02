@@ -88,7 +88,7 @@ namespace RenJiCaoZuo.View.Page42
         //显示活动横向list内容
         List<ActivityList> m_pActivityListInfo = new List<ActivityList>();
         string strMode = ConfigurationManager.AppSettings["FirstPageName"];
-
+        private int m_nRefreshTimeOutCount;
         private void setWindowsShutDown()
         {
             CommonFuntion pCommon = new CommonFuntion();
@@ -106,6 +106,7 @@ namespace RenJiCaoZuo.View.Page42
 
         public MainPage()
         {
+            m_nRefreshTimeOutCount = 0;
             pWebData =  MainWindow.m_pAllWebData;
             InitializeComponent();
             getPageRefreshTime();
@@ -217,6 +218,11 @@ namespace RenJiCaoZuo.View.Page42
 
                 dispatcherAllPageRefreshTimer.Tick += delegate
                 {
+                    if (m_nRefreshTimeOutCount > 10)
+                    {
+                        dispatcherAllPageRefreshTimer.Stop();
+                    }
+                    m_nRefreshTimeOutCount++;
                     if(TemplInfo_TextBlock.Text.Length == 0)
                     {
                         pWebData.GetTempleInfobyWebService();

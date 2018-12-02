@@ -84,7 +84,7 @@ namespace RenJiCaoZuo.View.PageOrg
         //显示活动横向list内容
         List<ActivityList> m_pActivityListInfo = new List<ActivityList>();
         string strMode = ConfigurationManager.AppSettings["FirstPageName"];
-
+        private int m_nRefreshTimeOutCount;
         private void setWindowsShutDown()
         {
             CommonFuntion pCommon = new CommonFuntion();
@@ -93,6 +93,7 @@ namespace RenJiCaoZuo.View.PageOrg
         }
         private void getPageRefreshTime()
         {
+
             string sRefreshTime = ConfigurationManager.AppSettings["PageRefreshTime"];
             int nRefreshTime = Convert.ToInt16(sRefreshTime);
 
@@ -102,6 +103,7 @@ namespace RenJiCaoZuo.View.PageOrg
 
         public MainPage()
         {
+            m_nRefreshTimeOutCount = 0;
             pWebData =  MainWindow.m_pAllWebData;
             InitializeComponent();
             getPageRefreshTime();
@@ -189,13 +191,19 @@ namespace RenJiCaoZuo.View.PageOrg
             }
             Page_All_Refresh();
         }
-
+        
         private void Page_All_Refresh()
         {
             try
             { 
                 dispatcherAllPageRefreshTimer.Tick += delegate
                 {
+                    if (m_nRefreshTimeOutCount > 10)
+                    {
+                        dispatcherAllPageRefreshTimer.Stop();
+                    }
+                    m_nRefreshTimeOutCount++;
+
                     if(TemplInfo_TextBlock.Text.Length == 0)
                     {
                         pWebData.GetTempleInfobyWebService();
@@ -234,8 +242,6 @@ namespace RenJiCaoZuo.View.PageOrg
                         //设定二维码
                         setQRCodePic();
                     }
-
-                
 
                     if (QRCode_Image.Source != null &&
                         TemplInfo_TextBlock.Text.Length != 0)
