@@ -23,7 +23,7 @@
         </Border>
 
         <!--<Image Name="Temple_Name_Title" Margin="43,10,1089,1035" Source="pack://SiteOfOrigin:,,,/Res/Page19/SfgTitle.png" Stretch="Fill"/>-->
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page19/QRcodeBackGround.png" Stretch="Fill" Height="373" VerticalAlignment="Top" Margin="627,651,0,0" HorizontalAlignment="Left" Width="640"/>
+        <Image Name ="Frame_Backgound_Zxgdx" Source="pack://SiteOfOrigin:,,,/Res/Page19/QRcodeBackGround.png" Stretch="Fill" Height="373" VerticalAlignment="Top" Margin="627,651,0,0" HorizontalAlignment="Left" Width="640"/>
         <Image Name ="Temple_Intrduce_Back" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="35,183,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1213" Height="219" VerticalAlignment="Top" />
         <Image Name ="Temple_Intrduce_Frame_Back" Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="36,414,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1213" Height="223" VerticalAlignment="Top"/>
 
@@ -245,7 +245,7 @@
 
         </Button>
         <MediaElement x:Name="MediaPlay" Visibility="Hidden" LoadedBehavior="Play" UnloadedBehavior ="Manual"  Height="463" MediaEnded="player_MediaEnded" HorizontalAlignment="Stretch"   Margin="12,170,11,0" VerticalAlignment="Top"  ScrollViewer.VerticalScrollBarVisibility="Disabled" />
-        <Label Content="" Margin="667,924,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="553"/>
+        <Label Name ="H_Sperate_line" Content="" Margin="667,924,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="553"/>
         <Label Name ="V_Sperate_line" Content="" Margin="840,821,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5" Height="12" VerticalAlignment="Top" HorizontalAlignment="Left" Width="205">
             <Label.RenderTransform>
                 <TransformGroup>

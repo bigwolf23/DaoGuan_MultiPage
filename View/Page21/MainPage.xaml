@@ -256,14 +256,14 @@
         </Label>
         <Border BorderBrush="#FF720600" BorderThickness="5" HorizontalAlignment="Left" Height="273" Margin="74,777,0,0" VerticalAlignment="Top" Width="622"/>
 
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/QRcodeBackGround.png" Stretch="Fill" Height="329" VerticalAlignment="Top" Margin="746,727,0,0" HorizontalAlignment="Left" Width="548"/>
+        <Image x:Name ="Donate_List_Frame"  Source="pack://SiteOfOrigin:,,,/Res/Page21/QRcodeBackGround.png" Stretch="Fill" Height="329" VerticalAlignment="Top" Margin="746,727,0,0" HorizontalAlignment="Left" Width="548"/>
         <Image x:Name ="Donate_List_Frame_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page21/QrCodeFram.png" Stretch="Fill" Height="316" VerticalAlignment="Top" Margin="756,734,0,0" HorizontalAlignment="Left" Width="529"/>
         <Image x:Name="QRCode_Title_Zxgdx" Source="pack://SiteOfOrigin:,,,/Res/Page21/zxgd_2.png" Stretch="None" HorizontalAlignment="Left" Width="214" Margin="1032,788,0,0" Height="54" VerticalAlignment="Top" RenderTransformOrigin="0.368,1.611"/>
         <Image x:Name="QRCode_Image_Zxgdx" Stretch="Fill" Margin="802,756,0,0" Height="190" VerticalAlignment="Top" HorizontalAlignment="Left" Width="191"/>
         <Image x:Name="Temple_Name_Title" Source="pack://SiteOfOrigin:,,,/Res/Page21/logo.png" Stretch="Fill" HorizontalAlignment="Left" Width="271" Height="50" VerticalAlignment="Top" Margin="893,971,0,0"/>
 
 
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page21/QRcodeBackGround.png" Stretch="Fill" Height="336" VerticalAlignment="Top" Margin="1316,724,0,0" HorizontalAlignment="Left" Width="555"/>
+        <Image x:Name ="Donate_List_Frame_Copy" Source="pack://SiteOfOrigin:,,,/Res/Page21/QRcodeBackGround.png" Stretch="Fill" Height="336" VerticalAlignment="Top" Margin="1316,724,0,0" HorizontalAlignment="Left" Width="555"/>
         <Image x:Name ="Donate_List_Frame_Pic_Copy"  Source="pack://SiteOfOrigin:,,,/Res/Page21/QrCodeFram.png" Stretch="Fill" Height="316" VerticalAlignment="Top" Margin="1328,734,0,0" HorizontalAlignment="Left" Width="529"/>
         <Label x:Name="Zxgd_Prompt_Text" Content="微信、支付宝&#xA;     扫一扫" Margin="1026,865,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" Style="{DynamicResource FZXKJW}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Height="89" VerticalAlignment="Top" HorizontalAlignment="Left" Width="214"/>
         <Label x:Name="Gzwm_Prompt_Text" Content="      扫码关注&#xA;官方微信公众号" Margin="1576,865,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" Style="{DynamicResource FZXKJW}" Height="89" VerticalAlignment="Top" HorizontalAlignment="Left" Width="269"/>
@@ -273,7 +273,7 @@
         <Image x:Name="Ggjs_Page_Flow"  Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="219,462,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="1458" Height="206" VerticalAlignment="Top" Opacity="0.01" Visibility="Visible" MouseLeftButtonUp="Ggjs_Page_Flow_MouseLeftButtonUp"/>
         <Image x:Name="Ggjs_Page_Flow2"  Source="pack://SiteOfOrigin:,,,/Res/Page21/GgjsBackGround.png" Margin="74,783,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="622" Height="267" VerticalAlignment="Top" Opacity="0.01" Visibility="Visible"/>
 
-        <Label Content="" Margin="802,950,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
-        <Label Content="" Margin="1377,950,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
+        <Label x:Name="Zxgd_V_line" Content="" Margin="802,950,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
+        <Label x:Name="Gzwm_V_line" Content="" Margin="1377,950,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
     </Grid>
 </Page>

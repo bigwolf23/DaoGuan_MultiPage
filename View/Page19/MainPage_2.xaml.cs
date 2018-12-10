@@ -208,10 +208,6 @@ namespace RenJiCaoZuo.View.Page19
         {
             try
             {
-                if (strMode == "3")
-                {
-                    return;
-                }
                 dispatcherAllPageRefreshTimer.Tick += delegate
                 {
                     if (m_nRefreshTimeOutCount > 10)
@@ -220,7 +216,7 @@ namespace RenJiCaoZuo.View.Page19
                     }
                     m_nRefreshTimeOutCount++;
 
-                    if(TemplInfo_TextBlock.Text.Length == 0)
+                    if(TemplInfo_TextBlock.Text.Length == 0 && strMode != "3")
                     {
                         pWebData.GetTempleInfobyWebService();
                         //显示寺庙介绍
@@ -388,6 +384,9 @@ namespace RenJiCaoZuo.View.Page19
         //获取捐赠TextBox的内容
         private void getDonateHouseContent()
         {
+            HouseName.Text = "";
+            HousepayTypeName.Text = "";
+            Houseamount.Text = "";
             pWebData.GetHousePayHistorybyWebService();
             if (pWebData != null &&
                 pWebData.m_pHousePayHistoryData != null &&

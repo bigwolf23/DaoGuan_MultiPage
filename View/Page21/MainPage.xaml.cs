@@ -198,24 +198,16 @@ namespace RenJiCaoZuo.View.Page21
                 {
                     getDonateHouseContent();
                 }
-                if (pWebData.m_pTemplePayHistoryData.success == true)
-                {
-
-                    ////显示捐赠listview内容
-                    displayDonateHouse();
-                }
             }
-           // Page_All_Refresh();
+            ////显示捐赠listview内容
+            displayDonateHouse();
+            Page_All_Refresh();
         }
 
         private void Page_All_Refresh()
         {
             try
             {
-                if (strMode == "3")
-                {
-                    return;
-                }
                 dispatcherAllPageRefreshTimer.Tick += delegate
                 {
                     if (m_nRefreshTimeOutCount > 10)
@@ -224,7 +216,7 @@ namespace RenJiCaoZuo.View.Page21
                     }
                     m_nRefreshTimeOutCount++;
 
-                    if(TemplInfo_TextBlock.Text.Length == 0)
+                    if (TemplInfo_TextBlock.Text.Length == 0 && strMode != "3")
                     {
                         pWebData.GetTempleInfobyWebService();
                         //显示寺庙介绍
@@ -376,7 +368,26 @@ namespace RenJiCaoZuo.View.Page21
                 this.MediaPlay.Visibility = Visibility.Visible;
             }
 
+            string strDisplayInch = ConfigurationManager.AppSettings["DisplayInch"];
+            if (strDisplayInch == "21_2")
+            {
+                Donate_List_Frame.Visibility = Visibility.Hidden;
+                Donate_List_Frame_Pic.Visibility = Visibility.Hidden;
+                QRCode_Title_Zxgdx.Visibility = Visibility.Hidden;
+                QRCode_Image_Zxgdx.Visibility = Visibility.Hidden;
+                Temple_Name_Title.Visibility = Visibility.Hidden;
+                Zxgd_V_line.Visibility = Visibility.Hidden;
+                Gzwm_V_line.Visibility = Visibility.Hidden;
 
+                QRCode_Image_Gzgzh.Visibility = Visibility.Hidden;
+                Temple_Name_Title_Copy.Visibility = Visibility.Hidden;
+                QRCode_Title_Gzgzh.Visibility = Visibility.Hidden;
+                Gzwm_Prompt_Text.Visibility = Visibility.Hidden;
+                Zxgd_Prompt_Text.Visibility = Visibility.Hidden;
+                Donate_List_Frame_Pic_Copy.Visibility = Visibility.Hidden;
+                Donate_List_Frame_Copy.Visibility = Visibility.Hidden;
+                Temple_Name_Title.Visibility = Visibility.Hidden;
+            }
         }
 
         private void player_MediaEnded(object sender, RoutedEventArgs e)
@@ -390,6 +401,9 @@ namespace RenJiCaoZuo.View.Page21
         //获取捐赠TextBox的内容
         private void getDonateHouseContent()
         {
+            HouseName.Text = "";
+            HousepayTypeName.Text = "";
+            Houseamount.Text = "";
             pWebData.GetHousePayHistorybyWebService();
             if (pWebData != null &&
                 pWebData.m_pHousePayHistoryData != null &&

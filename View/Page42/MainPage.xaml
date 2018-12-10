@@ -255,25 +255,25 @@
         </Label>
         <Border BorderBrush="#FF720600" BorderThickness="5" HorizontalAlignment="Left" Height="779" Margin="27,1010,0,0" VerticalAlignment="Top" Width="521"/>
 
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page42/QRcodeBackGround.png" Stretch="Fill" Height="414" VerticalAlignment="Top" Margin="568,965,-2,0" HorizontalAlignment="Left" Width="514"/>
-        <Image x:Name ="Donate_List_Frame_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page42/QrCodeFram.png" Stretch="Fill" Height="388" VerticalAlignment="Top" Margin="577,979,0,0" HorizontalAlignment="Left" Width="492"/>
+        <Image x:Name ="Frame_Backgound_Zxgdx" Source="pack://SiteOfOrigin:,,,/Res/Page42/QRcodeBackGround.png" Stretch="Fill" Height="414" VerticalAlignment="Top" Margin="568,965,-2,0" HorizontalAlignment="Left" Width="514"/>
+        <Image x:Name ="Frame_Pic_Zxgdx"  Source="pack://SiteOfOrigin:,,,/Res/Page42/QrCodeFram.png" Stretch="Fill" Height="388" VerticalAlignment="Top" Margin="577,979,0,0" HorizontalAlignment="Left" Width="492"/>
         <Image x:Name="QRCode_Title_Zxgdx" Source="pack://SiteOfOrigin:,,,/Res/Page42/zxgd_2.png" Stretch="None" HorizontalAlignment="Left" Width="229" Margin="819,1066,0,0" Height="56" VerticalAlignment="Top" RenderTransformOrigin="0.368,1.611"/>
         <Image x:Name="QRCode_Image_Zxgdx" Stretch="Fill" Margin="599,1047,0,0" Height="198" VerticalAlignment="Top" HorizontalAlignment="Left" Width="205"/>
         <Image x:Name="Temple_Name_Title" Source="pack://SiteOfOrigin:,,,/Res/Page42/logo.png" Stretch="Fill" HorizontalAlignment="Left" Width="290" Height="52" VerticalAlignment="Top" Margin="689,1294,0,0"/>
-
-
-        <Image Source="pack://SiteOfOrigin:,,,/Res/Page42/QRcodeBackGround.png" Stretch="Fill" Height="414" VerticalAlignment="Top" Margin="568,1388,-2,0" HorizontalAlignment="Left" Width="514"/>
-        <Image x:Name ="Donate_List_Frame_Pic_Copy"  Source="pack://SiteOfOrigin:,,,/Res/Page42/QrCodeFram.png" Stretch="Fill" Height="389" VerticalAlignment="Top" Margin="579,1402,0,0" HorizontalAlignment="Left" Width="492"/>
         <Label x:Name="Zxgd_Prompt_Text" Content="微信、支付宝&#xA;     扫一扫" Margin="819,1153,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" Style="{DynamicResource FZXKJW}" ScrollViewer.VerticalScrollBarVisibility="Disabled" Height="92" VerticalAlignment="Top" HorizontalAlignment="Left" Width="229"/>
+
+        <Image x:Name ="Gzgzh_Frame_Backgound" Source="pack://SiteOfOrigin:,,,/Res/Page42/QRcodeBackGround.png" Stretch="Fill" Height="414" VerticalAlignment="Top" Margin="568,1388,-2,0" HorizontalAlignment="Left" Width="514"/>
+        <Image x:Name ="Gzgzh_Frame_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page42/QrCodeFram.png" Stretch="Fill" Height="389" VerticalAlignment="Top" Margin="579,1402,0,0" HorizontalAlignment="Left" Width="492"/>
         <Label x:Name="Gzwm_Prompt_Text" Content="      扫码关注&#xA;官方微信公众号" Margin="799,1566,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" Style="{DynamicResource FZXKJW}" Height="93" VerticalAlignment="Top" HorizontalAlignment="Left" Width="276"/>
         <Image x:Name="QRCode_Title_Gzgzh" Source="pack://SiteOfOrigin:,,,/Res/Page42/gzgzh_2.png" Stretch="None" Margin="819,1491,0,0" HorizontalAlignment="Left" Width="238" Height="57" VerticalAlignment="Top"/>
         <Image x:Name="Temple_Name_Title_Copy" Source="pack://SiteOfOrigin:,,,/Res/Page42/logo.png" Stretch="Fill" HorizontalAlignment="Left" Width="290" Height="52" VerticalAlignment="Top" Margin="689,1721,0,0"/>
         <Image x:Name="QRCode_Image_Gzgzh" Stretch="Fill" Margin="599,1461,0,0" HorizontalAlignment="Left" Width="205" Height="198" VerticalAlignment="Top"/>
+        <Label x:Name="Seprate_Line_Zxgdx" Content="" Margin="610,1268,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
+        <Label x:Name="Seprate_Line_Gzgzh" Content="" Margin="601,1693,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
+
         <Image x:Name="Ggjs_Page_Flow"  Source="pack://SiteOfOrigin:,,,/Res/Page42/GgjsBackGround.png" Margin="129,622,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="800" Height="286" VerticalAlignment="Top" Opacity="0.01" Visibility="Visible" MouseLeftButtonUp="Ggjs_Page_Flow_MouseLeftButtonUp"/>
         <Image x:Name="Ggjs_Page_Flow2"  Source="pack://SiteOfOrigin:,,,/Res/Page42/GgjsBackGround.png" Margin="27,1017,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="517" Height="769" VerticalAlignment="Top" Opacity="0.01" Visibility="Visible" />
-
-        <Label Content="" Margin="610,1268,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
-        <Label Content="" Margin="601,1693,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
+       
         <Label x:Name="Seprate_Line1" Content="" HorizontalAlignment="Left" Height="14" Margin="-3,370,0,0" VerticalAlignment="Top" Width="199" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>

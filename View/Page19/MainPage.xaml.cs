@@ -192,12 +192,9 @@ namespace RenJiCaoZuo.View.Page19
                 {
                     getDonateHouseContent();
                 }
-                if (pWebData.m_pTemplePayHistoryData.success == true)
-                {
-                    //显示捐赠listview内容
-                    displayDonateHouse();
-                }
             }
+            //显示捐赠listview内容
+            displayDonateHouse();
             Page_All_Refresh();
         }
 
@@ -205,11 +202,6 @@ namespace RenJiCaoZuo.View.Page19
         {
             try
             {
-                if (strMode == "3")
-                {
-                    return;
-                }
-
                 dispatcherAllPageRefreshTimer.Tick += delegate
                 {
                     if (m_nRefreshTimeOutCount > 10)
@@ -396,8 +388,24 @@ namespace RenJiCaoZuo.View.Page19
                 dLeft = V_Sperate_line.Margin.Left;
                 dTop = V_Sperate_line.Margin.Top;
                 V_Sperate_line.Margin = new Thickness(dLeft - 35, dTop - 20, 0, 0);
-
                 
+            }
+
+            if (strDisplayInch == "19_4")
+            {
+                QRCode_Title_Gzgzh.Visibility = Visibility.Hidden;
+                QRCode_Image_Gzgzh.Visibility = Visibility.Hidden;
+                QRCode_Title_Zxgdx.Visibility = Visibility.Hidden;
+                QRCode_Title_Zxgdx2.Visibility = Visibility.Hidden;
+                QRCode_Image_Zxgdx.Visibility = Visibility.Hidden;
+                Zxgd_Prompt_Text.Visibility = Visibility.Hidden;
+                H_Sperate_line.Visibility = Visibility.Hidden;
+                V_Sperate_line.Visibility = Visibility.Hidden;
+                Temple_Name_Title.Visibility = Visibility.Hidden;
+
+                Donate_List_Frame_Pic.Visibility = Visibility.Hidden;
+                Frame_Backgound_Zxgdx.Visibility = Visibility.Hidden;
+
             }
 
         }
@@ -413,6 +421,9 @@ namespace RenJiCaoZuo.View.Page19
         //获取捐赠TextBox的内容
         private void getDonateHouseContent()
         {
+            HouseName.Text = "";
+            HousepayTypeName.Text = "";
+            Houseamount.Text = "";
             pWebData.GetHousePayHistorybyWebService();
             if (pWebData != null &&
                 pWebData.m_pHousePayHistoryData != null &&

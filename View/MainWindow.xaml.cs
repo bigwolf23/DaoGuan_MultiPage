@@ -55,7 +55,7 @@ namespace RenJiCaoZuo
                 this.Height = 1024;
                 this.Width = 1280;
             }
-            else if (strDisplayInch == "19" || strDisplayInch == "19_3")
+            else if (strDisplayInch == "19" || strDisplayInch == "19_3" || strDisplayInch == "19_4")
             {
                 this.Height = 1024;
                 this.Width = 1280; 
@@ -69,13 +69,13 @@ namespace RenJiCaoZuo
                 this.Source = new Uri(@"\View\Page19\MainPage_2.xaml", UriKind.Relative);
 
             }
-            else if (strDisplayInch == "21")
+            else if (strDisplayInch == "21" || strDisplayInch == "21_2")
             {
                 this.Source = new Uri(@"\View\Page21\MainPage.xaml", UriKind.Relative);
                 this.Height = 1080;
                 this.Width = 1920;
             }
-            else if (strDisplayInch == "42")
+            else if (strDisplayInch == "42" || strDisplayInch == "42_2")
             {
                 this.Source = new Uri(@"\View\Page42\MainPage.xaml", UriKind.Relative);
                 this.Height = 1920;
