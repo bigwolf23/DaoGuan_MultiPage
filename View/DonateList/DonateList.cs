@@ -137,6 +137,7 @@ namespace RenJiCaoZuo.View.DonateList
 
         private void moveData()
         {
+            int nCount = 0;
             while (true)
             {
                 ThreadPool.QueueUserWorkItem(delegate
@@ -147,9 +148,45 @@ namespace RenJiCaoZuo.View.DonateList
                     System.Threading.SynchronizationContext.Current.Send(pl =>
                     {
 
-                        for (int i = 1; i < (PayListHistorys.Count); i++)
+                        //for (int i = 1; i < (PayListHistorys.Count); i++)
+                        //{
+                        //    PayListHistorys.Move(i - 1, i);
+                        //}
+
+                        nCount++;
+                        string sRefreshTime = ConfigurationManager.AppSettings["DonateListRefreshTime"];
+                        int nRefreshTime = Convert.ToInt16(sRefreshTime);
+
+                        if (nCount * 2 > nRefreshTime)
                         {
-                            PayListHistorys.Move(i - 1, i);
+                            nCount = 0;
+                            PayListHistorys.Clear();
+                            pWebData.GetTemplePayHistorybyWebService();
+                            if (pWebData == null ||
+                                pWebData.m_pTemplePayHistoryData == null ||
+                                pWebData.m_pTemplePayHistoryData.body == null)
+                            {
+                                //dispatcherDonateTimerList.Stop();
+                                return;
+                            }
+                            else
+                            {
+                                getDonateListContent();
+                                for (int i = 1; i < (PayListHistorys.Count); i++)
+                                {
+                                    PayListHistorys.Move(i - 1, i);
+                                }
+                                //获取捐赠TextBox的内容
+                                //getDonateHouseContent();
+                            }
+
+                        }
+                        else
+                        {
+                            for (int i = 1; i < (PayListHistorys.Count); i++)
+                            {
+                                PayListHistorys.Move(i - 1, i);
+                            }
                         }
 
                     }, null);
@@ -170,9 +207,11 @@ namespace RenJiCaoZuo.View.DonateList
                 //dispatcherTimerList.Tick += IndexAction;
                 //dispatcherTimerList.Start();
 
-                //Thread mThread = new Thread(moveData);
-                //mThread.Name = "线程测试";
-                //mThread.Start();
+                Thread mThread = new Thread(moveData);
+                mThread.Name = "TestThread";
+                mThread.Start();
+                return;
+
                 //BackgroundWorker worker = new BackgroundWorker();
                 //worker.DoWork += new DoWorkEventHandler(worker_DoWork);
                 //worker.RunWorkerAsync();
@@ -217,49 +256,49 @@ namespace RenJiCaoZuo.View.DonateList
                 //    }));
                 //}).Start();
 
-                dispatcherTimerList.Tick += delegate
-                {
-                    nCount++;
-                    string sRefreshTime = ConfigurationManager.AppSettings["PageRefreshTime"];
-                    int nRefreshTime = Convert.ToInt16(sRefreshTime);
+                //dispatcherTimerList.Tick += delegate
+                //{
+                //    nCount++;
+                //    string sRefreshTime = ConfigurationManager.AppSettings["PageRefreshTime"];
+                //    int nRefreshTime = Convert.ToInt16(sRefreshTime);
                     
-                    if (nCount*2 > nRefreshTime)
-                    {
-                        nCount = 0;
-                        PayListHistorys.Clear();
-                        GC.Collect();
-                        GC.WaitForPendingFinalizers();
-                        pWebData.GetTemplePayHistorybyWebService();
-                        if (pWebData == null ||
-                            pWebData.m_pTemplePayHistoryData == null ||
-                            pWebData.m_pTemplePayHistoryData.body == null)
-                        {
-                            //dispatcherDonateTimerList.Stop();
-                            return;
-                        }
-                        else
-                        {
-                            getDonateListContent();
-                            for (int i = 1; i < (PayListHistorys.Count); i++)
-                            {
-                                PayListHistorys.Move(i - 1, i);
-                            }
-                            //获取捐赠TextBox的内容
-                            //getDonateHouseContent();
-                        }
+                //    if (nCount*2 > nRefreshTime)
+                //    {
+                //        nCount = 0;
+                //        PayListHistorys.Clear();
+                //        GC.Collect();
+                //        GC.WaitForPendingFinalizers();
+                //        pWebData.GetTemplePayHistorybyWebService();
+                //        if (pWebData == null ||
+                //            pWebData.m_pTemplePayHistoryData == null ||
+                //            pWebData.m_pTemplePayHistoryData.body == null)
+                //        {
+                //            //dispatcherDonateTimerList.Stop();
+                //            return;
+                //        }
+                //        else
+                //        {
+                //            getDonateListContent();
+                //            for (int i = 1; i < (PayListHistorys.Count); i++)
+                //            {
+                //                PayListHistorys.Move(i - 1, i);
+                //            }
+                //            //获取捐赠TextBox的内容
+                //            //getDonateHouseContent();
+                //        }
 
-                    }
-                    else
-                    {
-                        for (int i = 1; i < (PayListHistorys.Count); i++)
-                        {
-                            PayListHistorys.Move(i - 1, i);
-                        }
-                        GC.Collect();
-                        GC.WaitForPendingFinalizers();
-                    }
-                };
-                dispatcherTimerList.Start();
+                //    }
+                //    else
+                //    {
+                //        for (int i = 1; i < (PayListHistorys.Count); i++)
+                //        {
+                //            PayListHistorys.Move(i - 1, i);
+                //        }
+                //        GC.Collect();
+                //        GC.WaitForPendingFinalizers();
+                //    }
+                //};
+                //dispatcherTimerList.Start();
             }
             catch (Exception ex) { }
         }

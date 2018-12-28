@@ -61,10 +61,8 @@ namespace RenJiCaoZuo.View.Page19
         private DispatcherTimer dispatcherTimerList = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromSeconds(5) };
 
         private DispatcherTimer dispatcherTimerRefresh = null;
-        //dispatcherSrcollBarTimer这个timer暂时不用，保留
-        private DispatcherTimer dispatcherSrcollBarTimer = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(40) };
 
-        private DispatcherTimer dispatcherAllPageRefreshTimer = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(5) };
+        private DispatcherTimer dispatcherAllPageRefreshTimer = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromSeconds(5) };
 
 
         public GetWebData pWebData;
@@ -437,77 +435,6 @@ namespace RenJiCaoZuo.View.Page19
                 }
             }
             catch (Exception ex){ }
-        }
-
-
-
-        //显示捐赠ListView内容
-        private void displayDonateList()
-        {
-            int nCount = 0;
-            this.DonateInfo_List.ItemsSource = myPayQueue.ToList();
-            try
-            {
-                if (myPayQueue.Count > 0)
-                {
-                    dispatcherDonateTimerList.Tick += delegate
-                    {
-                        nCount++;
-                        string sRefreshTime = ConfigurationManager.AppSettings["PageRefreshTime"];
-                        int nRefreshTime = Convert.ToInt16(sRefreshTime);
-                        if (nCount % nRefreshTime == 0)
-                        {
-                            nCount = 0;
-                            myPayQueue.Clear();
-                            this.DonateInfo_List.ItemsSource = null;
-                            this.DonateInfo_List.Items.Clear();
-                            this.DonateInfo_List.Items.Refresh();
-                            GC.Collect();
-                            GC.WaitForPendingFinalizers();
-                            pWebData.GetTemplePayHistorybyWebService();
-                            if (pWebData == null ||
-                                pWebData.m_pTemplePayHistoryData == null || 
-                                pWebData.m_pTemplePayHistoryData.body == null)
-                            {
-                                //dispatcherDonateTimerList.Stop();
-                                return;
-                            }
-                            else
-                            {
-                                getDonateListContent();
-
-                                this.DonateInfo_List.ItemsSource = myPayQueue.ToList();
-
-                                //获取捐赠TextBox的内容
-                                getDonateHouseContent();
-                            }
-
-                        }
-                        else
-                        {
-                            if (myPayQueue.Count > 0)
-                            {
-                                myPayQueue.Enqueue(myPayQueue.Dequeue());  // 把队列中派头的放到队尾
-                                this.DonateInfo_List.ItemsSource = null;
-                                this.DonateInfo_List.Items.Clear();
-                                this.DonateInfo_List.Items.Refresh();
-                                GC.Collect();
-                                GC.WaitForPendingFinalizers();
-                                this.DonateInfo_List.ItemsSource = myPayQueue.ToList();
-                            }
-
-                        }
-
-                    };
-                    dispatcherDonateTimerList.Start();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                //dispatcherDonateTimerList.Stop();
-            }
-
         }
 
         private void getActiveInfoContent()

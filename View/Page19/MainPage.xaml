@@ -266,7 +266,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Border BorderBrush="#FF720600" BorderThickness="5" HorizontalAlignment="Left" Height="324" Margin="36,690,0,0" VerticalAlignment="Top" Width="593"/>
+        <!--<Border BorderBrush="#FF720600" BorderThickness="5" HorizontalAlignment="Left" Height="324" Margin="36,690,0,0" VerticalAlignment="Top" Width="593"/>-->
         <Label  Name="Seprate_Line1" Content="" HorizontalAlignment="Left" Height="14" Margin="44,288,0,0" VerticalAlignment="Top" Width="169" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -288,6 +288,8 @@
                Margin="38,698,0,0" Stretch="Fill" HorizontalAlignment="Left" 
                Width="589" Height="316" VerticalAlignment="Top" 
                Opacity="0.01"/>
+        <Image x:Name="Donate_List_Frame" Margin="29,691,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page19/DonateList.png" Stretch="Fill" Height="331"
+               VerticalAlignment="Top" HorizontalAlignment="Left" Width="606"/>
 
     </Grid>
 </Page>

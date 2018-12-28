@@ -52,7 +52,10 @@ namespace RenJiCaoZuo.WebData
                 GetActivityInfobyWebService();
             }
             GetTemplePayHistorybyWebService();
-            GetqRCodeInfobyWebService();
+            if (strMode != "42_2" && strMode != "21_2" && strMode != "19_4")
+            {
+                GetqRCodeInfobyWebService();
+            }
             GetHousePayHistorybyWebService();
         }
 
@@ -293,6 +296,11 @@ namespace RenJiCaoZuo.WebData
                     if (!m_pqRCodeInfoData.body.data.url.Contains(@"http"))
                     {
                         m_pqRCodeInfoData.body.data.url = getFullpathPicLink(m_pqRCodeInfoData.body.data.url);
+                    }
+                    else
+                    {
+                        string strUrl = m_pqRCodeInfoData.body.data.url;
+                        m_pqRCodeInfoData.body.data.url = strUrl.Substring(1, strUrl.Length - 1);
                     }
                 }
             }

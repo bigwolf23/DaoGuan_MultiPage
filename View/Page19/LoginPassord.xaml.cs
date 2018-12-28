@@ -32,6 +32,7 @@ namespace RenJiCaoZuo.View.Page19
         public LoginPassord()
         {
             InitializeComponent();
+            //NavigationService.RemoveBackEntry();
             //System.Diagnostics.Process.Start("osk.exe");
         }
 
@@ -41,6 +42,7 @@ namespace RenJiCaoZuo.View.Page19
             if (strPassword == Password_Edit.Password)
             {
                 NavigationService.Navigate(new Uri(@"View/Page19/SettingWindow.xaml", UriKind.Relative));
+                //JournalEntry entry = NavigationService.RemoveBackEntry();
             }
             else{
                 Password_Edit.Clear();
@@ -51,13 +53,17 @@ namespace RenJiCaoZuo.View.Page19
         private void Return_Button_Click(object sender, RoutedEventArgs e)
         {
             string strDisplayInch = ConfigurationManager.AppSettings["DisplayInch"];
-            if (strDisplayInch == "19" || strDisplayInch == "19_3")
+            if (strDisplayInch == "19" || strDisplayInch == "19_3" || strDisplayInch == "19_4")
             {
                 NavigationService.Navigate(new Uri(@"View/Page19/MainPage.xaml", UriKind.Relative));
+                //JournalEntry entry = NavigationService.RemoveBackEntry();
+
             }
             else if (strDisplayInch == "19_2")
             {
                 NavigationService.Navigate(new Uri(@"View/Page19/MainPage_2.xaml", UriKind.Relative));
+                //JournalEntry entry = NavigationService.RemoveBackEntry();
+
             }
 
         }

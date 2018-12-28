@@ -62,15 +62,13 @@ namespace RenJiCaoZuo.View.Page21
         }
 
 
-        private DispatcherTimer dispatcherDonateTimerList = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromSeconds(2) };
+        private DispatcherTimer dispatcherDonateTimerList = null;
         //activity 的label更新的timer
         private DispatcherTimer dispatcherTimerList = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromSeconds(5) };
 
         private DispatcherTimer dispatcherTimerRefresh = null;
-        //dispatcherSrcollBarTimer这个timer暂时不用，保留
-        private DispatcherTimer dispatcherSrcollBarTimer = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(40) };
 
-        private DispatcherTimer dispatcherAllPageRefreshTimer = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(5) };
+        private DispatcherTimer dispatcherAllPageRefreshTimer = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromSeconds(5) };
 
 
         public GetWebData pWebData;
@@ -101,6 +99,9 @@ namespace RenJiCaoZuo.View.Page21
             int nRefreshTime = Convert.ToInt16(sRefreshTime);
 
             dispatcherTimerRefresh = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromSeconds(nRefreshTime) };
+            string sDonateHouseTime = ConfigurationManager.AppSettings["DonateHouseRefreshTime"];
+            int nDonateHouseTime = Convert.ToInt16(sDonateHouseTime);
+            dispatcherDonateTimerList = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromSeconds(nDonateHouseTime) };
 
         }
 
@@ -108,6 +109,8 @@ namespace RenJiCaoZuo.View.Page21
         {
             m_nRefreshTimeOutCount = 0;
             pWebData =  MainWindow.m_pAllWebData;
+            string strDisplayInch = ConfigurationManager.AppSettings["DisplayInch"];
+
             InitializeComponent();
             getPageRefreshTime();
             setDisplayByMode(strMode);
@@ -185,15 +188,17 @@ namespace RenJiCaoZuo.View.Page21
                     //设定寺院名字的图片
                     setTemplInfoNamePic();
                 }
-
-                if (pWebData.m_pqRCodeInfoData.success == true)
+                if (strDisplayInch != "21_2")
                 {
-                    //设定在线功德二维码
-                    setQRCodePic_Zxgdx();
-                    //设定公众号二维码
-                    setQRCodePic_Gzgzh();
-                }
 
+                    if (pWebData.m_pqRCodeInfoData.success == true)
+                    {
+                        //设定在线功德二维码
+                        setQRCodePic_Zxgdx();
+                        //设定公众号二维码
+                        setQRCodePic_Gzgzh();
+                    }
+                }
                 if (pWebData.m_pHousePayHistoryData.success == true)
                 {
                     getDonateHouseContent();
@@ -201,7 +206,10 @@ namespace RenJiCaoZuo.View.Page21
             }
             ////显示捐赠listview内容
             displayDonateHouse();
-            Page_All_Refresh();
+            if (strDisplayInch != "21_2")
+            {
+                Page_All_Refresh();
+            }
         }
 
         private void Page_All_Refresh()
@@ -442,39 +450,14 @@ namespace RenJiCaoZuo.View.Page21
 
         private void IndexAction(object sender, EventArgs e)
         {
-            GC.Collect();
             Dispatcher x = Dispatcher.CurrentDispatcher;//取得当前工作线程
             System.Threading.ThreadStart start = delegate()
             {
-                mDonate_nCount++;
-                string sRefreshTime = ConfigurationManager.AppSettings["PageRefreshTime"];
-                int nRefreshTime = Convert.ToInt16(sRefreshTime);
-                if (mDonate_nCount % nRefreshTime == 0)
+                x.BeginInvoke(new Action(() =>
                 {
-                    mDonate_nCount = 0;
-                    x.BeginInvoke(new Action(() =>
-                    {
-                        //获取捐赠TextBox的内容
-                        getDonateHouseContent();
-                    }), DispatcherPriority.Normal);
-                }
-
-                //ListViewAutomationPeer lvap = new ListViewAutomationPeer(DonateInfo_List);
-                //var svap = lvap.GetPattern(PatternInterface.Scroll) as ScrollViewerAutomationPeer;
-                //var scroll = svap.Owner as ScrollViewer;
-                //double nListViewOffset = scroll.ViewportHeight;
-                //if ((DonateInfo_List.Count > 1) && (scroll.HorizontalOffset / nListViewOffset) <= (DonateInfo_List.Count - 2))
-                //{
-                //    int nPosOf = (int)(scroll.HorizontalOffset / nListViewOffset);
-
-                //    //if (nPosOf >= 0 && (nPosOf) < m_MonkinfoDetail.Count())
-                //    //{
-                //    //    m_strMonkinfoDetail = m_MonkinfoDetail[nPosOf + 1];
-                //    //}
-                //    scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset + nListViewOffset);
-                //}
-                //scroll.ScrollToHorizontalOffset(scroll.VerticalOffset + 20);
-
+                    //获取捐赠TextBox的内容
+                    getDonateHouseContent();
+                }), DispatcherPriority.Normal);
             };
             new System.Threading.Thread(start).Start(); //启动线程
         } 

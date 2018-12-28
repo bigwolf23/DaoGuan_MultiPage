@@ -254,7 +254,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Border BorderBrush="#FF720600" BorderThickness="5" HorizontalAlignment="Left" Height="273" Margin="74,777,0,0" VerticalAlignment="Top" Width="622"/>
+        <!--<Border BorderBrush="#FF720600" BorderThickness="5" HorizontalAlignment="Left" Height="273" Margin="74,777,0,0" VerticalAlignment="Top" Width="622"/>-->
 
         <Image x:Name ="Donate_List_Frame"  Source="pack://SiteOfOrigin:,,,/Res/Page21/QRcodeBackGround.png" Stretch="Fill" Height="329" VerticalAlignment="Top" Margin="746,727,0,0" HorizontalAlignment="Left" Width="548"/>
         <Image x:Name ="Donate_List_Frame_Pic"  Source="pack://SiteOfOrigin:,,,/Res/Page21/QrCodeFram.png" Stretch="Fill" Height="316" VerticalAlignment="Top" Margin="756,734,0,0" HorizontalAlignment="Left" Width="529"/>
@@ -275,5 +275,9 @@
 
         <Label x:Name="Zxgd_V_line" Content="" Margin="802,950,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
         <Label x:Name="Gzwm_V_line" Content="" Margin="1377,950,0,0" BorderThickness="0,0,0,6" BorderBrush="#FF720600" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="438"/>
+
+        <Image x:Name="Donate_List_Frame1" Margin="63,777,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page21/DonateList.png" Stretch="Fill" Height="283"
+               VerticalAlignment="Top" HorizontalAlignment="Left" Width="645"/>
+
     </Grid>
 </Page>

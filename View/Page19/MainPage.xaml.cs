@@ -23,6 +23,7 @@ using RenJiCaoZuo;
 using RenJiCaoZuo.WebData;
 using System.Windows.Automation.Peers;
 using RenJiCaoZuo;
+using System.Threading;
 
 namespace RenJiCaoZuo.View.Page19
 {
@@ -56,19 +57,15 @@ namespace RenJiCaoZuo.View.Page19
         }
 
 
-        private DispatcherTimer dispatcherDonateTimerList = new System.Windows.Threading.DispatcherTimer() 
-                                { Interval = TimeSpan.FromSeconds(2) };
+        private DispatcherTimer dispatcherDonateTimerList = null;
         //activity 的label更新的timer
         private DispatcherTimer dispatcherTimerList = new System.Windows.Threading.DispatcherTimer() 
                                 { Interval = TimeSpan.FromSeconds(5) };
 
         private DispatcherTimer dispatcherTimerRefresh = null;
-        //dispatcherSrcollBarTimer这个timer暂时不用，保留
-        private DispatcherTimer dispatcherSrcollBarTimer = new System.Windows.Threading.DispatcherTimer() 
-                                { Interval = TimeSpan.FromMilliseconds(40) };
 
         private DispatcherTimer dispatcherAllPageRefreshTimer = new System.Windows.Threading.DispatcherTimer()
-                                { Interval = TimeSpan.FromMilliseconds(5) };
+                                { Interval = TimeSpan.FromSeconds(5) };
 
 
         public GetWebData pWebData;
@@ -98,7 +95,8 @@ namespace RenJiCaoZuo.View.Page19
             string sRefreshTime = ConfigurationManager.AppSettings["PageRefreshTime"];
             int nRefreshTime = Convert.ToInt16(sRefreshTime);
 
-            dispatcherTimerRefresh = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromSeconds(nRefreshTime) };
+            dispatcherTimerRefresh = new System.Windows.Threading.DispatcherTimer() 
+            { Interval = TimeSpan.FromSeconds(nRefreshTime) };
 
         }
 
@@ -109,6 +107,7 @@ namespace RenJiCaoZuo.View.Page19
             InitializeComponent();
             getPageRefreshTime();
             setDisplayByMode(strMode);
+            string strDisplayInch = ConfigurationManager.AppSettings["DisplayInch"];
 
             if (strMode == "3")
             {
@@ -180,12 +179,15 @@ namespace RenJiCaoZuo.View.Page19
                     setTemplInfoNamePic();
                 }
 
-                if (pWebData.m_pqRCodeInfoData.success == true)
+                if (strDisplayInch != "19_4")
                 {
-                    //设定在线功德二维码
-                    setQRCodePic_Zxgdx();
-                    //设定公众号二维码
-                    setQRCodePic_Gzgzh();
+                    if (pWebData.m_pqRCodeInfoData.success == true)
+                    {
+                        //设定在线功德二维码
+                        setQRCodePic_Zxgdx();
+                        //设定公众号二维码
+                        setQRCodePic_Gzgzh();
+                    }
                 }
 
                 if (pWebData.m_pHousePayHistoryData.success == true)
@@ -195,7 +197,10 @@ namespace RenJiCaoZuo.View.Page19
             }
             //显示捐赠listview内容
             displayDonateHouse();
-            Page_All_Refresh();
+            if (strDisplayInch != "19_4")
+            { 
+                Page_All_Refresh();
+            }
         }
 
         private void Page_All_Refresh()
@@ -239,7 +244,7 @@ namespace RenJiCaoZuo.View.Page19
                         displayDonateHouse();
 
                     }
-
+                    
                     if (QRCode_Image_Zxgdx.Source == null)
                     {
                         pWebData.GetqRCodeInfobyWebService();
@@ -461,22 +466,14 @@ namespace RenJiCaoZuo.View.Page19
 
         private void IndexAction(object sender, EventArgs e)
         {
-            GC.Collect();
             Dispatcher x = Dispatcher.CurrentDispatcher;//取得当前工作线程
             System.Threading.ThreadStart start = delegate()
             {
-                mDonate_nCount++;
-                string sRefreshTime = ConfigurationManager.AppSettings["PageRefreshTime"];
-                int nRefreshTime = Convert.ToInt16(sRefreshTime);
-                if (mDonate_nCount % nRefreshTime == 0)
+                x.BeginInvoke(new Action(() =>
                 {
-                    mDonate_nCount = 0;
-                    x.BeginInvoke(new Action(() =>
-                    {
-                        //获取捐赠TextBox的内容
-                        getDonateHouseContent();
-                    }), DispatcherPriority.Normal);
-                }
+                    //获取捐赠TextBox的内容
+                    getDonateHouseContent();
+                }), DispatcherPriority.Normal);
             };
             new System.Threading.Thread(start).Start(); //启动线程
         } 

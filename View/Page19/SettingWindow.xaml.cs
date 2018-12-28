@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Configuration;
+using System.Windows.Navigation;
 using RenJiCaoZuo;
 
 namespace RenJiCaoZuo.View.Page19
@@ -48,13 +49,17 @@ namespace RenJiCaoZuo.View.Page19
         private void ReturnMain_Button_Click(object sender, RoutedEventArgs e)
         {
             string strDisplayInch = ConfigurationManager.AppSettings["DisplayInch"];
-            if (strDisplayInch == "19" || strDisplayInch == "19_3")
+            if (strDisplayInch == "19" || strDisplayInch == "19_3" || strDisplayInch == "19_4")
             {
                 NavigationService.Navigate(new Uri(@"View/Page19/MainPage.xaml", UriKind.Relative));
+                //JournalEntry entry = NavigationService.RemoveBackEntry();
+
             }
             else if (strDisplayInch == "19_2")
             {
                 NavigationService.Navigate(new Uri(@"View/Page19/MainPage_2.xaml", UriKind.Relative));
+                //JournalEntry entry = NavigationService.RemoveBackEntry();
+
             }
         }
 

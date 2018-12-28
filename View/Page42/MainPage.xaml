@@ -253,7 +253,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Border BorderBrush="#FF720600" BorderThickness="5" HorizontalAlignment="Left" Height="779" Margin="27,1010,0,0" VerticalAlignment="Top" Width="521"/>
+        <!--<Border BorderBrush="#FF720600" BorderThickness="5" HorizontalAlignment="Left" Height="779" Margin="27,1010,0,0" VerticalAlignment="Top" Width="521"/>-->
 
         <Image x:Name ="Frame_Backgound_Zxgdx" Source="pack://SiteOfOrigin:,,,/Res/Page42/QRcodeBackGround.png" Stretch="Fill" Height="414" VerticalAlignment="Top" Margin="568,965,-2,0" HorizontalAlignment="Left" Width="514"/>
         <Image x:Name ="Frame_Pic_Zxgdx"  Source="pack://SiteOfOrigin:,,,/Res/Page42/QrCodeFram.png" Stretch="Fill" Height="388" VerticalAlignment="Top" Margin="577,979,0,0" HorizontalAlignment="Left" Width="492"/>
@@ -284,5 +284,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+
+        <Image x:Name="Donate_List_Frame" Margin="23,1009,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page42/DonateList.png" Stretch="Fill" Height="794"
+               VerticalAlignment="Top" HorizontalAlignment="Left" Width="529"/>
     </Grid>
 </Page>
