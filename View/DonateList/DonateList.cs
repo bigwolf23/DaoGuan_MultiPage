@@ -138,61 +138,69 @@ namespace RenJiCaoZuo.View.DonateList
         private void moveData()
         {
             int nCount = 0;
-            while (true)
+            try
             {
-                ThreadPool.QueueUserWorkItem(delegate
+                while (true)
                 {
-                    System.Threading.SynchronizationContext.SetSynchronizationContext(new
-                        System.Windows.Threading.DispatcherSynchronizationContext(
-                        System.Windows.Application.Current.Dispatcher));
-                    System.Threading.SynchronizationContext.Current.Send(pl =>
+                    ThreadPool.QueueUserWorkItem(delegate
                     {
-
-                        //for (int i = 1; i < (PayListHistorys.Count); i++)
-                        //{
-                        //    PayListHistorys.Move(i - 1, i);
-                        //}
-
-                        nCount++;
-                        string sRefreshTime = ConfigurationManager.AppSettings["DonateListRefreshTime"];
-                        int nRefreshTime = Convert.ToInt16(sRefreshTime);
-
-                        if (nCount * 2 > nRefreshTime)
+                        System.Threading.SynchronizationContext.SetSynchronizationContext(new
+                            System.Windows.Threading.DispatcherSynchronizationContext(
+                            System.Windows.Application.Current.Dispatcher));
+                        System.Threading.SynchronizationContext.Current.Send(pl =>
                         {
-                            nCount = 0;
-                            PayListHistorys.Clear();
-                            pWebData.GetTemplePayHistorybyWebService();
-                            if (pWebData == null ||
-                                pWebData.m_pTemplePayHistoryData == null ||
-                                pWebData.m_pTemplePayHistoryData.body == null)
+
+                            //for (int i = 1; i < (PayListHistorys.Count); i++)
+                            //{
+                            //    PayListHistorys.Move(i - 1, i);
+                            //}
+
+                            nCount++;
+                            string sRefreshTime = ConfigurationManager.AppSettings["DonateListRefreshTime"];
+                            int nRefreshTime = Convert.ToInt16(sRefreshTime);
+
+                            if (nCount * 2 > nRefreshTime)
                             {
-                                //dispatcherDonateTimerList.Stop();
-                                return;
+                                nCount = 0;
+                                PayListHistorys.Clear();
+                                pWebData.GetTemplePayHistorybyWebService();
+                                if (pWebData == null ||
+                                    pWebData.m_pTemplePayHistoryData == null ||
+                                    pWebData.m_pTemplePayHistoryData.body == null)
+                                {
+                                    //dispatcherDonateTimerList.Stop();
+                                    return;
+                                }
+                                else
+                                {
+                                    getDonateListContent();
+                                    for (int i = 1; i < (PayListHistorys.Count); i++)
+                                    {
+                                        PayListHistorys.Move(i - 1, i);
+                                    }
+                                    //获取捐赠TextBox的内容
+                                    //getDonateHouseContent();
+                                }
+
                             }
                             else
                             {
-                                getDonateListContent();
                                 for (int i = 1; i < (PayListHistorys.Count); i++)
                                 {
                                     PayListHistorys.Move(i - 1, i);
                                 }
-                                //获取捐赠TextBox的内容
-                                //getDonateHouseContent();
                             }
 
-                        }
-                        else
-                        {
-                            for (int i = 1; i < (PayListHistorys.Count); i++)
-                            {
-                                PayListHistorys.Move(i - 1, i);
-                            }
-                        }
-
-                    }, null);
-                });
-                Thread.Sleep(2000);
+                        }, null);
+                    });
+                    Thread.Sleep(2000);
+                }
             }
+            catch (Exception ex)
+            {
+
+            }
+
         }
 
         
@@ -207,10 +215,10 @@ namespace RenJiCaoZuo.View.DonateList
                 //dispatcherTimerList.Tick += IndexAction;
                 //dispatcherTimerList.Start();
 
-                Thread mThread = new Thread(moveData);
-                mThread.Name = "TestThread";
-                mThread.Start();
-                return;
+                //Thread mThread = new Thread(moveData);
+                //mThread.Name = "TestThread";
+                //mThread.Start();
+                //return;
 
                 //BackgroundWorker worker = new BackgroundWorker();
                 //worker.DoWork += new DoWorkEventHandler(worker_DoWork);
@@ -256,49 +264,47 @@ namespace RenJiCaoZuo.View.DonateList
                 //    }));
                 //}).Start();
 
-                //dispatcherTimerList.Tick += delegate
-                //{
-                //    nCount++;
-                //    string sRefreshTime = ConfigurationManager.AppSettings["PageRefreshTime"];
-                //    int nRefreshTime = Convert.ToInt16(sRefreshTime);
-                    
-                //    if (nCount*2 > nRefreshTime)
-                //    {
-                //        nCount = 0;
-                //        PayListHistorys.Clear();
-                //        GC.Collect();
-                //        GC.WaitForPendingFinalizers();
-                //        pWebData.GetTemplePayHistorybyWebService();
-                //        if (pWebData == null ||
-                //            pWebData.m_pTemplePayHistoryData == null ||
-                //            pWebData.m_pTemplePayHistoryData.body == null)
-                //        {
-                //            //dispatcherDonateTimerList.Stop();
-                //            return;
-                //        }
-                //        else
-                //        {
-                //            getDonateListContent();
-                //            for (int i = 1; i < (PayListHistorys.Count); i++)
-                //            {
-                //                PayListHistorys.Move(i - 1, i);
-                //            }
-                //            //获取捐赠TextBox的内容
-                //            //getDonateHouseContent();
-                //        }
+                dispatcherTimerList.Tick += delegate
+                {
+                    nCount++;
+                    string sRefreshTime = ConfigurationManager.AppSettings["DonateListRefreshTime"];
+                    int nRefreshTime = Convert.ToInt16(sRefreshTime);
 
-                //    }
-                //    else
-                //    {
-                //        for (int i = 1; i < (PayListHistorys.Count); i++)
-                //        {
-                //            PayListHistorys.Move(i - 1, i);
-                //        }
-                //        GC.Collect();
-                //        GC.WaitForPendingFinalizers();
-                //    }
-                //};
-                //dispatcherTimerList.Start();
+                    if (nCount * 2 > nRefreshTime)
+                    {
+                        nCount = 0;
+                        PayListHistorys.Clear();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        pWebData.GetTemplePayHistorybyWebService();
+                        if (pWebData == null ||
+                            pWebData.m_pTemplePayHistoryData == null ||
+                            pWebData.m_pTemplePayHistoryData.body == null)
+                        {
+                            //dispatcherDonateTimerList.Stop();
+                            return;
+                        }
+                        else
+                        {
+                            getDonateListContent();
+                            for (int i = 1; i < (PayListHistorys.Count); i++)
+                            {
+                                PayListHistorys.Move(i - 1, i);
+                            }
+                            //获取捐赠TextBox的内容
+                            //getDonateHouseContent();
+                        }
+
+                    }
+                    else
+                    {
+                        for (int i = 1; i < (PayListHistorys.Count); i++)
+                        {
+                            PayListHistorys.Move(i - 1, i);
+                        }
+                    }
+                };
+                dispatcherTimerList.Start();
             }
             catch (Exception ex) { }
         }

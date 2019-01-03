@@ -23,6 +23,8 @@ using RenJiCaoZuo;
 using RenJiCaoZuo.WebData;
 using System.Windows.Automation.Peers;
 using RenJiCaoZuo;
+using RenJiCaoZuo.Common;
+using System.ComponentModel;
 
 namespace RenJiCaoZuo.View.Page42
 {
@@ -39,28 +41,6 @@ namespace RenJiCaoZuo.View.Page42
         }  
 
         //public GetWebData m_pAllWebData = new GetWebData();
-        class PayListHistory
-        {
-            public string Name { get; set; }
-            public string payTypeName { get; set; }
-            public double amount { get; set; }
-        }
-
-        public class monkinfoDisp
-        {
-            public string MonkInfoImage { get; set; }
-            public string MonkName { get; set; }
-            public string MonkInfo { get; set; }
-            public int MonkInfoIndex { get; set; }
-        }
-
-        //获取寺庙活动的内容
-        public class ActivityList
-        {
-            public string ActivityMain { get; set; }
-            public string ActivityMainDetail { get; set; }
-        }
-
         //activity 的label更新的timer
         private DispatcherTimer dispatcherTimerList = new System.Windows.Threading.DispatcherTimer() 
                         { Interval = TimeSpan.FromSeconds(5) };
@@ -87,12 +67,10 @@ namespace RenJiCaoZuo.View.Page42
         List<ActivityList> m_pActivityListInfo = new List<ActivityList>();
         string strMode = ConfigurationManager.AppSettings["FirstPageName"];
         private int m_nRefreshTimeOutCount;
-        private void setWindowsShutDown()
-        {
-            CommonFuntion pCommon = new CommonFuntion();
-            pCommon.setWindowsShutDown();
 
-        }
+        Queue<PicTransationControl> myPicTransationPageQueue = new Queue<PicTransationControl>();
+        PicTransationControl currentPage = new PicTransationControl();
+
         private void getPageRefreshTime()
         {
             string sRefreshTime = ConfigurationManager.AppSettings["PageRefreshTime"];
@@ -104,6 +82,65 @@ namespace RenJiCaoZuo.View.Page42
             int nDonateHouseTime = Convert.ToInt16(sDonateHouseTime);
             dispatcherDonateTimerList = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromSeconds(nDonateHouseTime) };
         }
+        int m_nChangeTime;
+        public void setPicTransactionPage()
+        {
+            PicTransationPath PicTransation = new PicTransationPath();
+            if (PicTransation.lstPicPath.Count <= 0)
+            {
+                return;
+            }
+
+            foreach (string strTemp in PicTransation.lstPicPath)
+            {
+                PicTransationControl newPage = new PicTransationControl();
+                PicInfo PicTempInfo = new PicInfo();
+                PicTempInfo.nHeight = 780;
+                PicTempInfo.nWidth = 1038;
+                PicTempInfo.strImgLink = strTemp;
+                newPage.DataContext = PicTempInfo; 
+                myPicTransationPageQueue.Enqueue(newPage);
+                currentPage = newPage;
+            }
+
+            pageTransitionControl.ShowPage(currentPage);
+            getThePicChangeTime();
+            creatThePicChangeThread();
+        }
+
+        void getThePicChangeTime()
+        {
+            m_nChangeTime = 0;
+            string strPage_Change_time = ConfigurationManager.AppSettings["Pic_ChangTime"];
+            m_nChangeTime = Convert.ToInt16(strPage_Change_time);
+            m_nChangeTime = m_nChangeTime * 1000;
+        }
+
+        void creatThePicChangeThread()
+        {
+            BackgroundWorker bw = new BackgroundWorker();
+            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            bw.RunWorkerAsync();
+        }
+
+        void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                if (myPicTransationPageQueue.Count > 0)
+                {
+                    System.Threading.Thread.Sleep(m_nChangeTime); 
+                    currentPage = myPicTransationPageQueue.Dequeue();
+                    myPicTransationPageQueue.Enqueue(currentPage);
+                    pageTransitionControl.ShowPage(currentPage);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
 
         public MainPage()
         {
@@ -175,9 +212,6 @@ namespace RenJiCaoZuo.View.Page42
                         //显示寺庙活动在listview中
                         DisplayActiveInfoContentInList();
                     }
-                
-
-                   
                 }
             }
 
@@ -189,7 +223,7 @@ namespace RenJiCaoZuo.View.Page42
                     setTemplInfoNamePic();
                 }
 
-                if (strDisplayInch != "42_2")
+                if (strDisplayInch != "42_2" && strDisplayInch != "42_3")
                 {
                     if (pWebData.m_pqRCodeInfoData.success == true)
                     {
@@ -207,10 +241,16 @@ namespace RenJiCaoZuo.View.Page42
             }
             //显示捐赠人内容
             displayDonateHouse();
-            if (strDisplayInch != "42_2")
+            if (strDisplayInch != "42_2" && strDisplayInch != "42_3")
             {
                 Page_All_Refresh();
             }
+
+            if (strDisplayInch == "42_3")
+            {
+                setPicTransactionPage();
+            }
+
         }
 
         private void Page_All_Refresh()
@@ -328,8 +368,8 @@ namespace RenJiCaoZuo.View.Page42
                 ActivityInfo_Prev_Button.Visibility = Visibility.Hidden;
                 ActivityInfo_ListView.Visibility = Visibility.Hidden;
                 this.MediaPlay.Visibility = Visibility.Hidden;
-               
 
+                pageTransitionControl.Visibility = Visibility.Hidden;
                 this.ActivityAndMonk_Img.Visibility = Visibility.Hidden;
             }
             else if (strMode == "2")
@@ -345,7 +385,7 @@ namespace RenJiCaoZuo.View.Page42
                 ActivityInfo_Next_Button.Visibility = Visibility.Visible;
                 ActivityInfo_Prev_Button.Visibility = Visibility.Visible;
                 ActivityInfo_ListView.Visibility = Visibility.Visible;
-
+                pageTransitionControl.Visibility = Visibility.Hidden;
                 this.MediaPlay.Visibility = Visibility.Hidden;
             }
             else
@@ -375,6 +415,8 @@ namespace RenJiCaoZuo.View.Page42
                 Ggjs_Page_Flow.Visibility = Visibility.Hidden;
                 Temple_Intrduce_Back.Visibility = Visibility.Hidden;
                 Temple_Intrduce_Frame_Back.Visibility = Visibility.Hidden;
+                pageTransitionControl.Visibility = Visibility.Hidden;
+                
                 this.MediaPlay.Visibility = Visibility.Visible;
             }
 
@@ -395,6 +437,57 @@ namespace RenJiCaoZuo.View.Page42
                 this.QRCode_Image_Gzgzh.Visibility = Visibility.Hidden;
                 this.Seprate_Line_Gzgzh.Visibility = Visibility.Hidden;
                 this.Seprate_Line_Zxgdx.Visibility = Visibility.Hidden;
+
+                pageTransitionControl.Visibility = Visibility.Hidden;
+
+            }
+
+            if (strDisplayInch == "42_3")
+            {
+                this.UpPage_Button.Visibility = Visibility.Hidden;
+                this.DownPage_Button.Visibility = Visibility.Hidden;
+                //Activity label infor
+                this.NewsBackground_Img.Visibility = Visibility.Hidden;
+                this.ActivityInfo_Label.Visibility = Visibility.Hidden;
+                this.MonkInfo_ListView.Visibility = Visibility.Hidden;
+
+                Activity_Detail.Visibility = Visibility.Hidden;
+                ActivityInfo_Next_Button.Visibility = Visibility.Hidden;
+                ActivityInfo_Prev_Button.Visibility = Visibility.Hidden;
+                ActivityInfo_ListView.Visibility = Visibility.Hidden;
+
+                TemplInfo_TextBlock.Visibility = Visibility.Hidden;
+                //               TempInfo_Image.Visibility = Visibility.Hidden;
+                ActivityAndMonk_Img.Visibility = Visibility.Hidden;
+                TempInfo_Detail.Visibility = Visibility.Hidden;
+                TempInfo_Intrduce.Visibility = Visibility.Hidden;
+                Temple_Intrduce_Frame.Visibility = Visibility.Hidden;
+                TempInfo_Intrduce_Pic.Visibility = Visibility.Hidden;
+                this.MonkOrActive_Intrduce_Pic.Visibility = Visibility.Hidden;
+                Seprate_Line1.Visibility = Visibility.Hidden;
+                Seprate_Line2.Visibility = Visibility.Hidden;
+                Ggjs_Page_Flow.Visibility = Visibility.Hidden;
+                Temple_Intrduce_Back.Visibility = Visibility.Hidden;
+                Temple_Intrduce_Frame_Back.Visibility = Visibility.Hidden;
+
+                this.Frame_Backgound_Zxgdx.Visibility = Visibility.Hidden;
+                this.Frame_Pic_Zxgdx.Visibility = Visibility.Hidden;
+                this.QRCode_Title_Zxgdx.Visibility = Visibility.Hidden;
+                this.QRCode_Image_Zxgdx.Visibility = Visibility.Hidden;
+                this.Temple_Name_Title.Visibility = Visibility.Hidden;
+                this.Zxgd_Prompt_Text.Visibility = Visibility.Hidden;
+                this.Gzgzh_Frame_Backgound.Visibility = Visibility.Hidden;
+                this.Gzgzh_Frame_Pic.Visibility = Visibility.Hidden;
+                this.Gzwm_Prompt_Text.Visibility = Visibility.Hidden;
+                this.QRCode_Title_Gzgzh.Visibility = Visibility.Hidden;
+                this.Temple_Name_Title_Copy.Visibility = Visibility.Hidden;
+                this.QRCode_Image_Gzgzh.Visibility = Visibility.Hidden;
+                this.Seprate_Line_Gzgzh.Visibility = Visibility.Hidden;
+                this.Seprate_Line_Zxgdx.Visibility = Visibility.Hidden;
+                this.MediaPlay.Visibility = Visibility.Hidden;
+
+                pageTransitionControl.Visibility = Visibility.Visible;
+
             }
         }
 

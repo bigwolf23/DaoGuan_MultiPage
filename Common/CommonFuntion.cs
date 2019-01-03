@@ -7,10 +7,11 @@ using System.Windows;
 using System.Configuration;
 using System.Text.RegularExpressions;
 using RenJiCaoZuo.WebData;
+using System.Configuration;
+using System.IO;
 
 namespace RenJiCaoZuo
 {
-    
     public class CommonFuntion
     {
         public void setWindowsShutDown()
@@ -34,5 +35,24 @@ namespace RenJiCaoZuo
             string strShutdownParam = @"-s -t " + diff.ToString();
             System.Diagnostics.Process.Start(@"c:/windows/system32/shutdown.exe", strShutdownParam);
         }
+    }
+
+    public class PicTransationPath
+    {
+        public List<string> lstPicPath = new List<string>();
+        public PicTransationPath()
+        {
+            string strTransation = "Pic_Transation";
+            for(int i = 1;i<=5;i++)
+            {
+                string strTemp = strTransation + i.ToString();
+                string strPath = ConfigurationManager.AppSettings[strTemp];
+                if (File.Exists(strPath))
+                {
+                    lstPicPath.Add(strPath);
+                }
+            }
+        }
+
     }
 }

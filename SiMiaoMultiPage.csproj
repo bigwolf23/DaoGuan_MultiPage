@@ -124,6 +124,10 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfPageTransitions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WpfPageTransitions.dll</HintPath>
+    </Reference>
     <Reference Include="Xceed.Wpf.Toolkit">
       <HintPath>.\Xceed.Wpf.Toolkit.dll</HintPath>
     </Reference>
@@ -133,6 +137,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\CommonData.cs" />
     <Compile Include="View\DonateList\DonateHouse.cs" />
     <Compile Include="View\DonateList\DonateList.cs" />
     <Compile Include="View\Page19\Introduction.xaml.cs">
@@ -197,6 +202,9 @@
     </Compile>
     <Compile Include="View\PageOrg\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PicTransationControl.xaml.cs">
+      <DependentUpon>PicTransationControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RollingTextBlock.xaml.cs">
       <DependentUpon>RollingTextBlock.xaml</DependentUpon>
@@ -318,6 +326,10 @@
     <Page Include="View\PageOrg\ModifyPassword.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PicTransationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RollingTextBlock.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -52,7 +52,8 @@ namespace RenJiCaoZuo.WebData
                 GetActivityInfobyWebService();
             }
             GetTemplePayHistorybyWebService();
-            if (strMode != "42_2" && strMode != "21_2" && strMode != "19_4")
+            if (strMode != "42_2" && strMode != "42_3"
+                && strMode != "21_2" && strMode != "19_4")
             {
                 GetqRCodeInfobyWebService();
             }
@@ -387,10 +388,27 @@ namespace RenJiCaoZuo.WebData
             return true;
 
         }
+
+        private void _GetBookmarkInfo(object sender, DownloadStringCompletedEventArgs e)
+        {
+            string _WebInfo = e.Result;
+        }
+
         public string HttpGet(string url, string Inferface_Field)
         {
             try
             {
+                //using (WebClient client = new WebClient())
+                //{
+                //    client.Headers["Type"] = "GET";
+                //    client.Headers["Accept"] = "application/json";
+                //    client.Encoding = Encoding.UTF8;
+                //    client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(_GetBookmarkInfo);
+                //    Uri uriLink = new Uri(url);
+                //    client.DownloadStringAsync(uriLink);
+
+                //}
+
                 Encoding encoding = Encoding.UTF8;
 
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);

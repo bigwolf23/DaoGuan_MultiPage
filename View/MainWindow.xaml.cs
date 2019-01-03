@@ -75,7 +75,7 @@ namespace RenJiCaoZuo
                 this.Height = 1080;
                 this.Width = 1920;
             }
-            else if (strDisplayInch == "42" || strDisplayInch == "42_2")
+            else if (strDisplayInch == "42" || strDisplayInch == "42_2" || strDisplayInch == "42_3")
             {
                 this.Source = new Uri(@"\View\Page42\MainPage.xaml", UriKind.Relative);
                 this.Height = 1920;

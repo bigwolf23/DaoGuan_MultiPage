@@ -24,6 +24,7 @@ using RenJiCaoZuo.WebData;
 using System.Windows.Automation.Peers;
 using RenJiCaoZuo;
 using System.Threading;
+using RenJiCaoZuo.Common;
 
 namespace RenJiCaoZuo.View.Page19
 {
@@ -34,29 +35,6 @@ namespace RenJiCaoZuo.View.Page19
     {
         
         //public GetWebData m_pAllWebData = new GetWebData();
-        class PayListHistory
-        {
-            public string Name { get; set; }
-            public string payTypeName { get; set; }
-            public double amount { get; set; }
-        }
-
-        public class monkinfoDisp
-        {
-            public string MonkInfoImage { get; set; }
-            public string MonkName { get; set; }
-            public string MonkInfo { get; set; }
-            public int MonkInfoIndex { get; set; }
-        }
-
-        //获取寺庙活动的内容
-        public class ActivityList
-        {
-            public string ActivityMain { get; set; }
-            public string ActivityMainDetail { get; set; }
-        }
-
-
         private DispatcherTimer dispatcherDonateTimerList = null;
         //activity 的label更新的timer
         private DispatcherTimer dispatcherTimerList = new System.Windows.Threading.DispatcherTimer() 

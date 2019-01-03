@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RenJiCaoZuo"
+      xmlns:pageTransitions="clr-namespace:WpfPageTransitions;assembly=WpfPageTransitions"
       xmlns:vm="clr-namespace:RenJiCaoZuo.View.DonateList"
       OpacityMask="Black" Loaded="Page_Loaded" mc:Ignorable="d" 
       d:DesignHeight="1920" d:DesignWidth="1080"
@@ -273,7 +274,7 @@
 
         <Image x:Name="Ggjs_Page_Flow"  Source="pack://SiteOfOrigin:,,,/Res/Page42/GgjsBackGround.png" Margin="129,622,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="800" Height="286" VerticalAlignment="Top" Opacity="0.01" Visibility="Visible" MouseLeftButtonUp="Ggjs_Page_Flow_MouseLeftButtonUp"/>
         <Image x:Name="Ggjs_Page_Flow2"  Source="pack://SiteOfOrigin:,,,/Res/Page42/GgjsBackGround.png" Margin="27,1017,0,0"  Stretch="Fill" HorizontalAlignment="Left" Width="517" Height="769" VerticalAlignment="Top" Opacity="0.01" Visibility="Visible" />
-       
+
         <Label x:Name="Seprate_Line1" Content="" HorizontalAlignment="Left" Height="14" Margin="-3,370,0,0" VerticalAlignment="Top" Width="199" BorderThickness="0,0,0,6" BorderBrush="#FF720600" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -287,5 +288,7 @@
 
         <Image x:Name="Donate_List_Frame" Margin="23,1009,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page42/DonateList.png" Stretch="Fill" Height="794"
                VerticalAlignment="Top" HorizontalAlignment="Left" Width="529"/>
+
+        <pageTransitions:PageTransition Name="pageTransitionControl" Margin="25,169,0,0" TransitionType="SlideAndFade" HorizontalAlignment="Left" Width="1038" Height="780" VerticalAlignment="Top" />
     </Grid>
 </Page>
