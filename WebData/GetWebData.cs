@@ -346,6 +346,53 @@ namespace RenJiCaoZuo.WebData
             }
         }
 
+        public async Task<string> GetHousePaybyWebService()
+        {
+            return await Task.Run(() =>
+            {
+                if (m_pHousePayHistoryData.body != null)
+                {
+                    m_pHousePayHistoryData.success = false;
+                    m_pHousePayHistoryData.msg = "";
+
+                    m_pHousePayHistoryData.body.data = null;
+                    m_pHousePayHistoryData.body = null;
+                }
+
+                string ssString = getInfoFromInterFace("housePayHistory_Interface", "housePayHistory_Param", "housePayHistory_id");
+                if (ssString.Length > 0)
+                {
+                    m_pHousePayHistoryData = JsonConvert.DeserializeObject<HousePayHistory>(ssString);
+                }
+
+                return "webPage1";
+            });
+        }
+
+        public async Task<string> GetDonatlistbyWebService()
+        {
+            return await Task.Run(() =>
+            {
+                if (m_pTemplePayHistoryData.body != null)
+                {
+                    m_pTemplePayHistoryData.success = false;
+                    m_pTemplePayHistoryData.msg = "";
+                    m_pTemplePayHistoryData.errorCode = 0;
+
+                    m_pTemplePayHistoryData.body.data.Clear();
+                    m_pTemplePayHistoryData.body = null;
+                }
+
+                string ssString = getInfoFromInterFace("TemplePayHistory_Interface", "Interface_Param", "Interface_id");
+                if (ssString.Length > 0)
+                {
+                    m_pTemplePayHistoryData = JsonConvert.DeserializeObject<TemplePayHistory>(ssString);
+                }
+
+                return "webPage2";
+            });
+        }
+
         //获取服务器Link
         public string setBaseWebLinkPath()
         {

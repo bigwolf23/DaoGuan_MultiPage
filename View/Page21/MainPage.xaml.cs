@@ -24,6 +24,7 @@ using RenJiCaoZuo.WebData;
 using System.Windows.Automation.Peers;
 using RenJiCaoZuo;
 using RenJiCaoZuo.Common;
+using System.Threading;
 
 namespace RenJiCaoZuo.View.Page21
 {
@@ -39,7 +40,6 @@ namespace RenJiCaoZuo.View.Page21
             set { parentWindow = value; }
         }  
 
-        private DispatcherTimer dispatcherDonateTimerList = null;
         //activity 的label更新的timer
         private DispatcherTimer dispatcherTimerList = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromSeconds(5) };
 
@@ -76,10 +76,6 @@ namespace RenJiCaoZuo.View.Page21
             int nRefreshTime = Convert.ToInt16(sRefreshTime);
 
             dispatcherTimerRefresh = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromSeconds(nRefreshTime) };
-            string sDonateHouseTime = ConfigurationManager.AppSettings["DonateHouseRefreshTime"];
-            int nDonateHouseTime = Convert.ToInt16(sDonateHouseTime);
-            dispatcherDonateTimerList = new System.Windows.Threading.DispatcherTimer() { Interval = TimeSpan.FromSeconds(nDonateHouseTime) };
-
         }
 
         public MainPage()
@@ -178,7 +174,7 @@ namespace RenJiCaoZuo.View.Page21
                 }
                 if (pWebData.m_pHousePayHistoryData.success == true)
                 {
-                    getDonateHouseContent();
+                    //getDonateHouseContent();
                 }
             }
             ////显示捐赠listview内容
@@ -224,8 +220,8 @@ namespace RenJiCaoZuo.View.Page21
                         //显示寺庙活动在listview中
                         DisplayActiveInfoContentInList();
 
-                        pWebData.GetTemplePayHistorybyWebService();
-                        getDonateHouseContent();
+                        //pWebData.GetTemplePayHistorybyWebService();
+                        //getDonateHouseContent();
                         //显示捐赠listview内容
                         displayDonateHouse();
 
@@ -411,34 +407,15 @@ namespace RenJiCaoZuo.View.Page21
 
         public int mDonate_nCount = 0;
         //显示捐赠ListView内容
+        private delegate void updateDelegate();
         private void displayDonateHouse()
         {
-            try
+            if (DonateInfo_List.Items.Count >= 6)
             {
-                dispatcherDonateTimerList.Tick += IndexAction;
-                dispatcherDonateTimerList.Start();
+                DonateInfo_List.ScrollIntoView(DonateInfo_List.Items[6]);
             }
-            catch (Exception ex)
-            {
-                //dispatcherDonateTimerList.Stop();
-            }
-
         }
-
-        private void IndexAction(object sender, EventArgs e)
-        {
-            Dispatcher x = Dispatcher.CurrentDispatcher;//取得当前工作线程
-            System.Threading.ThreadStart start = delegate()
-            {
-                x.BeginInvoke(new Action(() =>
-                {
-                    //获取捐赠TextBox的内容
-                    getDonateHouseContent();
-                }), DispatcherPriority.Normal);
-            };
-            new System.Threading.Thread(start).Start(); //启动线程
-        } 
-
+        
         private void getActiveInfoContent()
         {
             try

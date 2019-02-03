@@ -24,8 +24,8 @@ namespace RenJiCaoZuo.View
         public PicTransationControl()
         {
             InitializeComponent();
-            this.Width = 1038;
-            this.Height = 780;
+            this.Width = 1080;
+            this.Height = 733;
         }
 
         private void PicTransationControl_Loaded(object sender, RoutedEventArgs e)

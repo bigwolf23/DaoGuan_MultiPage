@@ -5,6 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RenJiCaoZuo"
       xmlns:vm="clr-namespace:RenJiCaoZuo.View.DonateList"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
       OpacityMask="Black" Loaded="Page_Loaded" mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
 	Title="MainPage">
@@ -170,16 +172,20 @@
         <Image x:Name="Donate_Title_Pic" Margin="59,713,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page21/gdlf.png" Stretch="Fill" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="653"/>
 
         <StackPanel Orientation="Vertical" Margin="74,777,0,0" DataContext="{Binding}" Background="#FFE32523" Style="{DynamicResource FZXKJW}" Height="273" VerticalAlignment="Top" HorizontalAlignment="Left" Width="622" >
-            <StackPanel Orientation="Horizontal" Height="53" Margin="40,0,28,0" DataContext="{Binding}" Background="#FFE32523" VerticalAlignment="Center" >
-                <TextBox x:Name="HouseName" Text="" IsReadOnly="True" VerticalContentAlignment="Bottom"
+            <StackPanel Orientation="Horizontal" Height="53" Margin="40,0,28,0" Background="#FFE32523" VerticalAlignment="Center" >
+                <TextBox x:Name="HouseName" IsReadOnly="True" 
+                         Text="{Binding Path = HouseName, Mode=OneWay, Source={StaticResource View}}"
+                         VerticalContentAlignment="Bottom"
                          TextAlignment="Left" Width="252" FontFamily="/Touch;component/#FZXingKai-S04S" 
                          FontSize="25" Background="Transparent" HorizontalAlignment="Center" 
                          BorderThickness="0" Foreground="Yellow" Margin="0,2,0,7" FontWeight="Bold"/>
-                <TextBox x:Name="HousepayTypeName" Text="" IsReadOnly="True" VerticalContentAlignment="Bottom" 
+                <TextBox x:Name="HousepayTypeName"  IsReadOnly="True" VerticalContentAlignment="Bottom" 
+                         Text="{Binding Path = HousepayTypeName, Mode=OneWay, Source={StaticResource View}}"
                          TextAlignment="Left" Width="202" FontFamily="/Touch;component/#FZXingKai-S04S"
                          FontSize="25" Background="Transparent" HorizontalAlignment="Center"
                          BorderThickness="0" Foreground="Yellow" Margin="0,2,0,7" FontWeight="Bold" />
-                <TextBox x:Name="Houseamount" Text="" IsReadOnly="True" VerticalContentAlignment="Bottom" 
+                <TextBox x:Name="Houseamount" IsReadOnly="True" VerticalContentAlignment="Bottom" 
+                         Text="{Binding Path = Houseamount, Mode=OneWay, Source={StaticResource View}}"
                          TextAlignment="Left" Width="108" FontFamily="/Touch;component/#FZXingKai-S04S" 
                          FontSize="25" Background="Transparent" HorizontalAlignment="Center" 
                          BorderThickness="0" Margin="0,2,0,7" Foreground="Yellow" FontWeight="Bold"/>
@@ -189,24 +195,29 @@
                         X2="600" Y2="1"  
                         Stroke="#FFDFAA00"  
                         StrokeThickness="2" Margin="-10,0,16,0" HorizontalAlignment="Right" Width="616" />
-            <ListView x:Name="DonateInfo_List" ItemsSource="{Binding Source={StaticResource View}, Path=PayListHistorys, Mode=OneWay}"
-                      Height="188" Margin="43,0,38,0" VerticalAlignment="Top"
-                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center"
-                      ScrollViewer.VerticalScrollBarVisibility="Hidden" FontFamily="Microsoft YaHei" 
-                      ScrollViewer.CanContentScroll="False" 
-                      FontSize="18" BorderThickness="0" Background="#FFE32523" IsEnabled="True">
+            <ListView x:Name="DonateInfo_List" ItemsSource="{Binding PayListHistorys, Mode=OneWay, Source={StaticResource View}}"
+            	Height="185" Margin="43,0,38,0" VerticalAlignment="Top"
+            	ScrollViewer.HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center"
+            	ScrollViewer.VerticalScrollBarVisibility="Hidden" FontFamily="Microsoft YaHei" 
+            	ScrollViewer.CanContentScroll="False" 
+            	FontSize="18" BorderThickness="0" Background="#FFE32523" IsEnabled="True">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel/>
+                        <VirtualizingStackPanel Orientation="Vertical">
+                            <i:Interaction.Behaviors>
+                                <ei:FluidMoveBehavior AppliesTo="Children"/>
+                                <!-- 此段形成平滑的效果-->
+                            </i:Interaction.Behaviors>
+                        </VirtualizingStackPanel>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden">
                             <StackPanel Orientation="Horizontal" Height="30" Margin="0,0,0,0" Background="Transparent" VerticalAlignment="Center" Style="{DynamicResource FZXKJW}" >
-                                <TextBox Text="{Binding Path= Name, Mode=OneWay}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="252" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
-                                <TextBox Text="{Binding Path= payTypeName, Mode=OneWay}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="202" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
-                                <TextBox Text="{Binding Path= amount, Mode=OneWay}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="152" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center"  Foreground="Yellow" BorderThickness="0" />
+                                <TextBox Text="{Binding Name, Mode=OneWay}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="252" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
+                                <TextBox Text="{Binding payTypeName, Mode=OneWay}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="202" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center" Foreground="Yellow" BorderThickness="0" />
+                                <TextBox Text="{Binding amount, Mode=OneWay}" IsReadOnly="True" Height="25" VerticalContentAlignment="Center" TextAlignment="Left" VerticalAlignment="Center" Width="152" FontFamily="Microsoft YaHei" FontSize="18" Background="Transparent" HorizontalAlignment="Center"  Foreground="Yellow" BorderThickness="0" />
                             </StackPanel>
                         </ScrollViewer>
                     </DataTemplate>

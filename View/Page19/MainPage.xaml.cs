@@ -25,6 +25,7 @@ using System.Windows.Automation.Peers;
 using RenJiCaoZuo;
 using System.Threading;
 using RenJiCaoZuo.Common;
+using System.ComponentModel;
 
 namespace RenJiCaoZuo.View.Page19
 {
@@ -35,7 +36,8 @@ namespace RenJiCaoZuo.View.Page19
     {
         
         //public GetWebData m_pAllWebData = new GetWebData();
-        private DispatcherTimer dispatcherDonateTimerList = null;
+        private DispatcherTimer dispatcherDonateHouseTimer = null;
+
         //activity 的label更新的timer
         private DispatcherTimer dispatcherTimerList = new System.Windows.Threading.DispatcherTimer() 
                                 { Interval = TimeSpan.FromSeconds(5) };
@@ -77,6 +79,66 @@ namespace RenJiCaoZuo.View.Page19
             { Interval = TimeSpan.FromSeconds(nRefreshTime) };
 
         }
+
+        //add the picture change 
+        int m_nChangeTime;
+        Queue<PicInfo> myPicChangeQueue = new Queue<PicInfo>();
+        string m_CurrentPic;
+        public void setPicTransactionPage()
+        {
+            PicTransationPath PicTransation = new PicTransationPath();
+            if (PicTransation.lstPicPath.Count <= 0)
+            {
+                return;
+            }
+
+            foreach (string strTemp in PicTransation.lstPicPath)
+            {
+                PicInfo PicTempInfo = new PicInfo();
+                PicTempInfo.nHeight = 780;
+                PicTempInfo.nWidth = 1038;
+                PicTempInfo.strImgLink = strTemp;
+                myPicChangeQueue.Enqueue(PicTempInfo);
+                m_CurrentPic = PicTempInfo.strImgLink;
+            }
+
+            getThePicChangeTime();
+            creatThePicChangeThread();
+        }
+
+        void getThePicChangeTime()
+        {
+            m_nChangeTime = 0;
+            string strPage_Change_time = ConfigurationManager.AppSettings["Pic_ChangTime"];
+            m_nChangeTime = Convert.ToInt16(strPage_Change_time);
+            m_nChangeTime = m_nChangeTime * 1000;
+        }
+
+        void creatThePicChangeThread()
+        {
+            BackgroundWorker bw = new BackgroundWorker();
+            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            bw.RunWorkerAsync();
+        }
+
+        void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                if (myPicChangeQueue.Count > 0)
+                {
+                    System.Threading.Thread.Sleep(m_nChangeTime);
+                    PicInfo currentPic = myPicChangeQueue.Dequeue();
+                    myPicChangeQueue.Enqueue(currentPic);
+                    m_CurrentPic = currentPic.strImgLink;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+        //End the picture change 
 
         public MainPage()
         {
@@ -170,15 +232,17 @@ namespace RenJiCaoZuo.View.Page19
 
                 if (pWebData.m_pHousePayHistoryData.success == true)
                 {
-                    getDonateHouseContent();
+                    //getDonateHouseContent();
                 }
             }
             //显示捐赠listview内容
             displayDonateHouse();
+            displayDonateList();
             if (strDisplayInch != "19_4")
             { 
                 Page_All_Refresh();
             }
+            
         }
 
         private void Page_All_Refresh()
@@ -216,10 +280,11 @@ namespace RenJiCaoZuo.View.Page19
                         //显示寺庙活动在listview中
                         DisplayActiveInfoContentInList();
 
-                        pWebData.GetTemplePayHistorybyWebService();
-                        getDonateHouseContent();
+                        //pWebData.GetTemplePayHistorybyWebService();
+                        //getDonateHouseContent();
                         //显示捐赠listview内容
                         displayDonateHouse();
+                        displayDonateList();
 
                     }
                     
@@ -427,35 +492,22 @@ namespace RenJiCaoZuo.View.Page19
         }
                
         public int mDonate_nCount = 0;
-        //显示捐赠ListView内容
-        private void displayDonateHouse()
-        {
-            try
-            {
-                dispatcherDonateTimerList.Tick += IndexAction;
-                dispatcherDonateTimerList.Start();
-            }
-            catch (Exception ex)
-            {
-                //dispatcherDonateTimerList.Stop();
-            }
 
+        //显示捐赠DonateList内容
+        private void displayDonateList()
+        {
+            if (DonateInfo_List.Items.Count >= 8)
+            {
+                DonateInfo_List.ScrollIntoView(DonateInfo_List.Items[8]);
+            }
         }
 
-        private void IndexAction(object sender, EventArgs e)
+        //显示捐赠DonateHouse内容
+        private void displayDonateHouse()
         {
-            Dispatcher x = Dispatcher.CurrentDispatcher;//取得当前工作线程
-            System.Threading.ThreadStart start = delegate()
-            {
-                x.BeginInvoke(new Action(() =>
-                {
-                    //获取捐赠TextBox的内容
-                    getDonateHouseContent();
-                }), DispatcherPriority.Normal);
-            };
-            new System.Threading.Thread(start).Start(); //启动线程
-        } 
-
+            
+        }
+       
 
         private void getActiveInfoContent()
         {
@@ -1018,6 +1070,11 @@ namespace RenJiCaoZuo.View.Page19
                 }
             }
             catch (Exception ex) { }
+        }
+
+        private void pageTransitionControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
