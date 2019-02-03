@@ -100,6 +100,7 @@
     <Reference Include="Lierda.WPFHelper">
       <HintPath>packages\Lierda.WPFHelper.1.0.3\lib\net46\Lierda.WPFHelper.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\Newtonsoft.Json.dll</HintPath>
@@ -112,6 +113,7 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -140,6 +142,10 @@
     <Compile Include="Common\CommonData.cs" />
     <Compile Include="View\DonateList\DonateHouse.cs" />
     <Compile Include="View\DonateList\DonateList.cs" />
+    <Compile Include="View\ListViewControl\ListBoxPicTrans.xaml.cs">
+      <DependentUpon>ListBoxPicTrans.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ListViewControl\ListBoxPicViewModel.cs" />
     <Compile Include="View\Page19\Introduction.xaml.cs">
       <DependentUpon>Introduction.xaml</DependentUpon>
     </Compile>
@@ -221,6 +227,10 @@
     <Page Include="View\Introduction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListViewControl\ListBoxPicTrans.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Page19\Introduction.xaml">
       <Generator>MSBuild:Compile</Generator>
