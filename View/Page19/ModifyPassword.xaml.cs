@@ -29,16 +29,19 @@ namespace RenJiCaoZuo.View.Page19
         }
 
         public ModifyPassword()
-            //public ModifyPassword(MainWindow parent)
         {
-            //parentWindow = parent;
             InitializeComponent();
-            //System.Diagnostics.Process.Start("osk.exe");
         }
 
         private void Return_Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri(@"View\Page19\SettingWindow.xaml", UriKind.Relative));
+            Window currentWin = Application.Current.MainWindow;
+            MainWindow mgen = currentWin as MainWindow;
+            mgen.SettingWindow.IsSelected = true;
+
+            OldPassword_Edit.Clear();
+            NewPassword_Edit.Clear();
+            ConfirmPassword_Edit.Clear();
         }
 
         private void SavePassword_Button_Click(object sender, RoutedEventArgs e)
@@ -57,22 +60,22 @@ namespace RenJiCaoZuo.View.Page19
                     cfa.AppSettings.Settings["Password"].Value = NewPassword_Edit.Password;
                     cfa.Save(ConfigurationSaveMode.Modified);
                     ConfigurationManager.RefreshSection("appSettings");
-
-                    NavigationService.Navigate(new Uri(@"View\Page19\SettingWindow.xaml", UriKind.Relative));
+                    Window currentWin = Application.Current.MainWindow;
+                    MainWindow mgen = currentWin as MainWindow;
+                    mgen.SettingWindow.IsSelected = true;
                 }
                 else
                 {
-                    NewPassword_Edit.Clear();
-                    ConfirmPassword_Edit.Clear();
                     MessageBox.Show(@"新旧密码不一致，请重新输入！");
                 }
             }
             else
             {
-                OldPassword_Edit.Clear();
                 MessageBox.Show(@"原密码输入错误，请重新输入！");
             }
-
+            OldPassword_Edit.Clear();
+            NewPassword_Edit.Clear();
+            ConfirmPassword_Edit.Clear();
         }
     }
 }

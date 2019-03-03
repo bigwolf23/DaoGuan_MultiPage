@@ -29,21 +29,23 @@ namespace RenJiCaoZuo.View.Page19
             get { return parentWindow; }
             set { parentWindow = value; }
         }
-        //public SettingWindow(MainWindow parent)
         public SettingWindow()
         {
-            //parentWindow = parent;
             InitializeComponent();
         }
 
         private void ShutDownWindow_Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri(@"View\Page19\ShutDownSetting.xaml", UriKind.Relative));
+            Window currentWin = Application.Current.MainWindow;
+            MainWindow mgen = currentWin as MainWindow;
+            mgen.ShutDownSetting.IsSelected = true;
         }
 
         private void ModiyPassword_Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri(@"View\Page19\ModifyPassword.xaml", UriKind.Relative));
+            Window currentWin = Application.Current.MainWindow;
+            MainWindow mgen = currentWin as MainWindow;
+            mgen.ModifyPassword.IsSelected = true;
         }
 
         private void ReturnMain_Button_Click(object sender, RoutedEventArgs e)
@@ -51,15 +53,15 @@ namespace RenJiCaoZuo.View.Page19
             string strDisplayInch = ConfigurationManager.AppSettings["DisplayInch"];
             if (strDisplayInch == "19" || strDisplayInch == "19_3" || strDisplayInch == "19_4")
             {
-                NavigationService.Navigate(new Uri(@"View/Page19/MainPage.xaml", UriKind.Relative));
-                //JournalEntry entry = NavigationService.RemoveBackEntry();
-
+                Window currentWin = Application.Current.MainWindow;
+                MainWindow mgen = currentWin as MainWindow;
+                mgen.MainPage.IsSelected = true;
             }
             else if (strDisplayInch == "19_2")
             {
-                NavigationService.Navigate(new Uri(@"View/Page19/MainPage_2.xaml", UriKind.Relative));
-                //JournalEntry entry = NavigationService.RemoveBackEntry();
-
+                Window currentWin = Application.Current.MainWindow;
+                MainWindow mgen = currentWin as MainWindow;
+                mgen.MainPage.IsSelected = true;
             }
         }
 

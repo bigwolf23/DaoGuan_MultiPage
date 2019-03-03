@@ -80,66 +80,6 @@ namespace RenJiCaoZuo.View.Page19
 
         }
 
-        //add the picture change 
-        int m_nChangeTime;
-        Queue<PicInfo> myPicChangeQueue = new Queue<PicInfo>();
-        string m_CurrentPic;
-        public void setPicTransactionPage()
-        {
-            PicTransationPath PicTransation = new PicTransationPath();
-            if (PicTransation.lstPicPath.Count <= 0)
-            {
-                return;
-            }
-
-            foreach (string strTemp in PicTransation.lstPicPath)
-            {
-                PicInfo PicTempInfo = new PicInfo();
-                PicTempInfo.nHeight = 780;
-                PicTempInfo.nWidth = 1038;
-                PicTempInfo.strImgLink = strTemp;
-                myPicChangeQueue.Enqueue(PicTempInfo);
-                m_CurrentPic = PicTempInfo.strImgLink;
-            }
-
-            getThePicChangeTime();
-            creatThePicChangeThread();
-        }
-
-        void getThePicChangeTime()
-        {
-            m_nChangeTime = 0;
-            string strPage_Change_time = ConfigurationManager.AppSettings["Pic_ChangTime"];
-            m_nChangeTime = Convert.ToInt16(strPage_Change_time);
-            m_nChangeTime = m_nChangeTime * 1000;
-        }
-
-        void creatThePicChangeThread()
-        {
-            BackgroundWorker bw = new BackgroundWorker();
-            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
-            bw.RunWorkerAsync();
-        }
-
-        void bw_DoWork(object sender, DoWorkEventArgs e)
-        {
-            while (true)
-            {
-                if (myPicChangeQueue.Count > 0)
-                {
-                    System.Threading.Thread.Sleep(m_nChangeTime);
-                    PicInfo currentPic = myPicChangeQueue.Dequeue();
-                    myPicChangeQueue.Enqueue(currentPic);
-                    m_CurrentPic = currentPic.strImgLink;
-                }
-                else
-                {
-                    break;
-                }
-            }
-        }
-        //End the picture change 
-
         public MainPage()
         {
             m_nRefreshTimeOutCount = 0;
@@ -496,10 +436,10 @@ namespace RenJiCaoZuo.View.Page19
         //显示捐赠DonateList内容
         private void displayDonateList()
         {
-            if (DonateInfo_List.Items.Count >= 8)
-            {
-                DonateInfo_List.ScrollIntoView(DonateInfo_List.Items[8]);
-            }
+            //if (DonateInfo_List.Items.Count >= 8)
+            //{
+            //    DonateInfo_List.ScrollIntoView(DonateInfo_List.Items[8]);
+            //}
         }
 
         //显示捐赠DonateHouse内容
@@ -821,7 +761,9 @@ namespace RenJiCaoZuo.View.Page19
             {
                 timer.IsEnabled = false;
                 nCount = 0;
-                NavigationService.Navigate(new Uri(@"View\Page19\LoginPassord.xaml", UriKind.Relative));
+                Window currentWin = Application.Current.MainWindow;
+                MainWindow mgen = currentWin as MainWindow;
+                mgen.LoginPassord.IsSelected = true;
             }
         }
         //法师下一页预览

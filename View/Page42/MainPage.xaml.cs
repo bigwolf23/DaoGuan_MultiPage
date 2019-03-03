@@ -857,7 +857,9 @@ namespace RenJiCaoZuo.View.Page42
             {
                 timer.IsEnabled = false;
                 nCount = 0;
-                NavigationService.Navigate(new Uri(@"View\Page42\LoginPassord.xaml", UriKind.Relative));
+                Window currentWin = Application.Current.MainWindow;
+                MainWindow mgen = currentWin as MainWindow;
+                mgen.LoginPassord.IsSelected = true;
             }
         }
         //法师下一页预览

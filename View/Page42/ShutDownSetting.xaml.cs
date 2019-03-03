@@ -51,8 +51,9 @@ namespace RenJiCaoZuo.View.Page42
 
         private void Return_Button_Click(object sender, RoutedEventArgs e)
         {
-
-            NavigationService.Navigate(new Uri(@"View\Page42\SettingWindow.xaml", UriKind.Relative));
+            Window currentWin = Application.Current.MainWindow;
+            MainWindow mgen = currentWin as MainWindow;
+            mgen.SettingWindow.IsSelected = true;
         }
 
         private void ShuDownTime_Edit_TextChanged(object sender, TextChangedEventArgs e)

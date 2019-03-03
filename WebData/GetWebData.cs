@@ -16,6 +16,7 @@ using System.Windows;
 using System.Threading;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
+using System.Diagnostics;
 
 namespace RenJiCaoZuo.WebData
 {
@@ -36,7 +37,7 @@ namespace RenJiCaoZuo.WebData
             GetActivityInfobyWebService();
             GetTemplePayHistorybyWebService();
             GetqRCodeInfobyWebService();
-            GetHousePayHistorybyWebService();
+            //GetHousePayHistorybyWebService();
         }
 
         public GetWebData()
@@ -51,13 +52,13 @@ namespace RenJiCaoZuo.WebData
                 GetMonkInfobyWebService();
                 GetActivityInfobyWebService();
             }
-            GetTemplePayHistorybyWebService();
+            //GetTemplePayHistorybyWebService();
             if (strMode != "42_2" && strMode != "42_3"
                 && strMode != "21_2" && strMode != "19_4")
             {
                 GetqRCodeInfobyWebService();
             }
-            GetHousePayHistorybyWebService();
+            //GetHousePayHistorybyWebService();
         }
 
         public string NoHTML(string Htmlstring)  //替换HTML标记
@@ -373,24 +374,50 @@ namespace RenJiCaoZuo.WebData
         {
             return await Task.Run(() =>
             {
-                if (m_pTemplePayHistoryData.body != null)
-                {
-                    m_pTemplePayHistoryData.success = false;
-                    m_pTemplePayHistoryData.msg = "";
-                    m_pTemplePayHistoryData.errorCode = 0;
+                //while(true){
 
-                    m_pTemplePayHistoryData.body.data.Clear();
-                    m_pTemplePayHistoryData.body = null;
-                }
+                    if (m_pTemplePayHistoryData.body != null)
+                    {
+                        m_pTemplePayHistoryData.success = false;
+                        m_pTemplePayHistoryData.msg = "";
+                        m_pTemplePayHistoryData.errorCode = 0;
 
-                string ssString = getInfoFromInterFace("TemplePayHistory_Interface", "Interface_Param", "Interface_id");
-                if (ssString.Length > 0)
-                {
-                    m_pTemplePayHistoryData = JsonConvert.DeserializeObject<TemplePayHistory>(ssString);
-                }
-
-                return "webPage2";
+                        m_pTemplePayHistoryData.body.data.Clear();
+                        m_pTemplePayHistoryData.body = null;
+                    }
+                    getDonateListFromInterFace("TemplePayHistory_Interface", "Interface_Param", "Interface_id");
+                    //string ssString;
+                    //if (ssString.Length > 0)
+                    //{
+                    //    m_pTemplePayHistoryData = JsonConvert.DeserializeObject<TemplePayHistory>(ssString);
+                    //}
+                    Thread.Sleep(3000);
+                //}
+                return "";
             });
+        }
+
+        public void getDonateListFromInterFace(string Inferface_Field, string Param_Field, string Id_Field)
+        {
+            string strFullInterface = getFullLink(Inferface_Field, Param_Field, Id_Field);
+            using (WebClient client = new WebClient())
+            {
+                client.Headers["Type"] = "GET";
+                client.Headers["Accept"] = "application/json";
+                client.Encoding = Encoding.UTF8;
+                client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(_GetDonateInfo);
+                Uri uriLink = new Uri(strFullInterface);
+                client.DownloadStringAsync(uriLink);
+            }
+        }
+
+        private void _GetDonateInfo(object sender, DownloadStringCompletedEventArgs e)
+        {
+            string _WebInfo = e.Result;
+            if (_WebInfo.Length > 0)
+            {
+                m_pTemplePayHistoryData = JsonConvert.DeserializeObject<TemplePayHistory>(_WebInfo);
+            }
         }
 
         //获取服务器Link
@@ -436,11 +463,7 @@ namespace RenJiCaoZuo.WebData
 
         }
 
-        private void _GetBookmarkInfo(object sender, DownloadStringCompletedEventArgs e)
-        {
-            string _WebInfo = e.Result;
-        }
-
+        static Int64 xCount = 0;
         public string HttpGet(string url, string Inferface_Field)
         {
             try
@@ -453,7 +476,6 @@ namespace RenJiCaoZuo.WebData
                 //    client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(_GetBookmarkInfo);
                 //    Uri uriLink = new Uri(url);
                 //    client.DownloadStringAsync(uriLink);
-
                 //}
 
                 Encoding encoding = Encoding.UTF8;
@@ -464,18 +486,21 @@ namespace RenJiCaoZuo.WebData
                     request.Method = "GET";
                     request.Accept = "text/html, application/xhtml+xml, */*";
                     request.ContentType = "application/json";
-                    request.Timeout = 5000;
+                    request.Timeout = 30000;
                     HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                     using (StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
                     {
+                        xCount++;
+                        Debug.WriteLine(xCount);
                         return reader.ReadToEnd();
                     }
+                    
                 }
                 
             }
             catch (WebException ex)
             {
-//                string strerr = ex.Message;
+                Debug.WriteLine(xCount);
             }
             return "";
         }

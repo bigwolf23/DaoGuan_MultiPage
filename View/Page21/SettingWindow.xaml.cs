@@ -22,32 +22,30 @@ namespace RenJiCaoZuo.View.Page21
     /// </summary>
     public partial class SettingWindow : Page
     {
-        MainWindow parentWindow;
-        public MainWindow ParentWindow
-        {
-            get { return parentWindow; }
-            set { parentWindow = value; }
-        }
-        //public SettingWindow(MainWindow parent)
         public SettingWindow()
         {
-            //parentWindow = parent;
             InitializeComponent();
         }
 
         private void ShutDownWindow_Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri(@"View\Page21\ShutDownSetting.xaml", UriKind.Relative));
+            Window currentWin = Application.Current.MainWindow;
+            MainWindow mgen = currentWin as MainWindow;
+            mgen.ShutDownSetting.IsSelected = true;
         }
 
         private void ModiyPassword_Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri(@"View\Page21\ModifyPassword.xaml", UriKind.Relative));
+            Window currentWin = Application.Current.MainWindow;
+            MainWindow mgen = currentWin as MainWindow;
+            mgen.ModifyPassword.IsSelected = true;
         }
 
         private void ReturnMain_Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri(@"View\Page21\MainPage.xaml", UriKind.Relative));
+            Window currentWin = Application.Current.MainWindow;
+            MainWindow mgen = currentWin as MainWindow;
+            mgen.MainPage.IsSelected = true;
         }
 
         private void ReturnDesktop_Button_Click(object sender, RoutedEventArgs e)

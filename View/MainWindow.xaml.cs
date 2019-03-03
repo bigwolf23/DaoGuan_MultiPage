@@ -29,7 +29,7 @@ namespace RenJiCaoZuo
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class MainWindow : Window
     {
         public static GetWebData m_pAllWebData = new GetWebData();
         public GetWebData _GetWebData
@@ -39,7 +39,6 @@ namespace RenJiCaoZuo
         }  
         public MainWindow()
         {
-
             setWindowsShutDown();
             InitializeComponent();
 
@@ -51,39 +50,72 @@ namespace RenJiCaoZuo
             //this.Top = -200;
             if (strDisplayInch == "Org")
             {
-                this.Source = new Uri(@"\View\PageOrg\MainPage.xaml", UriKind.Relative);
+                this.MainPage_Frame.Source = new Uri(@"\View\PageOrg\MainPage.xaml", UriKind.Relative);
+                this.LoginPassord_Frame.Source = new Uri(@"\View\PageOrg\LoginPassord.xaml", UriKind.Relative);
+                this.SettingWindow_Frame.Source = new Uri(@"\View\PageOrg\SettingWindow.xaml", UriKind.Relative);
+                this.ModifyPassword_Frame.Source = new Uri(@"\View\PageOrg\ModifyPassword.xaml", UriKind.Relative);
+                this.ShutDownSetting_Frame.Source = new Uri(@"\View\PageOrg\ShutDownSetting.xaml", UriKind.Relative);
+//                this_Frame.Source = new Uri(@"\View\PageOrg\MainPage.xaml", UriKind.Relative);
                 this.Height = 1024;
                 this.Width = 1280;
             }
             else if (strDisplayInch == "19" || strDisplayInch == "19_3" || strDisplayInch == "19_4")
             {
                 this.Height = 1024;
-                this.Width = 1280; 
-                this.Source = new Uri(@"\View\Page19\MainPage.xaml", UriKind.Relative);
+                this.Width = 1280;
+                this.MainPage_Frame.Source = new Uri(@"\View\Page19\MainPage.xaml", UriKind.Relative);
+                this.LoginPassord_Frame.Source = new Uri(@"\View\Page19\LoginPassord.xaml", UriKind.Relative);
+                this.SettingWindow_Frame.Source = new Uri(@"\View\Page19\SettingWindow.xaml", UriKind.Relative);
+                this.ModifyPassword_Frame.Source = new Uri(@"\View\Page19\ModifyPassword.xaml", UriKind.Relative);
+                this.ShutDownSetting_Frame.Source = new Uri(@"\View\Page19\ShutDownSetting.xaml", UriKind.Relative);
+                this.MainPage_Frame.Source = new Uri(@"\View\Page19\MainPage.xaml", UriKind.Relative);
+                //this_Frame.Source = new Uri(@"\View\Page19\MainPage.xaml", UriKind.Relative);
 
             }
             else if (strDisplayInch == "19_2" )
             {
                 this.Height = 1024;
-                this.Width = 1280; 
-                this.Source = new Uri(@"\View\Page19\MainPage_2.xaml", UriKind.Relative);
+                this.Width = 1280;
+                this.MainPage_Frame.Source = new Uri(@"\View\Page19\MainPage.xaml", UriKind.Relative);
+                this.LoginPassord_Frame.Source = new Uri(@"\View\Page19\LoginPassord.xaml", UriKind.Relative);
+                this.SettingWindow_Frame.Source = new Uri(@"\View\Page19\SettingWindow.xaml", UriKind.Relative);
+                this.ModifyPassword_Frame.Source = new Uri(@"\View\Page19\ModifyPassword.xaml", UriKind.Relative);
+                this.ShutDownSetting_Frame.Source = new Uri(@"\View\Page19\ShutDownSetting.xaml", UriKind.Relative);
+                this.MainPage_Frame.Source = new Uri(@"\View\Page19\MainPage_2.xaml", UriKind.Relative);
+                //this_Frame.Source = new Uri(@"\View\Page19\MainPage_2.xaml", UriKind.Relative);
 
             }
             else if (strDisplayInch == "21" || strDisplayInch == "21_2")
             {
-                this.Source = new Uri(@"\View\Page21\MainPage.xaml", UriKind.Relative);
+                //this_Frame.Source = new Uri(@"\View\Page21\MainPage.xaml", UriKind.Relative);
+                this.MainPage_Frame.Source = new Uri(@"\View\Page21\MainPage.xaml", UriKind.Relative);
+                this.LoginPassord_Frame.Source = new Uri(@"\View\Page21\LoginPassord.xaml", UriKind.Relative);
+                this.SettingWindow_Frame.Source = new Uri(@"\View\Page21\SettingWindow.xaml", UriKind.Relative);
+                this.ModifyPassword_Frame.Source = new Uri(@"\View\Page21\ModifyPassword.xaml", UriKind.Relative);
+                this.ShutDownSetting_Frame.Source = new Uri(@"\View\Page21\ShutDownSetting.xaml", UriKind.Relative);
                 this.Height = 1080;
                 this.Width = 1920;
             }
             else if (strDisplayInch == "42" || strDisplayInch == "42_2" || strDisplayInch == "42_3")
             {
-                this.Source = new Uri(@"\View\Page42\MainPage.xaml", UriKind.Relative);
+                //this_Frame.Source = new Uri(@"\View\Page42\MainPage.xaml", UriKind.Relative);
+                this.MainPage_Frame.Source = new Uri(@"\View\Page42\MainPage.xaml", UriKind.Relative);
+                this.LoginPassord_Frame.Source = new Uri(@"\View\Page42\LoginPassord.xaml", UriKind.Relative);
+                this.SettingWindow_Frame.Source = new Uri(@"\View\Page42\SettingWindow.xaml", UriKind.Relative);
+                this.ModifyPassword_Frame.Source = new Uri(@"\View\Page42\ModifyPassword.xaml", UriKind.Relative);
+                this.ShutDownSetting_Frame.Source = new Uri(@"\View\Page42\ShutDownSetting.xaml", UriKind.Relative);
                 this.Height = 1920;
                 this.Width = 1080;
             }
             else if (strDisplayInch == "50")
             {
-                this.Source = new Uri(@"\View\Page19\MainPage.xaml", UriKind.Relative);
+                //this_Frame.Source = new Uri(@"\View\Page19\MainPage.xaml", UriKind.Relative);
+                this.MainPage_Frame.Source = new Uri(@"\View\Page19\MainPage.xaml", UriKind.Relative);
+                this.LoginPassord_Frame.Source = new Uri(@"\View\Page19\LoginPassord.xaml", UriKind.Relative);
+                this.SettingWindow_Frame.Source = new Uri(@"\View\Page19\SettingWindow.xaml", UriKind.Relative);
+                this.ModifyPassword_Frame.Source = new Uri(@"\View\Page19\ModifyPassword.xaml", UriKind.Relative);
+                this.ShutDownSetting_Frame.Source = new Uri(@"\View\Page19\ShutDownSetting.xaml", UriKind.Relative);
+
                 this.Height = 1080;
                 this.Width = 1920;
             }
@@ -94,61 +126,5 @@ namespace RenJiCaoZuo
             CommonFuntion pCommon = new CommonFuntion();
             pCommon.setWindowsShutDown();
         }
-
-        private void NavigationWindow_Navigating(object sender, NavigatingCancelEventArgs e)
-        {
-            if (Content != null && !_allowDirectNavigation)
-            {
-                e.Cancel = true;
-                _navArgs = e;
-                this.IsHitTestVisible = false;
-                DoubleAnimation da = new DoubleAnimation(1.0d, new Duration(TimeSpan.FromMilliseconds(100)));
-                da.Completed += FadeOutCompleted;
-                this.BeginAnimation(OpacityProperty, da);
-            }
-            _allowDirectNavigation = false;
-        }
-
-        private void FadeOutCompleted(object sender, EventArgs e)
-        {
-            (sender as AnimationClock).Completed -= FadeOutCompleted;
-
-            this.IsHitTestVisible = true;
-
-            _allowDirectNavigation = true;
-            switch (_navArgs.NavigationMode)
-            {
-                case NavigationMode.New:
-                    if (_navArgs.Uri == null)
-                    {
-                        NavigationService.Navigate(_navArgs.Content);
-                    }
-                    else
-                    {
-                        NavigationService.Navigate(_navArgs.Uri);
-                    }
-                    break;
-                case NavigationMode.Back:
-                    //NavigationService.GoBack();
-                    break;
-
-                case NavigationMode.Forward:
-                   // NavigationService.GoForward();
-                    break;
-                case NavigationMode.Refresh:
-                   // NavigationService.Refresh();
-                    break;
-            }
-
-//             Dispatcher.BeginInvoke(DispatcherPriority.Loaded,
-//                 (ThreadStart)delegate()
-//             {
-//                 DoubleAnimation da = new DoubleAnimation(2.0d, new Duration(TimeSpan.FromMilliseconds(100)));
-//                 this.BeginAnimation(OpacityProperty, da);
-//             });
-        }
-
-        private bool _allowDirectNavigation = false;
-        private NavigatingCancelEventArgs _navArgs = null;
     }
 }

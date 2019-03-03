@@ -1,10 +1,38 @@
-﻿<NavigationWindow x:Class="RenJiCaoZuo.MainWindow"
+﻿<Window x:Class="RenJiCaoZuo.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:RenJiCaoZuo"
         Title="MainWindow" WindowStyle="None" 
                   ResizeMode="NoResize"
                   OpacityMask="Black" WindowStartupLocation="CenterScreen" 
-                  ShowsNavigationUI="False" 
-                  Background="White"
-                  Navigating="NavigationWindow_Navigating" AllowDrop="False" />
+                  Background="White" AllowDrop="False">
+    <Grid>
+        <TabControl BorderThickness="0" Background="Transparent" Margin="-4,-6,-4,-4">
+            <TabControl.ItemContainerStyle>
+                <Style TargetType="{x:Type TabItem}">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </TabControl.ItemContainerStyle>
+            <TabItem x:Name="MainPage" Header="MainPage.xaml" >
+                <!--<Frame Source="MainPage.xaml"/>-->
+                <Frame x:Name="MainPage_Frame"/>
+            </TabItem>
+            <TabItem x:Name="LoginPassord" Header="LoginPassord.xaml" >
+                <Frame x:Name="LoginPassord_Frame"/>
+                <!--<Frame Source="LoginPassord.xaml"/>-->
+            </TabItem>
+            <TabItem x:Name="SettingWindow" Header="SettingWindow.xaml" >
+                <Frame x:Name="SettingWindow_Frame"/>
+                <!--<Frame Source="SettingWindow.xaml"/>-->
+            </TabItem>
+            <TabItem x:Name="ModifyPassword"  Header="ModifyPassword.xaml">
+                <Frame x:Name="ModifyPassword_Frame"/>
+                <!--<Frame Source="ModifyPassword.xaml"/>-->
+            </TabItem>
+            <TabItem x:Name="ShutDownSetting"  Header="ModifyPassword.xaml">
+                <Frame x:Name="ShutDownSetting_Frame"/>
+                <!--<Frame Source="ModifyPassword.xaml"/>-->
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

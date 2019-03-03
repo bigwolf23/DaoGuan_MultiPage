@@ -23,12 +23,6 @@ namespace RenJiCaoZuo.View.Page21
     /// </summary>
     public partial class ShutDownSetting : Page
     {
-        MainWindow parentWindow;
-        public MainWindow ParentWindow
-        {
-            get { return parentWindow; }
-            set { parentWindow = value; }
-        }
         public ShutDownSetting()
         {
             InitializeComponent();
@@ -51,8 +45,9 @@ namespace RenJiCaoZuo.View.Page21
 
         private void Return_Button_Click(object sender, RoutedEventArgs e)
         {
-
-            NavigationService.Navigate(new Uri(@"View\Page21\SettingWindow.xaml", UriKind.Relative));
+            Window currentWin = Application.Current.MainWindow;
+            MainWindow mgen = currentWin as MainWindow;
+            mgen.SettingWindow.IsSelected = true;
         }
 
         private void ShuDownTime_Edit_TextChanged(object sender, TextChangedEventArgs e)

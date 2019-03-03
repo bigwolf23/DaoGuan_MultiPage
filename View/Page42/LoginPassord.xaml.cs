@@ -22,17 +22,9 @@ namespace RenJiCaoZuo.View.Page42
     /// </summary>
     public partial class LoginPassord : Page
     {
-        MainWindow parentWindow;
-        public MainWindow ParentWindow
-        {
-            get { return parentWindow; }
-            set { parentWindow = value; }
-        }
-
         public LoginPassord()
         {
             InitializeComponent();
-            //System.Diagnostics.Process.Start("osk.exe");
         }
 
         private void Confirm_Button_Click(object sender, RoutedEventArgs e)
@@ -40,17 +32,22 @@ namespace RenJiCaoZuo.View.Page42
             string strPassword = ConfigurationManager.AppSettings["Password"];
             if (strPassword == Password_Edit.Password)
             {
-                NavigationService.Navigate(new Uri(@"View/Page42/SettingWindow.xaml", UriKind.Relative));
+                Window currentWin = Application.Current.MainWindow;
+                MainWindow mgen = currentWin as MainWindow;
+                mgen.SettingWindow.IsSelected = true;
             }
             else{
-                Password_Edit.Clear();
                 MessageBox.Show(@"密码输入错误，请重新输入！");
             }
+            Password_Edit.Clear();
         }
 
         private void Return_Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri(@"View/Page42/MainPage.xaml", UriKind.Relative));
+            Window currentWin = Application.Current.MainWindow;
+            MainWindow mgen = currentWin as MainWindow;
+            mgen.MainPage.IsSelected = true;
+            Password_Edit.Clear();
         }
 
         private void Password_Edit_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
