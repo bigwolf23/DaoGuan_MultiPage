@@ -12,6 +12,10 @@ using RenJiCaoZuo.WebData;
 using System.Configuration;
 using System.Threading;
 using System.Windows.Input;
+using System.Net;
+using Newtonsoft.Json;
+using System.IO;
+using System.Diagnostics;
 
 namespace RenJiCaoZuo.View.DonateList
 {
@@ -57,6 +61,11 @@ namespace RenJiCaoZuo.View.DonateList
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
  
@@ -137,7 +146,6 @@ namespace RenJiCaoZuo.View.DonateList
         {
             while (true)
             {
-
                 string sDonateListDisplayMode = ConfigurationManager.AppSettings["DonateListDisplayMode"];
                 Thread.Sleep(1000);
                 m_nCountDonateList++;
@@ -204,7 +212,10 @@ namespace RenJiCaoZuo.View.DonateList
                 //}
                 getDonateListContent();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                string strDebug = @"Failed" + ex.Message;
+                Debug.WriteLine(strDebug);
+            }
         }
 
         public DonateListViewModel()
@@ -213,6 +224,7 @@ namespace RenJiCaoZuo.View.DonateList
             pWebData = MainWindow.m_pAllWebData;
 
             getDonateListContent();
+            getDonateHouseContent();
             ThreadPool.QueueUserWorkItem(new WaitCallback(RefreshList));
             string sDonateListDisplayMode = ConfigurationManager.AppSettings["DonateListDisplayMode"];
 
@@ -226,47 +238,149 @@ namespace RenJiCaoZuo.View.DonateList
         /// <summary>
         /// 获取捐赠信息
         /// </summary> 
+        public HousePayHistory m_pHousePayData = new HousePayHistory();
+        public async Task<string> GetHouseInfobyWebService()
+        {
+            return await Task.Run(() =>
+            {
+                if (m_pHousePayData.body != null)
+                {
+                    m_pHousePayData.success = false;
+                    m_pHousePayData.msg = "";
+
+                    m_pHousePayData.body.data = null;
+                    m_pHousePayData.body = null;
+                }
+                getHouseInfoFromInterFace("housePayHistory_Interface", "housePayHistory_Param", "housePayHistory_id");
+                Thread.Sleep(3000);
+                return "";
+            });
+        }
+        public void getHouseInfoFromInterFace(string Inferface_Field, string Param_Field, string Id_Field)
+        {
+            string strFullInterface = pWebData.getFullLink(Inferface_Field, Param_Field, Id_Field);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(strFullInterface);
+            request.BeginGetResponse(new AsyncCallback(_GetHouseInfo), request);
+        }
+        private async void _GetHouseInfo(IAsyncResult ar)
+        {
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)ar.AsyncState;
+                HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(ar);
+                Stream stream = response.GetResponseStream();
+                using (StreamReader sr = new StreamReader(stream, Encoding.UTF8))
+                {
+                    string _WebInfo = await sr.ReadToEndAsync();
+                    if (_WebInfo.Length > 0)
+                    {
+                        m_pHousePayData = JsonConvert.DeserializeObject<HousePayHistory>(_WebInfo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string strDebug = @"Failed" + ex.Message;
+                Debug.WriteLine(strDebug);
+            }
+            
+        }
         private async void getDonateHouseContent()
         {
-            //Houseamount = "";
-            //HouseName = "";
-            //HousepayTypeName = "";
-            await pWebData.GetHousePaybyWebService();
-            if (pWebData != null &&
-                pWebData.m_pHousePayHistoryData != null &&
-                pWebData.m_pHousePayHistoryData.body != null &&
-                pWebData.m_pHousePayHistoryData.body.data != null)
+            try
             {
-                if (pWebData.m_pHousePayHistoryData.body.data.name != null)
+                //await pWebData.GetHousePaybyWebService();
+                await GetHouseInfobyWebService();
+                if (pWebData != null &&
+                    m_pHousePayData != null &&
+                    m_pHousePayData.body != null &&
+                    m_pHousePayData.body.data != null)
                 {
-                    HouseName = pWebData.m_pHousePayHistoryData.body.data.name;
-                }
+                    if (m_pHousePayData.body.data.name != null)
+                    {
+                        HouseName = m_pHousePayData.body.data.name;
+                    }
 
-                if (pWebData.m_pHousePayHistoryData.body.data.payTypeName != null)
-                {
-                    HousepayTypeName = pWebData.m_pHousePayHistoryData.body.data.payTypeName;
+                    if (m_pHousePayData.body.data.payTypeName != null)
+                    {
+                        HousepayTypeName = m_pHousePayData.body.data.payTypeName;
+                    }
+                    Houseamount = m_pHousePayData.body.data.amount.ToString();
                 }
-                Houseamount = pWebData.m_pHousePayHistoryData.body.data.amount.ToString();
+            }
+            catch (Exception ex)
+            {
+                string strDebug = @"Failed" + ex.Message;
+                Debug.WriteLine(strDebug);
             }
         }
         /// <summary>
         /// 获取捐赠ListView的内容
         /// </summary>
+        public TemplePayHistory m_pDonatelistData = new TemplePayHistory();
+        public async Task<string> GetDonatlistbyWebService()
+        {
+            return await Task.Run(() =>
+            {
+                if (m_pDonatelistData.body != null)
+                {
+                    m_pDonatelistData.success = false;
+                    m_pDonatelistData.msg = "";
+                    m_pDonatelistData.errorCode = 0;
 
+                    m_pDonatelistData.body.data.Clear();
+                    m_pDonatelistData.body = null;
+                }
+                
+                getDonateListFromInterFace("TemplePayHistory_Interface", "Interface_Param", "Interface_id");
+                Thread.Sleep(3000);
+                return "";
+            });
+        }
+        public void getDonateListFromInterFace(string Inferface_Field, string Param_Field, string Id_Field)
+        {
+            string strFullInterface = pWebData.getFullLink(Inferface_Field, Param_Field, Id_Field);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(strFullInterface);
+            request.BeginGetResponse(new AsyncCallback(_GetDonateInfo), request);
+        }
+        private async void _GetDonateInfo(IAsyncResult ar)
+        {
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)ar.AsyncState;
+                HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(ar);
+                Stream stream = response.GetResponseStream();
+                using (StreamReader sr = new StreamReader(stream, Encoding.UTF8))
+                {
+                    string _WebInfo = await sr.ReadToEndAsync();
+                    if (_WebInfo.Length > 0)
+                    {
+                        m_pDonatelistData = JsonConvert.DeserializeObject<TemplePayHistory>(_WebInfo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string strDebug = @"Failed" + ex.Message;
+                Debug.WriteLine(strDebug);
+            }
+            
+        }
         private async void getDonateListContent()
         {
             try
             {
-                PayListHistorys.Clear();
-                await pWebData.GetDonatlistbyWebService();
+                //PayListHistorys.Clear();
+                await GetDonatlistbyWebService();
+                //pWebData.GetTemplePayHistorybyWebService();
+                //pWebData.GetHousePayHistorybyWebService
                 if (pWebData != null &&
-                    pWebData.m_pTemplePayHistoryData != null &&
-                    pWebData.m_pTemplePayHistoryData.body != null &&
-                    pWebData.m_pTemplePayHistoryData.body.data != null)
+                    m_pDonatelistData != null &&
+                    m_pDonatelistData.body != null &&
+                    m_pDonatelistData.body.data != null)
                 {
-                    //ObservableCollection<PayListHistory> PayListTemp = new ObservableCollection<PayListHistory>();
-                    int x = 0;
-                    foreach (TemplePayHistoryDatabody payHistTemp in pWebData.m_pTemplePayHistoryData.body.data)
+                    List<PayListHistory> PayListTemp = new List<PayListHistory>();
+                    foreach (TemplePayHistoryDatabody payHistTemp in m_pDonatelistData.body.data)
                     {
                         PayListHistory pTemp = new PayListHistory();
                         pTemp.amount = payHistTemp.amount;
@@ -279,24 +393,24 @@ namespace RenJiCaoZuo.View.DonateList
                         {
                             pTemp.payTypeName = payHistTemp.payTypeName;
                         }
-                        //PayListTemp.Add(pTemp);
-                        PayListHistorys.Add(pTemp);
+                        PayListTemp.Add(pTemp);
+                        //PayListHistorys.Add(pTemp);
                     }
 
-                    //int i = 0;
-                    //foreach (PayListHistory datatemp in PayListTemp)
-                    //{
-                    //    if (i < PayListHistorys.Count)
-                    //    {
-                    //        PayListHistorys[i] = datatemp;
-                    //    }
-                    //    else
-                    //    {
-                    //        PayListHistorys.Add(datatemp);
-                    //    }
-                    //    i++;
-                    //}
-                    //PayListTemp.Clear();
+                    int i = 0;
+                    foreach (PayListHistory datatemp in PayListTemp)
+                    {
+                        if (i < PayListHistorys.Count)
+                        {
+                            PayListHistorys[i] = datatemp;
+                        }
+                        else
+                        {
+                            PayListHistorys.Add(datatemp);
+                        }
+                        i++;
+                    }
+                    PayListTemp.Clear();
                 }
             }
             catch (Exception ex) { }
