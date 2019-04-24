@@ -32,7 +32,30 @@ namespace RenJiCaoZuo.View.ListViewControl
         DispatcherTimer timer = new DispatcherTimer();
         private void pageTransitionListBox_Loaded(object sender, RoutedEventArgs e)
         {
-            pageTransitionListBox.ScrollIntoView(pageTransitionListBox.Items[2]);
+            if (pageTransitionListBox.Items.Count >= 3)
+            {
+                pageTransitionListBox.ScrollIntoView(pageTransitionListBox.Items[2]);
+            }
+            else
+            {
+                if (pageTransitionListBox.Items.Count > 0)
+                {
+                    pageTransitionListBox.ScrollIntoView(pageTransitionListBox.Items[pageTransitionListBox.Items.Count - 1]);
+                }
+            }
+            //else
+            //{
+            //    if (pageTransitionListBox.Items.Count == 1)
+            //    {
+            //        pageTransitionListBox.ScrollIntoView(pageTransitionListBox.Items[0]);
+            //    }
+            //    else if (pageTransitionListBox.Items.Count == 2)
+            //    {
+            //        pageTransitionListBox.ScrollIntoView(pageTransitionListBox.Items[1]);
+            //    }                 
+            //}
+            
+
             //string sRefreshTime = ConfigurationManager.AppSettings["Pic_ChangTime"];
             //int nRefreshTime = Convert.ToInt16(sRefreshTime);
             //timer.Interval = TimeSpan.FromMilliseconds(nRefreshTime * 1000);

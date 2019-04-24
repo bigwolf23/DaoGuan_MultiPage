@@ -184,7 +184,7 @@
                MouseUp="ActivityInfo_Label_MouseUp" Visibility="Visible" HorizontalAlignment="Left" Width="576"/>
         <Image x:Name="Donate_Title_Pic" Margin="15,958,0,0" Source="pack://SiteOfOrigin:,,,/Res/Page42/gdlf.png" Stretch="Fill" Height="54" VerticalAlignment="Top" HorizontalAlignment="Left" Width="548"/>
 
-        <StackPanel Orientation="Vertical" Margin="26,1008,0,0" DataContext="{Binding}" Background="#FFE32523" Style="{DynamicResource FZXKJW}" Height="778" VerticalAlignment="Top" HorizontalAlignment="Left" Width="518" >
+        <StackPanel x:Name="DonateListHost" Orientation="Vertical" Margin="26,1008,0,0" DataContext="{Binding}" Background="#FFE32523" Style="{DynamicResource FZXKJW}" Height="778" VerticalAlignment="Top" HorizontalAlignment="Left" Width="518" >
             <StackPanel Orientation="Horizontal" Height="53" Margin="28,0,28,0" Background="#FFE32523" VerticalAlignment="Center" >
                 <TextBox x:Name="HouseName" IsReadOnly="True" VerticalContentAlignment="Bottom"
                          Text="{Binding Path = HouseName, Mode=OneWay, Source={StaticResource View}}"

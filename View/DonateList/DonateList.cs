@@ -180,6 +180,22 @@ namespace RenJiCaoZuo.View.DonateList
             }
         }
 
+        //private void RefreshHouseData(object state)
+        //{
+        //    while (true)
+        //    {
+        //        string sHouseRefreshTime = ConfigurationManager.AppSettings["DonateHouseRefreshTime"];
+        //        int nHouseRefreshTime = Convert.ToInt16(sHouseRefreshTime);
+        //        if (m_nCountDonateHouse % nHouseRefreshTime == 0)
+        //        {
+        //            App.Current.Dispatcher.BeginInvoke(new updateDelegate(getDonateHouseContent));
+        //            m_nCountDonateHouse = 0;
+        //        }
+        //        m_nCountDonateHouse++;
+        //    }
+        //}
+
+
         private void DataExchange()
         {
             for (int i = 1; i < (PayListHistorys.Count); i++)
@@ -232,6 +248,8 @@ namespace RenJiCaoZuo.View.DonateList
             {
                 ThreadPool.QueueUserWorkItem(new WaitCallback(ReLoadData));
             }
+
+            //ThreadPool.QueueUserWorkItem(new WaitCallback(RefreshHouseData));
         }
 
         #region 
@@ -252,7 +270,7 @@ namespace RenJiCaoZuo.View.DonateList
                     m_pHousePayData.body = null;
                 }
                 getHouseInfoFromInterFace("housePayHistory_Interface", "housePayHistory_Param", "housePayHistory_id");
-                Thread.Sleep(3000);
+                Thread.Sleep(6000);
                 return "";
             });
         }
@@ -291,6 +309,10 @@ namespace RenJiCaoZuo.View.DonateList
             {
                 //await pWebData.GetHousePaybyWebService();
                 await GetHouseInfobyWebService();
+                //pWebData.GetHousePayHistorybyWebService
+                //HouseName = @"";
+                //HousepayTypeName = @"";
+                //Houseamount = @"";
                 if (pWebData != null &&
                     m_pHousePayData != null &&
                     m_pHousePayData.body != null &&
@@ -333,7 +355,7 @@ namespace RenJiCaoZuo.View.DonateList
                 }
                 
                 getDonateListFromInterFace("TemplePayHistory_Interface", "Interface_Param", "Interface_id");
-                Thread.Sleep(3000);
+                Thread.Sleep(13000);
                 return "";
             });
         }

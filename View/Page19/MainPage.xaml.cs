@@ -182,7 +182,6 @@ namespace RenJiCaoZuo.View.Page19
             { 
                 Page_All_Refresh();
             }
-            
         }
 
         private void Page_All_Refresh()
@@ -751,6 +750,8 @@ namespace RenJiCaoZuo.View.Page19
         int nCount = 0;
         private void SettingBorder_DoubleClick_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            TemplInfo_Detail_Click(sender, e);
+
             nCount += 1;
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 0, 0, 300);

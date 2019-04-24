@@ -115,7 +115,7 @@ namespace RenJiCaoZuo.View.Page19
         private void setImgControl(BitmapImage Pic_img)
         {
             Image sImage = new Image();
-            sImage.Width = Pic_img.PixelWidth > addControl.Width ? addControl.Width : Pic_img.PixelWidth; ;
+            //sImage.Width = Pic_img.PixelWidth > addControl.Width ? addControl.Width : Pic_img.PixelWidth; ;
             //sImage.Height = Pic_img.PixelHeight > 480 ? 480 : Pic_img.PixelHeight;
             sImage.Stretch = Stretch.Fill;
             sImage.Source = Pic_img;
@@ -123,31 +123,43 @@ namespace RenJiCaoZuo.View.Page19
             this.addControl.Children.Add(sImage);
         }
 
-
-        private string getPicKey(string Wenzi)
+        
+        private string getPicKey(string Wenzi,ref bool bHttpLink)
         {
             string picKey = "";
             if (Wenzi.Contains("<img src=\"data:image/jpeg;base64,"))
             {
                 picKey = "<img src=\"data:image/jpeg;base64,";
+                bHttpLink = false;
             }
             if (Wenzi.Contains("<img src=\"data:image/png;base64,"))
             {
                 picKey = "<img src=\"data:image/png;base64,";
+                bHttpLink = false;
             }
             if (Wenzi.Contains("<img src=\"data:image/bmp;base64,"))
             {
                 picKey = "<img src=\"data:image/bmp;base64,";
+                bHttpLink = false;
             }
             if (Wenzi.Contains("<img src=\"data:image/jpg;base64,"))
             {
                 picKey = "<img src=\"data:image/jpg;base64,";
+                bHttpLink = false;
             }
 
             if (Wenzi.Contains("<img src=\"data:image/jpg;base64,"))
             {
                 picKey = "<img src=\"data:image/jpg;base64,";
+                bHttpLink = false;
             }
+
+            if (Wenzi.Contains("<img src=\"http"))
+            {
+                picKey = "<img src=\"http";
+                bHttpLink = true;
+            }
+
             return picKey;
         }
         /// <summary>
@@ -172,44 +184,80 @@ namespace RenJiCaoZuo.View.Page19
                 string Wenzi = AllTempInfo;
                 Wenzi = Wenzi.TrimStart((char[])"\n\r".ToCharArray());
 
-                string strtempa = getPicKey(Wenzi);
+                bool bHttpLinkFlg = false;
+                string strtempa = getPicKey(Wenzi,ref bHttpLinkFlg);
                 string strtempb = ">";
                 int nKeyLength = strtempa.Length;
                 int nFound = 0;
                 while (true)
                 {
-
-                    int IndexofA = Wenzi.IndexOf(strtempa);
-                    int IndexofB = Wenzi.IndexOf(strtempb);
-                    string ImgString = null;
-
-                    if (IndexofA == 0)
+                    if (bHttpLinkFlg)
                     {
-                        setTextControl(Wenzi);
-                        break;
-                    }
-
-                    if (IndexofA == -1)
-                    {
-                        setTextControl(Wenzi);
-                        break;
-                    }
-
-                    if (IndexofA != -1 && IndexofB != -1)
-                    {
-                        if (IndexofA > 0)
+                        int IndexofA = Wenzi.IndexOf(strtempa);
+                        int IndexofB = Wenzi.IndexOf(strtempb);
+                        string ImgString = null;
+                        if (IndexofA == 0)
                         {
-                            string WenziFirst = Wenzi.Substring(0, IndexofA);
-                            setTextControl(WenziFirst);
+                            setTextControl(Wenzi);
+                            break;
                         }
 
-                        ImgString = Wenzi.Substring(IndexofA, IndexofB - IndexofA - nKeyLength);
-                        Wenzi = Wenzi.Substring(IndexofB + 1, Wenzi.Length - IndexofB - 1);
+                        if (IndexofA == -1)
+                        {
+                            setTextControl(Wenzi);
+                            break;
+                        }
 
-                        nFound = IndexofB;
-                        seprateImg(ImgString, strtempa);
+                        if (IndexofA != -1 && IndexofB != -1)
+                        {
+                            if (IndexofA > 0)
+                            {
+                                string WenziFirst = Wenzi.Substring(0, IndexofA);
+                                setTextControl(WenziFirst);
+                            }
+
+                            ImgString = Wenzi.Substring(IndexofA, IndexofB - IndexofA - nKeyLength);
+                            Wenzi = Wenzi.Substring(IndexofB + 1, Wenzi.Length - IndexofB - 1);
+
+                            nFound = IndexofB;
+                            seprateHttpImg(ImgString, strtempa);
+                        }
+                        strtempa = getPicKey(Wenzi, ref bHttpLinkFlg);
                     }
-                    strtempa = getPicKey(Wenzi);
+                    else
+                    {
+                        int IndexofA = Wenzi.IndexOf(strtempa);
+                        int IndexofB = Wenzi.IndexOf(strtempb);
+                        string ImgString = null;
+
+                        if (IndexofA == 0)
+                        {
+                            setTextControl(Wenzi);
+                            break;
+                        }
+
+                        if (IndexofA == -1)
+                        {
+                            setTextControl(Wenzi);
+                            break;
+                        }
+
+                        if (IndexofA != -1 && IndexofB != -1)
+                        {
+                            if (IndexofA > 0)
+                            {
+                                string WenziFirst = Wenzi.Substring(0, IndexofA);
+                                setTextControl(WenziFirst);
+                            }
+
+                            ImgString = Wenzi.Substring(IndexofA, IndexofB - IndexofA - nKeyLength);
+                            Wenzi = Wenzi.Substring(IndexofB + 1, Wenzi.Length - IndexofB - 1);
+
+                            nFound = IndexofB;
+                            seprateImg(ImgString, strtempa);
+                        }
+                        strtempa = getPicKey(Wenzi, ref bHttpLinkFlg);
+                    }
                 }
             }
             catch (Exception ex)
@@ -232,6 +280,34 @@ namespace RenJiCaoZuo.View.Page19
                 int nLength = strtempa.Length;
                 ImgString = ImgString.Substring(IndexofA + nLength, IndexofB - IndexofA - nLength);
                 BitmapImage Pic_img = byteArrayToImage(Convert.FromBase64String(ImgString));
+                setImgControl(Pic_img);
+            }
+        }
+
+        private void seprateHttpImg(string ImgString, string picKey)
+        {
+            if (ImgString != null && ImgString.Length > 0)
+            {
+                string strtempa = picKey;
+                string strtempb = "\" ";
+                //string strtempb = "\" ";
+                int IndexofA = ImgString.IndexOf(strtempa);
+                int IndexofB = ImgString.IndexOf(strtempb);
+                int nLength = strtempa.Length;
+                ImgString = ImgString.Substring(IndexofA , IndexofB - IndexofA );
+
+                string strKey = "<img src=\\\"";
+                ImgString = ImgString.Substring(strKey.Length-1, ImgString.Length - strKey.Length + 1);
+                Uri ImageFilePathUri = new Uri(ImgString);
+                //Uri ImageFilePathUri = new Uri(@"http://reeingdev.oss-cn-shenzhen.aliyuncs.com/datas/image/1547622392529_image.png");
+                BitmapImage Pic_img = new BitmapImage(ImageFilePathUri);
+                //Image _image = Image.FromStream(WebRequest.Create("http://reeingdev.oss-cn-shenzhen.aliyuncs.com/datas/image/1547622392529_image.png").GetResponse().GetResponseStream());
+                //int byteLength = (int)fileStream.Length;
+                //byte[] fileBytes = new byte[byteLength];
+                //fileStream.Read(fileBytes, 0, byteLength);
+
+                ////文件流关閉,文件解除锁定
+                //BitmapImage Pic_img = byteArrayToImage(fileBytes);
                 setImgControl(Pic_img);
             }
         }
@@ -266,10 +342,10 @@ namespace RenJiCaoZuo.View.Page19
             dispatcherTimer.Stop();
             this.Close();
         }
-        
+
         private BitmapImage byteArrayToImage(byte[] byteArrayIn)
         {
-            
+
             try
             {
                 MemoryStream stream = new MemoryStream();
@@ -291,7 +367,9 @@ namespace RenJiCaoZuo.View.Page19
 
             }
             return null;
-        }
 
+
+        }
+        
     }
 }

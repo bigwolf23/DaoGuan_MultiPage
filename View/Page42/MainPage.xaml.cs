@@ -491,7 +491,13 @@ namespace RenJiCaoZuo.View.Page42
                 this.MediaPlay.Visibility = Visibility.Hidden;
 
                 ListBoxPicChange.Visibility = Visibility.Visible;
-
+            }
+            string strDonateDisplayMode = ConfigurationManager.AppSettings["DonateListDisplayMode"];
+            if (strDonateDisplayMode == "3")
+            {
+                Donate_Title_Pic.Visibility = Visibility.Hidden;
+                Donate_List_Frame.Visibility = Visibility.Hidden;
+                DonateListHost.Visibility = Visibility.Hidden;
             }
         }
 
